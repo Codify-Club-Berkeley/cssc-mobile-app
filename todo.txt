@@ -1,0 +1,6 @@
+Map
+Exhibits
+Information (buy tickets, join/renew socials links, hours)
+movies (hopefully)
+Deep linking navigation
+Demo Pages***
