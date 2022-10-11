@@ -17,6 +17,7 @@ import Cafe from "../pages/exhibits/Cafe";
 import MapObject2 from "../pages/Map2";
 import MapObject3 from "../pages/Map3";
 import { Icon } from "react-native-elements/dist/icons/Icon";
+import NavigationPage from "./NavigationPage";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -85,9 +86,14 @@ export default function Navigation() {
           options={{ headerShown: false }}
         />
         <Tab.Screen
-          name="Exhibits"
-          component={ExhibitsStackNavigator}
+          name="NavigationPage"
+          component={NavigationPage}
           options={{ headerShown: false }}
+        />
+        <Tab.Screen 
+          name = "Preview"
+          component={Home2}
+          options = {{headerShown: false}}
         />
       </Tab.Navigator>
     </NavigationContainer>
