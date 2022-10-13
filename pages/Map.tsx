@@ -20,34 +20,33 @@ import MapDisplay from "../components/MapDisplay";
 import { Studio1Carousel } from "../components/carousel/data";
 import { globalStyles } from "../GlobalStyles";
 
+import {
+  swapExhibit,
+  changeModalVisible,
+  moveView,
+  updateView,
+} from "../functions/map-functions";
+
 export default function MapObject({ navigation }) {
   const DEVICE_WIDTH = Dimensions.get("window").width;
   const DEVICE_HEIGHT = Dimensions.get("window").height;
 
   const zoomableViewRef = createRef<ReactNativeZoomableView>();
 
-  function updateView(zoomLevel: number, xPos: number, yPos: number) {
-    zoomableViewRef.current!.zoomTo(zoomLevel);
-    moveView(xPos, yPos);
-    //don't mess with these functions, it works and it's not worth it
-  }
-  function moveView(xPos: number, yPos: number) {
-    //updateView(1, 154, 193) to reset
-    setTimeout(() => {
-      zoomableViewRef.current!.moveBy(1, 1); //don't ask why this is needed, but it is
-    }, 500);
-    setTimeout(() => {
-      zoomableViewRef.current!.moveTo(xPos, yPos);
-    }, 550);
-  }
+  //array containing visibility state of modals
+  const [modalVisible, setModalVisible] = useState([false, false, false]);
 
-  function handleNav(location: string, clearModal: number) {
+  function handleNav(location: string, clearModal: number, secondLocation = false) {
     setModalVisible((modalVisible) => ({
       ...modalVisible,
       [clearModal]: !modalVisible[clearModal],
     }));
     navigation.navigate(location);
+    if (!secondLocation){
+      navigation.navigate(secondLocation)
+    }
   }
+
   function handleLocationPress(
     modalNumber: number,
     zoomLevel: number,
@@ -64,19 +63,8 @@ export default function MapObject({ navigation }) {
       }));
     }, 600);
   }
-
-  function swapExhibit(currentModal: number, newModal: number) {
-    setModalVisible((modalVisible) => ({
-      ...modalVisible,
-      [currentModal]: !modalVisible[currentModal],
-    }));
-    setModalVisible((modalVisible) => ({
-      ...modalVisible,
-      [newModal]: !modalVisible[newModal],
-    }));
-  }
-
-  const [modalVisible, setModalVisible] = useState([false, false, false]);
+  
+  
 
   return (
     <View style={styles.container}>
@@ -106,14 +94,15 @@ export default function MapObject({ navigation }) {
                   >
                     <MapDisplay
                       handlePress={() =>
-                        setModalVisible((modalVisible) => ({
-                          ...modalVisible,
-                          [0]: !modalVisible[0],
-                        }))
+                        changeModalVisible(setModalVisible, modalVisible, 0)
                       }
                       handleNav={() => handleNav("Home2", 0)}
-                      handleNext={() => swapExhibit(0, 1)}
-                      handlePrevious={() => swapExhibit(0, 2)}
+                      handleNext={() =>
+                        swapExhibit(setModalVisible, modalVisible, 0, 1)
+                      }
+                      handlePrevious={() =>
+                        swapExhibit(setModalVisible, modalVisible, 0, 2)
+                      }
                       descriptionText={
                         "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists."
                       }
@@ -130,14 +119,15 @@ export default function MapObject({ navigation }) {
                   >
                     <MapDisplay
                       handlePress={() =>
-                        setModalVisible((modalVisible) => ({
-                          ...modalVisible,
-                          [1]: !modalVisible[1],
-                        }))
+                        changeModalVisible(setModalVisible, modalVisible, 1)
                       }
                       handleNav={() => handleNav("Home2", 1)}
-                      handleNext={() => swapExhibit(2, 0)}
-                      handlePrevious={() => swapExhibit(2, 1)}
+                      handleNext={() =>
+                        swapExhibit(setModalVisible, modalVisible, 2, 0)
+                      }
+                      handlePrevious={() =>
+                        swapExhibit(setModalVisible, modalVisible, 2, 1)
+                      }
                       descriptionText={
                         "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists."
                       }
@@ -154,17 +144,18 @@ export default function MapObject({ navigation }) {
                   >
                     <MapDisplay
                       handlePress={() =>
-                        setModalVisible((modalVisible) => ({
-                          ...modalVisible,
-                          [2]: !modalVisible[2],
-                        }))
+                        changeModalVisible(setModalVisible, modalVisible, 2)
                       }
                       handleNav={() => handleNav("Home2", 2)}
                       descriptionText={
                         "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists."
                       }
-                      handleNext={() => swapExhibit(2, 0)}
-                      handlePrevious={() => swapExhibit(2, 1)}
+                      handleNext={() =>
+                        swapExhibit(setModalVisible, modalVisible, 2, 0)
+                      }
+                      handlePrevious={() =>
+                        swapExhibit(setModalVisible, modalVisible, 2, 1)
+                      }
                       exhibitName={"Touch The Sun"}
                       carouselData={Studio1Carousel}
                     />
@@ -184,15 +175,13 @@ export default function MapObject({ navigation }) {
                 <View style={{ top: 300, left: 50, width: 25 }}>
                   <TouchableOpacity
                     onPress={() =>
-                      setModalVisible((modalVisible) => ({
-                        ...modalVisible,
-                        [1]: !modalVisible[1],
-                      }))
+                      changeModalVisible(setModalVisible, modalVisible, 1)
                     }
                   >
                     <Icon name="location" type="evilicon" size={20} />
                   </TouchableOpacity>
                 </View>
+
                 <View style={{ top: 200, left: 50, width: 25 }}>
                   <TouchableOpacity
                     onPress={() =>
@@ -205,6 +194,7 @@ export default function MapObject({ navigation }) {
                     <Icon name="location" type="evilicon" size={20} />
                   </TouchableOpacity>
                 </View>
+                
               </View>
             </ImageBackground>
           </View>

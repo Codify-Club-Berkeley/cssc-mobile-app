@@ -33,6 +33,7 @@ const SECTIONS = [
   ];
 */
 
+//Usable AccordionView example component
 function AccordionView() {
   const [activeSections, setActiveSections] = useState([]);
 
