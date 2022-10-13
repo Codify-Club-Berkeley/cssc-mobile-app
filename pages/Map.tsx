@@ -51,6 +51,8 @@ export default function MapObject({ navigation }) {
     setTimeout(() => {}, 600);
   }
 
+  //This function currently only works for presses from the state where all modals are closed
+  //Moves to xPos, yPos, sets zoom to zoomLevel, and opens modalNumber
   function handleLocationPress(
     modalNumber: number,
     zoomLevel: number,
