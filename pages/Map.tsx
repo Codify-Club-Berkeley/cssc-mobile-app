@@ -24,39 +24,65 @@ export default function MapObject({ navigation }) {
   const DEVICE_WIDTH = Dimensions.get("window").width;
   const DEVICE_HEIGHT = Dimensions.get("window").height;
 
+  //This creates an object that you can use to modify the view
   const zoomableViewRef = createRef<ReactNativeZoomableView>();
 
+  //Resets view to Zoomlevel and moves the view to xpos, ypos
   function updateView(zoomLevel: number, xPos: number, yPos: number) {
+    
     zoomableViewRef.current!.zoomTo(zoomLevel);
     moveView(xPos, yPos);
     //don't mess with these functions, it works and it's not worth it
   }
+
+
+  //Go to xPos, yPos with timeouts so that it will work
   function moveView(xPos: number, yPos: number) {
     //updateView(1, 154, 193) to reset
+    
+    //setTimeout allows the moveBy to finish before we start the moveTo
     setTimeout(() => {
       zoomableViewRef.current!.moveBy(1, 1); //don't ask why this is needed, but it is
     }, 500);
+    
+
     setTimeout(() => {
       zoomableViewRef.current!.moveTo(xPos, yPos);
     }, 550);
   }
 
+
+  //For navigating to a new page from the map
   function handleNav(location: string, clearModal: number) {
+    
+    //closes modal after navigation
     setModalVisible((modalVisible) => ({
       ...modalVisible,
       [clearModal]: !modalVisible[clearModal],
     }));
+
+
     navigation.navigate(location);
+    //sublocation: string navigation.navigate(sublocation);
   }
+
+  //This should, zoom to the spot on the map of the visible modal
+  //1. Go to correct spot on click from map
+  //2. Go to correct spot on nav from another modal
   function handleLocationPress(
     modalNumber: number,
     zoomLevel: number,
     xPos: number,
     yPos: number
   ) {
+    
+
     zoomableViewRef.current!.zoomTo(zoomLevel);
+    
+    
     moveView(xPos, yPos);
 
+    //close a modal
     setTimeout(() => {
       setModalVisible((modalVisible) => ({
         ...modalVisible,
@@ -65,6 +91,8 @@ export default function MapObject({ navigation }) {
     }, 600);
   }
 
+  //Close one modal and open another
+  //Eventually should also call handleLocationPress to update zoom to new modal zoom
   function swapExhibit(currentModal: number, newModal: number) {
     setModalVisible((modalVisible) => ({
       ...modalVisible,
@@ -76,7 +104,9 @@ export default function MapObject({ navigation }) {
     }));
   }
 
+  //state array that stores which modals are visisble, should be a max of one at a time
   const [modalVisible, setModalVisible] = useState([false, false, false]);
+
 
   return (
     <View style={styles.container}>
@@ -97,6 +127,8 @@ export default function MapObject({ navigation }) {
             >
               <View style={{ flex: 1 }}>
                 <View style={{ top: 200, right: 0 }}>
+                  {/**Modals Section */}
+                  
                   {/**Studio 1 */}
                   <Modal
                     visible={modalVisible[0]}
@@ -111,7 +143,7 @@ export default function MapObject({ navigation }) {
                           [0]: !modalVisible[0],
                         }))
                       }
-                      handleNav={() => handleNav("Home2", 0)}
+                      handleNav={() => handleNav("cafe", 0)}
                       handleNext={() => swapExhibit(0, 1)}
                       handlePrevious={() => swapExhibit(0, 2)}
                       descriptionText={
@@ -159,7 +191,7 @@ export default function MapObject({ navigation }) {
                           [2]: !modalVisible[2],
                         }))
                       }
-                      handleNav={() => handleNav("Home2", 2)}
+                      handleNav={() => handleNav("Nav", 2)}
                       descriptionText={
                         "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists."
                       }
@@ -171,6 +203,8 @@ export default function MapObject({ navigation }) {
                   </Modal>
                 </View>
                 {/**Studio 1 */}
+
+                {/**Map indicator locations */}
                 <View style={{ top: 190, left: 165, width: 25 }}>
                   <TouchableOpacity
                     onPress={() => {
@@ -209,6 +243,7 @@ export default function MapObject({ navigation }) {
             </ImageBackground>
           </View>
         </ReactNativeZoomableView>
+
         <View style={{ flex: 0.25, borderWidth: 1 }}>
           {/**Bottom Navigation Pannel */}
           <Text style={globalStyles.headerText}>Level 1</Text>
