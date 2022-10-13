@@ -24,14 +24,12 @@ const Stack = createNativeStackNavigator();
 
 const prefix = Linking.makeUrl("/");
 
-function ExhibitsStackNavigator() {
+function NavigationPageNavigator() {
   return (
     <Stack.Navigator defaultScreenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Navigation Page" component={NavigationPage} />
       <Stack.Screen name="Boo Bubbles" component={BooBubbles} />
-      <Stack.Screen name="Home2" component={Home2} />
       <Stack.Screen name="Studio1" component={Studio1} />
-      <Stack.Screen name="Cafe" component={Cafe} />
-      <Stack.Screen name="TouchTheSun" component={TouchTheSun} />
     </Stack.Navigator>
   );
 }
@@ -87,13 +85,13 @@ export default function Navigation() {
         />
         <Tab.Screen
           name="NavigationPage"
-          component={NavigationPage}
+          component={NavigationPageNavigator}
           options={{ headerShown: false }}
         />
-        <Tab.Screen 
-          name = "Preview"
-          component={Home2}
-          options = {{headerShown: false}}
+        <Tab.Screen
+          name="Preview"
+          component={BooBubbles}
+          options={{ headerShown: false }}
         />
       </Tab.Navigator>
     </NavigationContainer>

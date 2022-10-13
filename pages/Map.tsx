@@ -35,10 +35,10 @@ export default function MapObject({ navigation }) {
     //updateView(1, 154, 193) to reset
     setTimeout(() => {
       zoomableViewRef.current!.moveBy(1, 1); //don't ask why this is needed, but it is
-    }, 400);
+    }, 500);
     setTimeout(() => {
       zoomableViewRef.current!.moveTo(xPos, yPos);
-    }, 450);
+    }, 550);
   }
 
   function handleNav(location: string, clearModal: number) {
@@ -62,7 +62,7 @@ export default function MapObject({ navigation }) {
         ...modalVisible,
         [modalNumber]: !modalVisible[modalNumber],
       }));
-    }, 500);
+    }, 600);
   }
 
   function swapExhibit(currentModal: number, newModal: number) {
@@ -180,6 +180,7 @@ export default function MapObject({ navigation }) {
                     <Icon name="location" type="evilicon" size={20} />
                   </TouchableOpacity>
                 </View>
+
                 <View style={{ top: 300, left: 50, width: 25 }}>
                   <TouchableOpacity
                     onPress={() =>

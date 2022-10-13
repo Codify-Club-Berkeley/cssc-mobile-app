@@ -1,61 +1,110 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
-import { useFonts } from "expo-font";
-import { Dropdown } from 'react-native-element-dropdown';
-import { useState } from "react";
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  Touchable,
+  TouchableOpacity,
+} from "react-native";
 
+import { Component, useState } from "react";
+import Collapsible from "react-native-collapsible";
+import Accordion from "react-native-collapsible/Accordion";
+import Navigation from "./Navigation";
 
-export default function NavigationPage() {
-    
-        
+//https://snack.expo.dev/embedded/@aboutreact/collapsible-and-accordion-view-in-react-native?iframeId=h1ftiunob9&preview=true&platform=ios&theme=dark
+/*
+const SECTIONS = [
+    {
+      title: 'First Title',
+      header: 'First Header',
+      content: 'First Content',
+      buttonLog: 'first',
+      color: 'blue'
+    },
+    {
+      title: 'Second Title',
+      header: 'Second Header',
+      content: 'Second Content',
+      buttonLog: 'second',
+      color: 'red'
+    },
+  ];
+*/
 
-        return (
-            <View style={styles.container}>
-             
-              <Text>hi</Text>
-             
-            </View>
-          );
-        };
+function AccordionView() {
+  const [activeSections, setActiveSections] = useState([]);
 
+  /*
+    _updateSections = (activeSections) => {
+        this.setState({ activeSections });
+      };
+  */
+
+  const RenderSectionTitle = (section) => {
+    return (
+      <View style={styles.content}>
+        <Text>{section.title}</Text>
+      </View>
+    );
+  };
+
+  const RenderHeader = (section) => {
+    return (
+      <View style={styles.header}>
+        <Text style={styles.headerText}>{section.header}</Text>
+      </View>
+    );
+  };
+
+  const RenderContent = (section) => {
+    return (
+      <View style={styles.content}>
+        <Text style={{ color: section.color }}>{section.content}</Text>
+      </View>
+    );
+  };
+
+  return (
+    <Accordion
+      sections={SECTIONS}
+      activeSections={activeSections}
+      renderSectionTitle={RenderSectionTitle}
+      renderHeader={RenderHeader}
+      renderContent={RenderContent}
+      onChange={setActiveSections}
+    />
+  );
+}
+
+export default function NavigationPage({ navigation }) {
+  const [collapsed, setCollapsed] = useState(false);
+
+  const [activeSections, setActiveSections] = useState([]);
+
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity onPress={() => navigation.navigate("Boo Bubbles")}>
+        <Text>place 1</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Studio1")}>
+        <Text>place 2</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
-    container: {
-      backgroundColor: 'white',
-      padding: 16,
-    },
-    dropdown: {
-      height: 50,
-      borderColor: 'gray',
-      borderWidth: 0.5,
-      borderRadius: 8,
-      paddingHorizontal: 8,
-    },
-    icon: {
-      marginRight: 5,
-    },
-    label: {
-      position: 'absolute',
-      backgroundColor: 'white',
-      left: 22,
-      top: 8,
-      zIndex: 999,
-      paddingHorizontal: 8,
-      fontSize: 14,
-    },
-    placeholderStyle: {
-      fontSize: 16,
-    },
-    selectedTextStyle: {
-      fontSize: 16,
-    },
-    iconStyle: {
-      width: 20,
-      height: 20,
-    },
-    inputSearchStyle: {
-      height: 40,
-      fontSize: 16,
-    },
-  });
+  container: {
+    backgroundColor: "white",
+    padding: 16,
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  icon: {
+    marginRight: 5,
+  },
+});
