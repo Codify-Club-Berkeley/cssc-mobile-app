@@ -12,6 +12,8 @@ import Home2 from "../pages/Home2";
 import BooBubbles from "../pages/demos/BooBubbles";
 import MapObject from "../pages/Map";
 import Studio1 from "../pages/exhibits/Studio1";
+import Studio2 from "../pages/exhibits/Studio2";
+import Studio3 from "../pages/exhibits/Studio3";
 import TouchTheSun from "../pages/exhibits/TouchTheSun";
 import Cafe from "../pages/exhibits/Cafe";
 import MapObject2 from "../pages/Map2";
@@ -30,6 +32,8 @@ function NavigationPageNavigator() {
       <Stack.Screen name="Navigation Page" component={NavigationPage} />
       <Stack.Screen name="Boo Bubbles" component={BooBubbles} />
       <Stack.Screen name="Studio1" component={Studio1} />
+      <Stack.Screen name="Studio2" component={Studio2} />
+      <Stack.Screen name="Studio3" component={Studio3} />
     </Stack.Navigator>
   );
 }
@@ -51,8 +55,7 @@ function MapStackNavigator() {
       <Stack.Screen name="Map Level 1" component={MapObject} />
       <Stack.Screen name="Map Level 2" component={MapObject2} />
       <Stack.Screen name="Map Level 3" component={MapObject3} />
-      <Stack.Screen name="cafe" component={Cafe} />
-      <Stack.Screen name = "Nav" component={NavigationPageNavigator} />
+      <Stack.Screen name="Nav" component={NavigationPageNavigator} />
     </Stack.Navigator>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
+import { Text } from "react-native";
 
 export default function Studio3() {
-  return <div>Studio3</div>;
+  return <Text>Studio3</Text>;
 }
