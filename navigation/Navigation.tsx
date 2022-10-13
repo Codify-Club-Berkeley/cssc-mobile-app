@@ -17,20 +17,19 @@ import Cafe from "../pages/exhibits/Cafe";
 import MapObject2 from "../pages/Map2";
 import MapObject3 from "../pages/Map3";
 import { Icon } from "react-native-elements/dist/icons/Icon";
+import NavigationPage from "./NavigationPage";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 const prefix = Linking.makeUrl("/");
 
-function ExhibitsStackNavigator() {
+function NavigationPageNavigator() {
   return (
     <Stack.Navigator defaultScreenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Navigation Page" component={NavigationPage} />
       <Stack.Screen name="Boo Bubbles" component={BooBubbles} />
-      <Stack.Screen name="Home2" component={Home2} />
       <Stack.Screen name="Studio1" component={Studio1} />
-      <Stack.Screen name="Cafe" component={Cafe} />
-      <Stack.Screen name="TouchTheSun" component={TouchTheSun} />
     </Stack.Navigator>
   );
 }
@@ -52,6 +51,8 @@ function MapStackNavigator() {
       <Stack.Screen name="Map Level 1" component={MapObject} />
       <Stack.Screen name="Map Level 2" component={MapObject2} />
       <Stack.Screen name="Map Level 3" component={MapObject3} />
+      <Stack.Screen name="cafe" component={Cafe} />
+      <Stack.Screen name = "Nav" component={NavigationPageNavigator} />
     </Stack.Navigator>
   );
 }
@@ -85,8 +86,13 @@ export default function Navigation() {
           options={{ headerShown: false }}
         />
         <Tab.Screen
-          name="Exhibits"
-          component={ExhibitsStackNavigator}
+          name="NavigationPage"
+          component={NavigationPageNavigator}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
+          name="Preview"
+          component={BooBubbles}
           options={{ headerShown: false }}
         />
       </Tab.Navigator>
