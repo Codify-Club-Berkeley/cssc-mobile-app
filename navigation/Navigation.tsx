@@ -51,6 +51,8 @@ function MapStackNavigator() {
       <Stack.Screen name="Map Level 1" component={MapObject} />
       <Stack.Screen name="Map Level 2" component={MapObject2} />
       <Stack.Screen name="Map Level 3" component={MapObject3} />
+      <Stack.Screen name="cafe" component={Cafe} />
+      <Stack.Screen name = "Nav" component={NavigationPageNavigator} />
     </Stack.Navigator>
   );
 }
