@@ -36,14 +36,18 @@ export default function MapObject({ navigation }) {
   //array containing visibility state of modals
   const [modalVisible, setModalVisible] = useState([false, false, false]);
 
-  function handleNav(location: string, clearModal: number, secondLocation = false) {
+  function handleNav(
+    location: string,
+    clearModal: number,
+    secondLocation = false
+  ) {
     setModalVisible((modalVisible) => ({
       ...modalVisible,
       [clearModal]: !modalVisible[clearModal],
     }));
     navigation.navigate(location);
-    if (!secondLocation){
-      navigation.navigate(secondLocation)
+    if (!secondLocation) {
+      navigation.navigate(secondLocation);
     }
   }
 
@@ -63,8 +67,6 @@ export default function MapObject({ navigation }) {
       }));
     }, 600);
   }
-  
-  
 
   return (
     <View style={styles.container}>
@@ -194,7 +196,6 @@ export default function MapObject({ navigation }) {
                     <Icon name="location" type="evilicon" size={20} />
                   </TouchableOpacity>
                 </View>
-                
               </View>
             </ImageBackground>
           </View>
