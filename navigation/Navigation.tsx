@@ -94,10 +94,13 @@ export default function Navigation() {
           component={NavigationPageNavigator}
           options={{ headerShown: false }}
         />
+
+        
         <Tab.Screen
           name="Preview"
           component={Cladistics}
           options={{ headerShown: false }}
+
         />
       </Tab.Navigator>
     </NavigationContainer>
