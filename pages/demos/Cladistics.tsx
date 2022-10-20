@@ -22,7 +22,7 @@ export default function Cladistics() {
             flexDirection: "row",
             justifyContent: "space-around",
             padding: 5,
-            opacity: [opacityi],
+            opacity: opacityi,
           }}
         >
           <Text>
