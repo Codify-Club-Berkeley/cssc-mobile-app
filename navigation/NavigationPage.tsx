@@ -17,6 +17,7 @@ import Accordion from "react-native-collapsible/Accordion";
 import Navigation from "./Navigation";
 import { globalStyles } from "../GlobalStyles";
 
+
 import { useFonts } from "expo-font";
 
 //https://snack.expo.dev/embedded/@aboutreact/collapsible-and-accordion-view-in-react-native?iframeId=h1ftiunob9&preview=true&platform=ios&theme=dark
@@ -148,13 +149,16 @@ const styles = StyleSheet.create({
   },
 
   button:{
+    shadowOpacity: 5,
+    shadowOffset: { width: 1, height: 5 },
     backgroundColor: "#00a6b9",
-    borderColor: "#00a6b9",
     borderRadius: 50,
     width: 350,
     height: 50,
     alignItems: "center",
     justifyContent: "center",
+    shadowColor: "black"
+    
   },
 
   buttonText:{
