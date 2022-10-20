@@ -23,7 +23,7 @@ export default function Home2() {
       >
         Home 2 Home 2
       </Text>
-      <Text>HOME </Text>
+      
 
       <StatusBar style="auto" />
     </View>
