@@ -10,6 +10,7 @@ import { globalStyles } from "../GlobalStyles";
 import Home from "../pages/Home";
 import Home2 from "../pages/Home2";
 import BooBubbles from "../pages/demos/BooBubbles";
+import Cladistics from "../pages/demos/Cladistics";
 import MapObject from "../pages/Map";
 import Studio1 from "../pages/exhibits/Studio1";
 import Studio2 from "../pages/exhibits/Studio2";
@@ -95,7 +96,7 @@ export default function Navigation() {
         />
         <Tab.Screen
           name="Preview"
-          component={BooBubbles}
+          component={Cladistics}
           options={{ headerShown: false }}
         />
       </Tab.Navigator>

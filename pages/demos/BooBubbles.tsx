@@ -10,6 +10,7 @@ import {
 import { useFonts } from "expo-font";
 import YoutubePlayer from "react-native-youtube-iframe";
 import { globalStyles } from "../../GlobalStyles";
+import Cladistics from "./Cladistics";
 
 export default function BooBubbles() {
   return (
@@ -105,7 +106,7 @@ export default function BooBubbles() {
           height={200}
           width={300}
           videoId={"BJyX3b6-KGk"}
-          play={true}
+          play={false}
         />
         <StatusBar style="auto" />
       </ScrollView>
