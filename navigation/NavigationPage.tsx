@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   Touchable,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 
 import { Component, useState } from "react";
@@ -84,14 +85,42 @@ export default function NavigationPage({ navigation }) {
 
   const [activeSections, setActiveSections] = useState([]);
 
+  function ButtonView(props) {
+    return (
+      <View style={{ paddingTop: 5, paddingBottom: 5 }}>
+        <TouchableOpacity onPress={() => navigation.navigate(props.location)}>
+          <View
+            style={{
+              backgroundColor: "white",
+              borderColor: "blue",
+              borderWidth: 5,
+              borderRadius: 10,
+              width: 200,
+              height: 50,
+              alignItems: "left",
+              justifyContent: "center",
+            }}
+          >
+            <Text>{props.text}</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate("Boo Bubbles")}>
-        <Text>place 1</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate("Studio1")}>
-        <Text>place 2</Text>
-      </TouchableOpacity>
+      <ScrollView>
+        <TouchableOpacity onPress={() => navigation.navigate("Boo Bubbles")}>
+          <Text>place 1</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Studio1")}>
+          <Text>place 2</Text>
+        </TouchableOpacity>
+        <ButtonView location="Studio3" text="Studio 3"></ButtonView>
+        <ButtonView location="Studio3" text="Studio 3"></ButtonView>
+        <ButtonView location="Studio3" text="Studio 3"></ButtonView>
+      </ScrollView>
     </View>
   );
 }
