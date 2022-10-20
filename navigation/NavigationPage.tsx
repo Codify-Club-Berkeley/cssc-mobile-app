@@ -3,9 +3,11 @@ import {
   StyleSheet,
   Text,
   View,
+  Image,
   SafeAreaView,
   Touchable,
   TouchableOpacity,
+  Dimensions,
   ScrollView,
 } from "react-native";
 
@@ -13,6 +15,10 @@ import { Component, useState } from "react";
 import Collapsible from "react-native-collapsible";
 import Accordion from "react-native-collapsible/Accordion";
 import Navigation from "./Navigation";
+import { globalStyles } from "../GlobalStyles";
+
+
+import { useFonts } from "expo-font";
 
 //https://snack.expo.dev/embedded/@aboutreact/collapsible-and-accordion-view-in-react-native?iframeId=h1ftiunob9&preview=true&platform=ios&theme=dark
 /*
@@ -78,30 +84,27 @@ function AccordionView() {
       onChange={setActiveSections}
     />
   );
+
 }
 
 export default function NavigationPage({ navigation }) {
+  let [fontsLoaded] = useFonts({
+    Futura: require("../assets/fonts/Futura.otf"),
+  });
+
   const [collapsed, setCollapsed] = useState(false);
 
   const [activeSections, setActiveSections] = useState([]);
 
+
+  const DEVICE_WIDTH = Dimensions.get("window").width;
+
   function ButtonView(props) {
     return (
-      <View style={{ paddingTop: 5, paddingBottom: 5 }}>
+      <View style={{ paddingTop: 20, paddingBottom: 10 }}>
         <TouchableOpacity onPress={() => navigation.navigate(props.location)}>
-          <View
-            style={{
-              backgroundColor: "white",
-              borderColor: "blue",
-              borderWidth: 5,
-              borderRadius: 10,
-              width: 200,
-              height: 50,
-              alignItems: "left",
-              justifyContent: "center",
-            }}
-          >
-            <Text>{props.text}</Text>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>{props.text}</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -110,19 +113,26 @@ export default function NavigationPage({ navigation }) {
 
   return (
     <View style={styles.container}>
+          <Image
+            style={[
+              globalStyles.image,
+              {
+                backgroundColor: "#1B2832", 
+                width: DEVICE_WIDTH / 1.05, 
+                height: 100 
+              },
+            ]}
+            source={require("../assets/images/logo-mobile.png")}
+          />
       <ScrollView>
-        <TouchableOpacity onPress={() => navigation.navigate("Boo Bubbles")}>
-          <Text>place 1</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Studio1")}>
-          <Text>place 2</Text>
-        </TouchableOpacity>
-        <ButtonView location="Studio3" text="Studio 3"></ButtonView>
+        <ButtonView location="Boo Bubbles" text="BOO BUBBLES"></ButtonView>
         <ButtonView location="Studio3" text="Studio 3"></ButtonView>
         <ButtonView location="Studio3" text="Studio 3"></ButtonView>
       </ScrollView>
     </View>
+    
   );
+  
 }
 
 const styles = StyleSheet.create({
@@ -137,4 +147,36 @@ const styles = StyleSheet.create({
   icon: {
     marginRight: 5,
   },
+
+  button:{
+    shadowOpacity: 5,
+    shadowOffset: { width: 1, height: 5 },
+    backgroundColor: "#00a6b9",
+    borderRadius: 50,
+    width: 350,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    shadowColor: "black"
+    
+  },
+
+  buttonText:{
+    color: "white",
+    fontWeight: "bold",
+    fontFamily: "Futura"
+  },
+
+  titleText:{
+    padding: 20,
+    backgroundColor: "white", 
+    width: "100%",
+    fontSize: 40,
+    color: "black",
+    fontWeight: "bold",
+    alignItems: "center",
+    justifyContent: "center",
+    fontFamily: "Futura"
+  },
+
 });
