@@ -92,7 +92,7 @@ export default function Navigation() {
         />
         <Tab.Screen 
           name = "Preview"
-          component={Home2}
+          component={BooBubbles}
           options = {{headerShown: false}}
         />
       </Tab.Navigator>

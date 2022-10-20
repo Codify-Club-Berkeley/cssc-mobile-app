@@ -1,10 +1,37 @@
+import React, { Component, useState } from 'react';
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, SafeAreaView, ScrollView, Image } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, ScrollView, Image, TouchableOpacity } from "react-native";
 import { useFonts } from "expo-font";
 import YoutubePlayer from "react-native-youtube-iframe";
 import { globalStyles } from "../../GlobalStyles";
+import Constants from 'expo-constants';
+import SelectList from 'react-native-dropdown-select-list'
 
 export default function BooBubbles() {
+
+  const [myOpacity, setMyOpacity] = useState(100)
+
+  const [selected, setSelected] = React.useState("5")
+    const data = [
+    {key: '1', value: 'Overview'},
+    {key: '2', value: 'Experiment'},
+    {key: '3', value: "What's going on?"},
+    {key: '4', value: 'Video'}
+    ]
+
+    const cardData = [
+      {
+        front: 
+        {
+          text: "Hi"
+        },
+        back:
+        {
+          text: "hihi"
+        }
+      }
+    ]
+
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -16,31 +43,55 @@ export default function BooBubbles() {
             ]}
             source={require("../../assets/images/ti1.jpg")}
           />
-      <Text
-        style={{ fontFamily: "Futura", color: "#00B1BB", fontWeight: "600", alignSelf: "flex-start", paddingLeft: 20 }}
-      >
-        Materials
-      </Text>
-      <Text
-        style={{ fontFamily: "Futura", fontWeight: "600", alignSelf: "flex-start", paddingLeft: 20, fontSize:12 }}
-      >
-        Dry Ice, Warm Water, Dish Soap, Plastic Trey, Dry Ice Bubble Maker, Gloves, Goggles {"\n"}
-      </Text>
-      <Text
-        style={{ fontFamily: "Futura", color: "#00B1BB", fontWeight: "600", alignSelf: "flex-start", paddingLeft: 20 }}
-      >
-        Proceedure 
-      </Text>
-      <Text
-        style={{ fontFamily: "Futura", fontWeight: "600", alignSelf: "flex-start", paddingLeft: 20, fontSize:12 }}
-      >
-        1. Fill trey with a thin layer of water and a few drops of dish soap {"\n"}
-        2. Fill Bubble Maker half way with hot water {"\n"}
-        3. Using Gloves and Goggles, carefully place a few pieces of dry ice into the bubble maker and close the lid {"\n"}
-        4. Swish the end of the bubble maker in the trey of water to make a Boo Bubble! {"\n"}
-        5. Place your hand in the soapy water of the trey to hold a boo bubble {"\n"}
-        {"\n"}
-      </Text>
+
+      <View style={styles.dropDown}>
+        <SelectList data={data} SelectList={setSelected} />
+      </View> 
+      <View><Text></Text></View>
+
+      <TouchableOpacity onPress={() => setMyOpacity(100 - myOpacity)}>
+        <View
+        style={[
+          { width: 350, height: 265, alignSelf: 'center', backgroundColor: 'black', opacity: myOpacity },
+        ]}>
+          <Image
+                style={[
+                  globalStyles.image, styles.card ]}
+                source={require("../../assets/images/ti1.jpg")}
+          />
+          <Text style={[{color: 'white', alignSelf: 'center', marginTop: -170, fontSize: 30, fontFamily:'Futura'}]}>Experiment</Text>
+        </View>
+        
+        <View style={[
+          { width: 350, height: 265, marginTop: -260, marginLeft: 10, opacity: 100 - myOpacity },
+        ]}>
+          <Text
+            style={{ fontFamily: "Futura", color: "#00B1BB", fontWeight: "600", alignSelf: "flex-start", paddingLeft: 20 }}
+          >
+            Materials
+          </Text>
+          <Text
+            style={{ fontFamily: "Futura", fontWeight: "600", alignSelf: "flex-start", paddingLeft: 20, fontSize:12 }}
+          >
+            Dry Ice, Warm Water, Dish Soap, Plastic Trey, Dry Ice Bubble Maker, Gloves, Goggles {"\n"}
+          </Text>
+          <Text
+            style={{ fontFamily: "Futura", color: "#00B1BB", fontWeight: "600", alignSelf: "flex-start", paddingLeft: 20 }}
+          >
+            Proceedure 
+          </Text>
+          <Text
+            style={{ fontFamily: "Futura", fontWeight: "600", alignSelf: "flex-start", paddingLeft: 20, fontSize:12 }}
+          >
+            1. Fill trey with a thin layer of water and a few drops of dish soap {"\n"}
+            2. Fill Bubble Maker half way with hot water {"\n"}
+            3. Using Gloves and Goggles, carefully place a few pieces of dry ice into the bubble maker and close the lid {"\n"}
+            4. Swish the end of the bubble maker in the trey of water to make a Boo Bubble! {"\n"}
+            5. Place your hand in the soapy water of the trey to hold a boo bubble {"\n"}
+            {"\n"}
+          </Text>
+        </View>
+      </TouchableOpacity>
       <Text
         style={{ fontFamily: "Futura", color: "#00B1BB", fontWeight: "600", alignSelf: "flex-start", paddingLeft: 20 }}
       >
@@ -72,4 +123,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  dropDown: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#ecf0f1',
+    padding: 8
+  },
+  card: {
+    width: 350,
+    height: 300,
+    alignSelf: 'center',
+    opacity: 0.5,
+    marginTop: -18
+  }
 });
