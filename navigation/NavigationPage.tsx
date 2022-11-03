@@ -126,9 +126,9 @@ export default function NavigationPage({ navigation }) {
           />
       <ScrollView>
         <ButtonView location="Boo Bubbles" text="BOO BUBBLES"></ButtonView>
-        <ButtonView location="Studio1" text="Studio 1"></ButtonView>
-        <ButtonView location="Studio2" text="Studio 2"></ButtonView>
-        <ButtonView location="Studio3" text="Studio 3"></ButtonView>
+        <ButtonView location="Studio1" text="STUDIO 1"></ButtonView>
+        <ButtonView location="Studio2" text="STUDIO 2"></ButtonView>
+        <ButtonView location="Studio3" text="STUDIO 3"></ButtonView>
       </ScrollView>
     </View>
     
@@ -159,7 +159,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     shadowColor: "grey"
-    
   },
 
   buttonText:{
