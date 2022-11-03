@@ -26,7 +26,7 @@ const globalStyles = StyleSheet.create({
   },
   bodyText: {
     fontFamily: "Futura",
-    fontWeight: "700",
+    fontWeight: "600",
     fontSize: 12,
     alignSelf: "flex-start",
   },
