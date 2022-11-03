@@ -61,7 +61,7 @@ export default function MapObject2({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <View style={{ borderWidth: 1, flexShrink: 1, height: 500, width: 310 }}>
+      <View style={globalStyles.mapView}>
         <ReactNativeZoomableView
           ref={zoomableViewRef}
           bindToBorders={true}
@@ -71,10 +71,10 @@ export default function MapObject2({ navigation }) {
           contentHeight={300}
           style={{ borderWidth: 1 }}
         >
-          <View style={{ flex: 1, borderWidth: 1, width: 220 }}>
+          <View style={{ flex: 1, borderWidth: 1, width: DEVICE_WIDTH }}>
             <ImageBackground
               style={styles.image}
-              source={require("../../assets/maps/chabotUpdatedMap2")}
+              source={require("../../assets/maps/chabotUpdatedMap2.png")}
             >
               <View style={{ flex: 1 }}>
                 <View style={{ top: 200, right: 0 }}>

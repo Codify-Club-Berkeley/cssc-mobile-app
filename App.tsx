@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import Home from "./pages/Home";
 import Navigation from "./navigation/Navigation";
 
-export default function App() {
+function App() {
   return <Navigation />;
 }
 

@@ -71,14 +71,7 @@ export default function MapObject({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          borderWidth: 1,
-          flexShrink: 1,
-          height: DEVICE_HEIGHT,
-          width: DEVICE_WIDTH,
-        }}
-      >
+      <View style={globalStyles.mapView}>
         <ReactNativeZoomableView
           ref={zoomableViewRef}
           bindToBorders={true}
@@ -91,7 +84,7 @@ export default function MapObject({ navigation }) {
           <View style={{ flex: 1, borderWidth: 1, width: DEVICE_WIDTH }}>
             <ImageBackground
               style={styles.image}
-              source={require("../assets/maps/chabotUpdatedMap1.png")}
+              source={require("../../assets/maps/chabotUpdatedMap1.png")}
             >
               <View style={{ flex: 1 }}>
                 <View style={{ top: 200, right: 0 }}>
@@ -222,7 +215,7 @@ export default function MapObject({ navigation }) {
             <TouchableOpacity
               onPress={() => navigation.navigate("Map Level 3")}
             >
-              <Icon name="arrow-left" type="evilicon" />
+              <Icon name="arrow-left" type="evilicon" size={30} />
               <Text style={globalStyles.bodyText}>Level 3</Text>
             </TouchableOpacity>
             {/**Reset View */}

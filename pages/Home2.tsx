@@ -1,11 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 import { useFonts } from "expo-font";
-import {
-  Studio1Carousel,
-  TouchTheSunCarousel,
-} from "../components/carousel/data";
-import CarouselCards from "../components/carousel/Carousel";
 
 export default function Home2() {
   let [fontsLoaded] = useFonts({
@@ -23,7 +18,6 @@ export default function Home2() {
       >
         Home 2 Home 2
       </Text>
-      
 
       <StatusBar style="auto" />
     </View>

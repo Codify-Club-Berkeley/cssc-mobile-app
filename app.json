@@ -1,5 +1,6 @@
 {
   "expo": {
+    "entryPoint": "navigation/Navigation.tsx",
     "scheme": "chabotapp",
     "name": "chabot-mobile-app",
     "slug": "chabot-mobile-app",
@@ -15,9 +16,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "bundleIdentifier": "com.companyname.appname",
       "supportsTablet": true

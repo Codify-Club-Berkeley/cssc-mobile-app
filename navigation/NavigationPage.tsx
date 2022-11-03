@@ -17,7 +17,6 @@ import Accordion from "react-native-collapsible/Accordion";
 import Navigation from "./Navigation";
 import { globalStyles } from "../GlobalStyles";
 
-
 import { useFonts } from "expo-font";
 
 //https://snack.expo.dev/embedded/@aboutreact/collapsible-and-accordion-view-in-react-native?iframeId=h1ftiunob9&preview=true&platform=ios&theme=dark
@@ -84,7 +83,6 @@ function AccordionView() {
       onChange={setActiveSections}
     />
   );
-
 }
 
 export default function NavigationPage({ navigation }) {
@@ -95,7 +93,6 @@ export default function NavigationPage({ navigation }) {
   const [collapsed, setCollapsed] = useState(false);
 
   const [activeSections, setActiveSections] = useState([]);
-
 
   const DEVICE_WIDTH = Dimensions.get("window").width;
 
@@ -113,26 +110,25 @@ export default function NavigationPage({ navigation }) {
 
   return (
     <View style={styles.container}>
-          <Image
-            style={[
-              globalStyles.image,
-              {
-                backgroundColor: "#1B2832", 
-                width: DEVICE_WIDTH / 1.05, 
-                height: 100 
-              },
-            ]}
-            source={require("../assets/images/logo-mobile.png")}
-          />
+      <Image
+        style={[
+          globalStyles.image,
+          {
+            backgroundColor: "#1B2832",
+            width: DEVICE_WIDTH / 1.05,
+            height: 100,
+          },
+        ]}
+        source={require("../assets/images/logo-mobile.png")}
+      />
       <ScrollView>
         <ButtonView location="Boo Bubbles" text="BOO BUBBLES"></ButtonView>
-        <ButtonView location="Studio3" text="Studio 3"></ButtonView>
-        <ButtonView location="Studio3" text="Studio 3"></ButtonView>
+        <ButtonView location="Studio1" text="STUDIO 1"></ButtonView>
+        <ButtonView location="Studio2" text="STUDIO 2"></ButtonView>
+        <ButtonView location="Studio3" text="STUDIO 3"></ButtonView>
       </ScrollView>
     </View>
-    
   );
-  
 }
 
 const styles = StyleSheet.create({
@@ -148,7 +144,7 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
 
-  button:{
+  button: {
     shadowOpacity: 5,
     shadowOffset: { width: 1, height: 5 },
     backgroundColor: "#00a6b9",
@@ -157,26 +153,24 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    shadowColor: "black"
-    
+    shadowColor: "grey",
   },
 
-  buttonText:{
+  buttonText: {
     color: "white",
     fontWeight: "bold",
-    fontFamily: "Futura"
+    fontFamily: "Futura",
   },
 
-  titleText:{
+  titleText: {
     padding: 20,
-    backgroundColor: "white", 
+    backgroundColor: "white",
     width: "100%",
     fontSize: 40,
     color: "black",
     fontWeight: "bold",
     alignItems: "center",
     justifyContent: "center",
-    fontFamily: "Futura"
+    fontFamily: "Futura",
   },
-
 });

@@ -1,3 +1,4 @@
+import { registerRootComponent } from "expo";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -59,13 +60,17 @@ function MapStackNavigator() {
         component={MapObject2}
         options={{ headerBackVisible: false }}
       />
-      <Stack.Screen name="Map Level 3" component={MapObject3} />
+      <Stack.Screen
+        name="Map Level 3"
+        component={MapObject3}
+        options={{ headerBackVisible: false }}
+      />
       <Stack.Screen name="Nav" component={NavigationPageNavigator} />
     </Stack.Navigator>
   );
 }
 
-export default function Navigation() {
+function Navigation() {
   const linking = {
     prefixes: [prefix],
     config: {
@@ -108,3 +113,5 @@ export default function Navigation() {
     </NavigationContainer>
   );
 }
+
+registerRootComponent(Navigation);

@@ -46,6 +46,12 @@ const globalStyles = StyleSheet.create({
   image: {
     resizeMode: "contain",
   },
+  mapView: {
+    borderWidth: 1,
+    flexShrink: 1,
+    height: DEVICE_HEIGHT,
+    width: DEVICE_WIDTH,
+  },
 });
 
 export { globalStyles };
