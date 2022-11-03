@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0ce61832-a36a-4cd3-a3aa-6c20b84ef6a1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/navigation/NavigationPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/NavigationPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/maps/Map.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/maps/Map.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/maps/Map2.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/maps/Map2.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/maps/Map3.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/maps/Map3.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2H1E01yGukG4bExU9N8tU2MIDDZ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0ce61832-a36a-4cd3-a3aa-6c20b84ef6a1" name="Changes" comment="" />
+      <created>1667443963842</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667443963842</updated>
+    </task>
+    <servers />
+  </component>
+</project>

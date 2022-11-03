@@ -74,7 +74,7 @@ export default function MapObject2({ navigation }) {
           <View style={{ flex: 1, borderWidth: 1, width: 220 }}>
             <ImageBackground
               style={styles.image}
-              source={require("../../assets/maps/chabotUpdatedMap2")}
+              source={require("../../assets/maps/chabotUpdatedMap2.png")}
             >
               <View style={{ flex: 1 }}>
                 <View style={{ top: 200, right: 0 }}>
