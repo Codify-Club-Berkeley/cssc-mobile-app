@@ -11,14 +11,14 @@ import Home from "../pages/Home";
 import Home2 from "../pages/Home2";
 import BooBubbles from "../pages/demos/BooBubbles";
 import Cladistics from "../pages/demos/Cladistics";
-import MapObject from "../pages/Map";
+import MapObject from "../pages/maps/Map";
 import Studio1 from "../pages/exhibits/Studio1";
 import Studio2 from "../pages/exhibits/Studio2";
 import Studio3 from "../pages/exhibits/Studio3";
 import TouchTheSun from "../pages/exhibits/TouchTheSun";
 import Cafe from "../pages/exhibits/Cafe";
-import MapObject2 from "../pages/Map2";
-import MapObject3 from "../pages/Map3";
+import MapObject2 from "../pages/maps/Map2";
+import MapObject3 from "../pages/maps/Map3";
 import { Icon } from "react-native-elements/dist/icons/Icon";
 import NavigationPage from "./NavigationPage";
 
@@ -52,9 +52,13 @@ function HomeStackNavigator() {
 
 function MapStackNavigator() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator defaultScreenOptions={{ headerBackVisible: false }}>
       <Stack.Screen name="Map Level 1" component={MapObject} />
-      <Stack.Screen name="Map Level 2" component={MapObject2} />
+      <Stack.Screen
+        name="Map Level 2"
+        component={MapObject2}
+        options={{ headerBackVisible: false }}
+      />
       <Stack.Screen name="Map Level 3" component={MapObject3} />
       <Stack.Screen name="Nav" component={NavigationPageNavigator} />
     </Stack.Navigator>
@@ -95,12 +99,10 @@ export default function Navigation() {
           options={{ headerShown: false }}
         />
 
-        
         <Tab.Screen
           name="Preview"
           component={Cladistics}
           options={{ headerShown: false }}
-
         />
       </Tab.Navigator>
     </NavigationContainer>

@@ -16,16 +16,16 @@ import { createRef, useState } from "react";
 import { useFonts } from "expo-font";
 import { Icon } from "react-native-elements";
 
-import MapDisplay from "../components/MapDisplay";
-import { Studio1Carousel } from "../components/carousel/data";
-import { globalStyles } from "../GlobalStyles";
+import MapDisplay from "../../components/MapDisplay";
+import { Studio1Carousel } from "../../components/carousel/data";
+import { globalStyles } from "../../GlobalStyles";
 
 import {
   swapExhibit,
   changeModalVisible,
   moveView,
   updateView,
-} from "../functions/map-functions";
+} from "../../functions/map-functions";
 
 export default function MapObject({ navigation }) {
   const DEVICE_WIDTH = Dimensions.get("window").width;
@@ -71,7 +71,14 @@ export default function MapObject({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <View style={{ borderWidth: 1, flexShrink: 1, height: DEVICE_HEIGHT, width: DEVICE_WIDTH }}>
+      <View
+        style={{
+          borderWidth: 1,
+          flexShrink: 1,
+          height: DEVICE_HEIGHT,
+          width: DEVICE_WIDTH,
+        }}
+      >
         <ReactNativeZoomableView
           ref={zoomableViewRef}
           bindToBorders={true}

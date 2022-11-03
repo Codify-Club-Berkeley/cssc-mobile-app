@@ -16,9 +16,9 @@ import { createRef, useState } from "react";
 import { useFonts } from "expo-font";
 import { Icon } from "react-native-elements";
 
-import MapDisplay from "../components/MapDisplay";
-import { Studio1Carousel } from "../components/carousel/data";
-import { globalStyles } from "../GlobalStyles";
+import MapDisplay from "../../components/MapDisplay";
+import { Studio1Carousel } from "../../components/carousel/data";
+import { globalStyles } from "../../GlobalStyles";
 
 export default function MapObject3({ navigation }) {
   const DEVICE_WIDTH = Dimensions.get("window").width;

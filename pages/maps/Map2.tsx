@@ -16,9 +16,9 @@ import { createRef, useState } from "react";
 import { useFonts } from "expo-font";
 import { Icon } from "react-native-elements";
 
-import MapDisplay from "../components/MapDisplay";
-import { Studio1Carousel } from "../components/carousel/data";
-import { globalStyles } from "../GlobalStyles";
+import MapDisplay from "../../components/MapDisplay";
+import { Studio1Carousel } from "../../components/carousel/data";
+import { globalStyles } from "../../GlobalStyles";
 
 export default function MapObject2({ navigation }) {
   const DEVICE_WIDTH = Dimensions.get("window").width;
@@ -74,7 +74,7 @@ export default function MapObject2({ navigation }) {
           <View style={{ flex: 1, borderWidth: 1, width: 220 }}>
             <ImageBackground
               style={styles.image}
-              source={require("../assets/maps/chabotUpdatedMap2.png")}
+              source={require("../../assets/maps/chabotUpdatedMap2")}
             >
               <View style={{ flex: 1 }}>
                 <View style={{ top: 200, right: 0 }}>
