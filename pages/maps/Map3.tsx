@@ -17,58 +17,32 @@ import { useFonts } from "expo-font";
 import { Icon } from "react-native-elements";
 
 import MapDisplay from "../../components/MapDisplay";
+import NavBar from "../../components/maps/NavBar";
 import { Studio1Carousel } from "../../components/carousel/data";
 import { globalStyles } from "../../GlobalStyles";
 
-export default function MapObject3({ navigation }) {
+import {
+  swapExhibit,
+  changeModalVisible,
+  moveView,
+  updateView,
+  handleLocationPress,
+  nav,
+} from "../../functions/map-functions";
+
+export default function MapObject({ navigation }) {
   const DEVICE_WIDTH = Dimensions.get("window").width;
   const DEVICE_HEIGHT = Dimensions.get("window").height;
 
+  //This creates an object that you can use to modify the view
   const zoomableViewRef = createRef<ReactNativeZoomableView>();
 
-  function updateView(zoomLevel: number, xPos: number, yPos: number) {
-    zoomableViewRef.current!.zoomTo(zoomLevel);
-    moveView(xPos, yPos);
-  }
-  function moveView(xPos: number, yPos: number) {
-    //updateView(1, 154, 193) to reset
-    setTimeout(() => {
-      zoomableViewRef.current!.moveBy(1000, 1000);
-      zoomableViewRef.current!.moveTo(xPos, yPos);
-    }, 600);
-  }
-
-  function handleNav(location: string, clearModal: number) {
-    setModalVisible((modalVisible) => ({
-      ...modalVisible,
-      [clearModal]: !modalVisible[clearModal],
-    }));
-    navigation.navigate(location);
-  }
-
-  function swapExhibit(currentModal: number, newModal: number) {
-    setModalVisible((modalVisible) => ({
-      ...modalVisible,
-      [currentModal]: !modalVisible[currentModal],
-    }));
-    setModalVisible((modalVisible) => ({
-      ...modalVisible,
-      [newModal]: !modalVisible[newModal],
-    }));
-  }
-
+  //array containing visibility state of modals
   const [modalVisible, setModalVisible] = useState([false, false, false]);
 
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          borderWidth: 1,
-          flexShrink: 1,
-          height: DEVICE_HEIGHT,
-          width: DEVICE_WIDTH,
-        }}
-      >
+      <View style={globalStyles.mapView}>
         <ReactNativeZoomableView
           ref={zoomableViewRef}
           bindToBorders={true}
@@ -76,27 +50,171 @@ export default function MapObject3({ navigation }) {
           maxZoom={10}
           contentWidth={100}
           contentHeight={300}
-          style={{ borderWidth: 1 }}
+          style={{ borderWidth: 0 }}
         >
-          <View style={{ flex: 1, borderWidth: 1, width: DEVICE_WIDTH }}>
+          <View style={{ flex: 1, borderWidth: 0, width: DEVICE_WIDTH }}>
             <ImageBackground
               style={styles.image}
               source={require("../../assets/maps/chabotUpdatedMap3.png")}
             >
               <View style={{ flex: 1 }}>
                 <View style={{ top: 200, right: 0 }}>
-                  {/**
-                   * put modals here
-                   *
-                   */}
+                  {/**Modals Section */}
+
+                  {/**Studio 1 */}
+                  <Modal
+                    visible={modalVisible[0]}
+                    transparent={true}
+                    animationType="slide"
+                    style={{ top: 0, right: 0 }}
+                  >
+                    <MapDisplay
+                      handlePress={() =>
+                        changeModalVisible(setModalVisible, modalVisible, 0)
+                      }
+                      handleNav={() =>
+                        nav(
+                          navigation,
+                          setModalVisible,
+                          modalVisible,
+                          "Studio1",
+                          0
+                        )
+                      }
+                      handleNext={() =>
+                        swapExhibit(setModalVisible, modalVisible, 0, 1)
+                      }
+                      handlePrevious={() =>
+                        swapExhibit(setModalVisible, modalVisible, 0, 2)
+                      }
+                      descriptionText={
+                        "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists."
+                      }
+                      exhibitName={"Studio 1"}
+                      carouselData={Studio1Carousel}
+                    />
+                  </Modal>
+                  {/**Studio 2 */}
+                  <Modal
+                    visible={modalVisible[1]}
+                    transparent={true}
+                    animationType="slide"
+                    style={{ top: 0, right: 0 }}
+                  >
+                    <MapDisplay
+                      handlePress={() =>
+                        changeModalVisible(setModalVisible, modalVisible, 1)
+                      }
+                      handleNav={() =>
+                        nav(
+                          navigation,
+                          setModalVisible,
+                          modalVisible,
+                          "Studio2",
+                          1
+                        )
+                      }
+                      handleNext={() =>
+                        swapExhibit(setModalVisible, modalVisible, 1, 2)
+                      }
+                      handlePrevious={() =>
+                        swapExhibit(setModalVisible, modalVisible, 1, 0)
+                      }
+                      descriptionText={
+                        "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists."
+                      }
+                      exhibitName={"Studio 2"}
+                      carouselData={Studio1Carousel}
+                    />
+                  </Modal>
+                  {/**Studio 3 */}
+                  <Modal
+                    visible={modalVisible[2]}
+                    transparent={true}
+                    animationType="slide"
+                    style={{ top: 0, right: 0 }}
+                  >
+                    <MapDisplay
+                      handlePress={() =>
+                        changeModalVisible(setModalVisible, modalVisible, 2)
+                      }
+                      handleNav={() =>
+                        nav(
+                          navigation,
+                          setModalVisible,
+                          modalVisible,
+                          "Studio3",
+                          2
+                        )
+                      }
+                      descriptionText={
+                        "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists."
+                      }
+                      handleNext={() =>
+                        swapExhibit(setModalVisible, modalVisible, 2, 0)
+                      }
+                      handlePrevious={() =>
+                        swapExhibit(setModalVisible, modalVisible, 2, 1)
+                      }
+                      exhibitName={"Studio3"}
+                      carouselData={Studio1Carousel}
+                    />
+                  </Modal>
                 </View>
-                <View style={{ top: 190, left: 165, width: 25 }}>
+                {/**Studio 1 */}
+
+                {/**Map indicator locations */}
+
+                <View style={{ top: 100, left: 150, width: 25 }}>
+                  <Icon
+                    onPress={() => {
+                      handleLocationPress(
+                        zoomableViewRef,
+                        setModalVisible,
+                        modalVisible,
+                        0,
+                        3,
+                        340,
+                        470
+                      );
+                    }}
+                    name="location"
+                    type="evilicon"
+                    solid={true}
+                    size={20}
+                  />
+                </View>
+
+                <View style={{ top: 300, left: 50, width: 25 }}>
                   <TouchableOpacity
                     onPress={() =>
-                      setModalVisible((modalVisible) => ({
-                        ...modalVisible,
-                        [0]: !modalVisible[0],
-                      }))
+                      handleLocationPress(
+                        zoomableViewRef,
+                        setModalVisible,
+                        modalVisible,
+                        1,
+                        3,
+                        340,
+                        270
+                      )
+                    }
+                  >
+                    <Icon name="location" type="evilicon" size={20} />
+                  </TouchableOpacity>
+                </View>
+
+                <View style={{ top: 200, left: 50, width: 25 }}>
+                  <TouchableOpacity
+                    onPress={() =>
+                      handleLocationPress(
+                        zoomableViewRef,
+                        setModalVisible,
+                        modalVisible,
+                        2,
+                        3,
+                        340,
+                        70
+                      )
                     }
                   >
                     <Icon name="location" type="evilicon" size={20} />
@@ -106,38 +224,14 @@ export default function MapObject3({ navigation }) {
             </ImageBackground>
           </View>
         </ReactNativeZoomableView>
-        <View style={{ flex: 0.25, borderWidth: 1 }}>
-          {/**Bottom Navigation Pannel */}
-          <Text style={globalStyles.headerText}>Level 3</Text>
 
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-evenly",
-              borderWidth: 1,
-            }}
-          >
-            {/**Map Down */}
-            <TouchableOpacity
-              onPress={() => navigation.navigate("Map Level 2")}
-            >
-              <Icon name="arrow-left" type="evilicon" />
-              <Text style={globalStyles.bodyText}>Level 2</Text>
-            </TouchableOpacity>
-            {/**Reset View */}
-            <TouchableOpacity onPress={() => updateView(1, 154, 193)}>
-              <Icon name="refresh" type="evilicon" />
-              <Text style={globalStyles.bodyText}>Reset Zoom</Text>
-            </TouchableOpacity>
-            {/**Map Up */}
-            <TouchableOpacity
-              onPress={() => navigation.navigate("Map Level 1")}
-            >
-              <Icon name="arrow-right" type="evilicon" />
-              <Text style={globalStyles.bodyText}>Level 1</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+        <NavBar
+          nav={navigation}
+          leftNav={"Map Level 2"}
+          rightNav={"Map Level 1"}
+          ref={zoomableViewRef}
+          iconSize={40}
+        ></NavBar>
       </View>
     </View>
   );
@@ -148,7 +242,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    padding: 5,
+    padding: 0,
   },
   box: {
     width: 60,

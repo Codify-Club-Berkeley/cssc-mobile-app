@@ -19,6 +19,8 @@ import { globalStyles } from "../GlobalStyles";
 
 import { useFonts } from "expo-font";
 
+const DEVICE_WIDTH = Dimensions.get("window").width;
+
 //https://snack.expo.dev/embedded/@aboutreact/collapsible-and-accordion-view-in-react-native?iframeId=h1ftiunob9&preview=true&platform=ios&theme=dark
 /*
 const SECTIONS = [
@@ -94,11 +96,9 @@ export default function NavigationPage({ navigation }) {
 
   const [activeSections, setActiveSections] = useState([]);
 
-  const DEVICE_WIDTH = Dimensions.get("window").width;
-
   function ButtonView(props) {
     return (
-      <View style={{ paddingTop: 20, paddingBottom: 10 }}>
+      <View style={{ paddingTop: 20, paddingBottom: 10, alignSelf: "center" }}>
         <TouchableOpacity onPress={() => navigation.navigate(props.location)}>
           <View style={styles.button}>
             <Text style={styles.buttonText}>{props.text}</Text>
@@ -121,7 +121,7 @@ export default function NavigationPage({ navigation }) {
         ]}
         source={require("../assets/images/logo-mobile.png")}
       />
-      <ScrollView>
+      <ScrollView style={{ width: DEVICE_WIDTH / 1.1, borderWidth: 0 }}>
         <ButtonView location="Boo Bubbles" text="BOO BUBBLES"></ButtonView>
         <ButtonView location="Studio1" text="STUDIO 1"></ButtonView>
         <ButtonView location="Studio2" text="STUDIO 2"></ButtonView>
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 1, height: 5 },
     backgroundColor: "#00a6b9",
     borderRadius: 50,
-    width: 350,
+    width: DEVICE_WIDTH / 1.2,
     height: 50,
     alignItems: "center",
     justifyContent: "center",

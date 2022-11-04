@@ -47,10 +47,11 @@ const globalStyles = StyleSheet.create({
     resizeMode: "contain",
   },
   mapView: {
-    borderWidth: 1,
+    borderWidth: 0,
     flexShrink: 1,
     height: DEVICE_HEIGHT,
     width: DEVICE_WIDTH,
+    backgroundColor: "white",
   },
 });
 

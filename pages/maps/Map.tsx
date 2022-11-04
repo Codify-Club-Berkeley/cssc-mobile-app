@@ -17,6 +17,7 @@ import { useFonts } from "expo-font";
 import { Icon } from "react-native-elements";
 
 import MapDisplay from "../../components/MapDisplay";
+import NavBar from "../../components/maps/NavBar";
 import { Studio1Carousel } from "../../components/carousel/data";
 import { globalStyles } from "../../GlobalStyles";
 
@@ -25,6 +26,8 @@ import {
   changeModalVisible,
   moveView,
   updateView,
+  handleLocationPress,
+  nav,
 } from "../../functions/map-functions";
 
 export default function MapObject({ navigation }) {
@@ -37,38 +40,6 @@ export default function MapObject({ navigation }) {
   //array containing visibility state of modals
   const [modalVisible, setModalVisible] = useState([false, false, false]);
 
-  //This should, zoom to the spot on the map of the visible modal
-  //1. Go to correct spot on click from map
-  //2. Go to correct spot on nav from another modal
-
-  //Closes existing modal and navigates to specific page in the NavigationPageNavigator
-  function nav(location: String, clearModal: number, nested = true) {
-    changeModalVisible(setModalVisible, modalVisible, clearModal);
-    if (nested) {
-      navigation.navigate("Nav", { screen: location });
-    }
-
-    setTimeout(() => {}, 600);
-  }
-
-  //This function currently only works for presses from the state where all modals are closed
-  //Moves to xPos, yPos, sets zoom to zoomLevel, and opens modalNumber
-  function handleLocationPress(
-    modalNumber: number,
-    zoomLevel: number,
-    xPos: number,
-    yPos: number
-  ) {
-    zoomableViewRef.current!.zoomTo(zoomLevel);
-
-    moveView(xPos, yPos, 500, zoomableViewRef);
-
-    //close a modal
-    setTimeout(() => {
-      changeModalVisible(setModalVisible, modalVisible, modalNumber);
-    }, 600);
-  }
-
   return (
     <View style={styles.container}>
       <View style={globalStyles.mapView}>
@@ -79,9 +50,9 @@ export default function MapObject({ navigation }) {
           maxZoom={10}
           contentWidth={100}
           contentHeight={300}
-          style={{ borderWidth: 1 }}
+          style={{ borderWidth: 0 }}
         >
-          <View style={{ flex: 1, borderWidth: 1, width: DEVICE_WIDTH }}>
+          <View style={{ flex: 1, borderWidth: 0, width: DEVICE_WIDTH }}>
             <ImageBackground
               style={styles.image}
               source={require("../../assets/maps/chabotUpdatedMap1.png")}
@@ -101,7 +72,15 @@ export default function MapObject({ navigation }) {
                       handlePress={() =>
                         changeModalVisible(setModalVisible, modalVisible, 0)
                       }
-                      handleNav={() => nav("Studio1", 0)}
+                      handleNav={() =>
+                        nav(
+                          navigation,
+                          setModalVisible,
+                          modalVisible,
+                          "Studio1",
+                          0
+                        )
+                      }
                       handleNext={() =>
                         swapExhibit(setModalVisible, modalVisible, 0, 1)
                       }
@@ -126,7 +105,15 @@ export default function MapObject({ navigation }) {
                       handlePress={() =>
                         changeModalVisible(setModalVisible, modalVisible, 1)
                       }
-                      handleNav={() => nav("Studio2", 1)}
+                      handleNav={() =>
+                        nav(
+                          navigation,
+                          setModalVisible,
+                          modalVisible,
+                          "Studio2",
+                          1
+                        )
+                      }
                       handleNext={() =>
                         swapExhibit(setModalVisible, modalVisible, 1, 2)
                       }
@@ -151,7 +138,15 @@ export default function MapObject({ navigation }) {
                       handlePress={() =>
                         changeModalVisible(setModalVisible, modalVisible, 2)
                       }
-                      handleNav={() => nav("Studio3", 2)}
+                      handleNav={() =>
+                        nav(
+                          navigation,
+                          setModalVisible,
+                          modalVisible,
+                          "Studio3",
+                          2
+                        )
+                      }
                       descriptionText={
                         "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists."
                       }
@@ -170,19 +165,39 @@ export default function MapObject({ navigation }) {
 
                 {/**Map indicator locations */}
 
-                <View style={{ top: 100, left: 50, width: 25 }}>
-                  <TouchableOpacity
+                <View style={{ top: 100, left: 150, width: 25 }}>
+                  <Icon
                     onPress={() => {
-                      handleLocationPress(0, 3, 340, 470);
+                      handleLocationPress(
+                        zoomableViewRef,
+                        setModalVisible,
+                        modalVisible,
+                        0,
+                        3,
+                        340,
+                        470
+                      );
                     }}
-                  >
-                    <Icon name="location" type="evilicon" size={20} />
-                  </TouchableOpacity>
+                    name="location"
+                    type="evilicon"
+                    solid={true}
+                    size={20}
+                  />
                 </View>
 
                 <View style={{ top: 300, left: 50, width: 25 }}>
                   <TouchableOpacity
-                    onPress={() => handleLocationPress(1, 3, 340, 270)}
+                    onPress={() =>
+                      handleLocationPress(
+                        zoomableViewRef,
+                        setModalVisible,
+                        modalVisible,
+                        1,
+                        3,
+                        340,
+                        270
+                      )
+                    }
                   >
                     <Icon name="location" type="evilicon" size={20} />
                   </TouchableOpacity>
@@ -190,7 +205,17 @@ export default function MapObject({ navigation }) {
 
                 <View style={{ top: 200, left: 50, width: 25 }}>
                   <TouchableOpacity
-                    onPress={() => handleLocationPress(2, 3, 340, 70)}
+                    onPress={() =>
+                      handleLocationPress(
+                        zoomableViewRef,
+                        setModalVisible,
+                        modalVisible,
+                        2,
+                        3,
+                        340,
+                        70
+                      )
+                    }
                   >
                     <Icon name="location" type="evilicon" size={20} />
                   </TouchableOpacity>
@@ -200,40 +225,13 @@ export default function MapObject({ navigation }) {
           </View>
         </ReactNativeZoomableView>
 
-        <View style={{ flex: 0.25, borderWidth: 1 }}>
-          {/**Bottom Navigation Pannel */}
-          <Text style={globalStyles.headerText}>Level 1</Text>
-
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-evenly",
-              borderWidth: 1,
-            }}
-          >
-            {/**Map Down */}
-            <TouchableOpacity
-              onPress={() => navigation.navigate("Map Level 3")}
-            >
-              <Icon name="arrow-left" type="evilicon" size={30} />
-              <Text style={globalStyles.bodyText}>Level 3</Text>
-            </TouchableOpacity>
-            {/**Reset View */}
-            <TouchableOpacity
-              onPress={() => updateView(1, 154, 193, zoomableViewRef)}
-            >
-              <Icon name="refresh" type="evilicon" />
-              <Text style={globalStyles.bodyText}>Reset Zoom</Text>
-            </TouchableOpacity>
-            {/**Map Up */}
-            <TouchableOpacity
-              onPress={() => navigation.navigate("Map Level 2")}
-            >
-              <Icon name="arrow-right" type="evilicon" />
-              <Text style={globalStyles.bodyText}>Level 2</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+        <NavBar
+          nav={navigation}
+          leftNav={"Map Level 3"}
+          rightNav={"Map Level 2"}
+          ref={zoomableViewRef}
+          iconSize={40}
+        ></NavBar>
       </View>
     </View>
   );
@@ -244,7 +242,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    padding: 5,
+    padding: 0,
   },
   box: {
     width: 60,

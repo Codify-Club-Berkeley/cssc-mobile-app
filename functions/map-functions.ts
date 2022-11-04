@@ -55,3 +55,45 @@ export function updateView(zoomLevel = 1, xPos = 154, yPos = 193, ref: any) {
   moveView(xPos, yPos, 500, ref);
   //don't mess with these functions, it works and it's not worth it
 }
+
+//This function currently only works for presses from the state where all modals are closed
+//Moves to xPos, yPos, sets zoom to zoomLevel, and opens modalNumber
+export function handleLocationPress(
+  ref: any,
+  setModalVisible: Function,
+  modalVisible: Array<boolean>,
+  modalNumber: number,
+  zoomLevel: number,
+  xPos: number,
+  yPos: number
+) {
+  ref.current!.zoomTo(zoomLevel);
+
+  moveView(xPos, yPos, 500, ref);
+
+  //close a modal
+  setTimeout(() => {
+    changeModalVisible(setModalVisible, modalVisible, modalNumber);
+  }, 600);
+}
+
+//This should, zoom to the spot on the map of the visible modal
+//1. Go to correct spot on click from map
+//2. Go to correct spot on nav from another modal
+
+//Closes existing modal and navigates to specific page in the NavigationPageNavigator
+export function nav(
+  nav: any,
+  setModalVisible: Function,
+  modalVisible: Array<boolean>,
+  location: String,
+  clearModal: number,
+  nested = true
+) {
+  changeModalVisible(setModalVisible, modalVisible, clearModal);
+  if (nested) {
+    nav.navigate("Nav", { screen: location });
+  }
+
+  setTimeout(() => {}, 600);
+}
