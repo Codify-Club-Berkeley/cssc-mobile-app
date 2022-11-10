@@ -73,7 +73,7 @@ function AccordionView() {
       </View>
     );
   };
-
+  
   return (
     <Accordion
       sections={SECTIONS}
@@ -84,7 +84,6 @@ function AccordionView() {
       onChange={setActiveSections}
     />
   );
-
 }
 
 export default function NavigationPage({ navigation }) {
@@ -95,7 +94,6 @@ export default function NavigationPage({ navigation }) {
   const [collapsed, setCollapsed] = useState(false);
 
   const [activeSections, setActiveSections] = useState([]);
-
 
   const DEVICE_WIDTH = Dimensions.get("window").width;
 
@@ -131,9 +129,7 @@ export default function NavigationPage({ navigation }) {
         <ButtonView location="Studio3" text="STUDIO 3"></ButtonView>
       </ScrollView>
     </View>
-    
   );
-  
 }
 
 const styles = StyleSheet.create({
