@@ -16,9 +16,11 @@ import Collapsible from "react-native-collapsible";
 import Accordion from "react-native-collapsible/Accordion";
 import Navigation from "./Navigation";
 import { globalStyles } from "../GlobalStyles";
+import {Collapse,CollapseHeader, CollapseBody, AccordionList} from 'accordion-collapse-react-native';
 
 
 import { useFonts } from "expo-font";
+import { ListItem } from "react-native-elements";
 
 //https://snack.expo.dev/embedded/@aboutreact/collapsible-and-accordion-view-in-react-native?iframeId=h1ftiunob9&preview=true&platform=ios&theme=dark
 /*
@@ -49,6 +51,8 @@ function AccordionView() {
         this.setState({ activeSections });
       };
   */
+
+  
 
   const RenderSectionTitle = (section) => {
     return (
@@ -97,6 +101,83 @@ export default function NavigationPage({ navigation }) {
 
   const DEVICE_WIDTH = Dimensions.get("window").width;
 
+  function Accord (props) {
+
+    const SECTIONS = [
+      {
+        title: 'Boo Bubbles',
+        content: 'boo bubbles',
+        number: 0,
+      },
+      {
+        title: 'Studio 1',
+        content: 'Lorem ipsum...',
+        number: 1,
+      },
+      {
+        title: 'Studio 2',
+        content: 'Lorem ipsum...',
+        number: 2,
+      },
+      {
+        title: 'Studio 3',
+        content: 'Lorem ipsum...',
+        number: 3,
+      },
+    ];
+
+    const [activeSections, setActive] = useState([]);
+
+    const title = (section) => {
+      return ( 
+        <View>
+          <Text>{section.title}</Text>
+        </View>
+      );
+    };
+
+    const header = (section) => {
+      return ( 
+        <View>
+          <Text>{section.title}</Text>
+        </View>
+      );
+    };
+
+    const content = (section) => {
+      return ( 
+        <View>
+          <ListItem styles={styles.content}>
+            <Text>{section.content}</Text>
+          </ListItem>
+          <ListItem styles={styles.content}>
+            <Text>{section.content}</Text>
+          </ListItem>
+          <ListItem styles={styles.content}>
+            <Text>{section.content}</Text>
+          </ListItem>
+        </View>
+      );
+    };
+
+    const change = (section) => {
+      setActive([section[0]]);
+    };
+
+    
+    return(
+      <Accordion
+        sections={SECTIONS}
+        activeSections={activeSections}
+        // renderSectionTitle={title}
+        renderHeader={header}
+        renderContent={content}
+        onChange={change}
+        //onChange={this._updateSections}
+      />
+    );
+  }
+
   function ButtonView(props) {
     return (
       <View style={{ paddingTop: 20, paddingBottom: 10 }}>
@@ -123,10 +204,13 @@ export default function NavigationPage({ navigation }) {
             source={require("../assets/images/logo-mobile.png")}
           />
       <ScrollView>
-        <ButtonView location="Boo Bubbles" text="BOO BUBBLES"></ButtonView>
-        <ButtonView location="Studio1" text="STUDIO 1"></ButtonView>
-        <ButtonView location="Studio2" text="STUDIO 2"></ButtonView>
-        <ButtonView location="Studio3" text="STUDIO 3"></ButtonView>
+        
+        <Accord title="Boo Bubbles" header="yuhhh" content="bubbles" change="yes">
+          <ButtonView location="Boo Bubbles" text="BOO BUBBLES"></ButtonView>
+          <ButtonView location="Studio1" text="STUDIO 1"></ButtonView>
+          <ButtonView location="Studio2" text="STUDIO 2"></ButtonView>
+          <ButtonView location="Studio3" text="STUDIO 3"></ButtonView>
+        </Accord> 
       </ScrollView>
     </View>
   );
@@ -174,5 +258,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     fontFamily: "Futura"
   },
+
+  content: {
+    display: 'inline',
+    flexDirection: 'column',
+  }
 
 });
