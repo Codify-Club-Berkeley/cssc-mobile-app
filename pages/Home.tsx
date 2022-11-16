@@ -18,12 +18,22 @@ import CarouselCards from "../components/carousel/Carousel";
 import * as Linking from "expo-linking";
 import * as WebBrowser from "expo-web-browser";
 
+import { useState } from "react";
+
 import { Icon } from "react-native-elements";
 
 import { globalStyles } from "../GlobalStyles";
 import { Link } from "@react-navigation/native";
 
 export default function Home() {
+  const [settings, setSettings] = useState("english");
+
+  const text = {
+    english: "hello",
+    spanish: "hola",
+    german: "bread",
+  };
+
   let [fontsLoaded] = useFonts({
     Futura: require("../assets/fonts/Futura.otf"),
   });
@@ -60,13 +70,19 @@ export default function Home() {
         </Text>
 
         <Text style={globalStyles.headerText}>Connect With Chabot</Text>
+
         <View style={{ flexDirection: "row", justifyContent: "space-evenly" }}>
           <TouchableOpacity
             onPress={() =>
               WebBrowser.openBrowserAsync("https://twitter.com/ChabotSpace")
             }
           >
-            <Icon name="twitter" type="entypo" size={60} />
+            <Icon
+              name="twitter"
+              type="entypo"
+              size={60}
+              tvParallaxProperties={undefined}
+            />
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() =>
@@ -75,7 +91,12 @@ export default function Home() {
               )
             }
           >
-            <Icon name="facebook" type="entypo" size={60} />
+            <Icon
+              name="facebook"
+              type="entypo"
+              size={60}
+              tvParallaxProperties={undefined}
+            />
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() =>
@@ -84,15 +105,28 @@ export default function Home() {
               )
             }
           >
-            <Icon name="instagram" type="entypo" size={60} />
+            <Icon
+              name="instagram"
+              type="entypo"
+              size={60}
+              tvParallaxProperties={undefined}
+            />
           </TouchableOpacity>
         </View>
+
         <Image
           style={[globalStyles.image, { width: DEVICE_WIDTH, height: 150 }]}
           source={require("../assets/images/trees.png")}
         />
       </ScrollView>
 
+      <TouchableOpacity
+        onPress={() => {
+          setSettings("german");
+        }}
+      >
+        <Text>{text[String(settings)]}</Text>
+      </TouchableOpacity>
       <StatusBar style="auto" />
     </View>
   );

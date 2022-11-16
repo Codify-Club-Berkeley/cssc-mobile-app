@@ -1,5 +1,6 @@
 import React from "react";
+import { Text } from "react-native";
 
 export default function ObservationDeck() {
-  return <div>ObservationDeck</div>;
+  return <Text>Observation Deck</Text>;
 }

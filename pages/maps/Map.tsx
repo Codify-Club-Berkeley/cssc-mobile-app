@@ -29,6 +29,7 @@ import {
   handleLocationPress,
   nav,
 } from "../../functions/map-functions";
+import { map1ModalViewData } from "./modalData";
 
 export default function MapObject({ navigation }) {
   const DEVICE_WIDTH = Dimensions.get("window").width;
@@ -60,8 +61,8 @@ export default function MapObject({ navigation }) {
               <View style={{ flex: 1 }}>
                 <View style={{ top: 200, right: 0 }}>
                   {/**Modals Section */}
-
-                  {/**Studio 1 */}
+                  {/** 
+                  
                   <Modal
                     visible={modalVisible[0]}
                     transparent={true}
@@ -94,7 +95,7 @@ export default function MapObject({ navigation }) {
                       carouselData={Studio1Carousel}
                     />
                   </Modal>
-                  {/**Studio 2 */}
+                  
                   <Modal
                     visible={modalVisible[1]}
                     transparent={true}
@@ -127,7 +128,7 @@ export default function MapObject({ navigation }) {
                       carouselData={Studio1Carousel}
                     />
                   </Modal>
-                  {/**Studio 3 */}
+                 
                   <Modal
                     visible={modalVisible[2]}
                     transparent={true}
@@ -159,67 +160,89 @@ export default function MapObject({ navigation }) {
                       exhibitName={"Studio3"}
                       carouselData={Studio1Carousel}
                     />
-                  </Modal>
+                    </Modal>*/}
+                  <>
+                    {map1ModalViewData.map(
+                      ({ Index, Name, NavLocation, Description, carousel }) => (
+                        <Modal
+                          visible={modalVisible[Index]}
+                          transparent={true}
+                          animationType="slide"
+                          style={{ top: 0, right: 0 }}
+                        >
+                          <MapDisplay
+                            handlePress={() =>
+                              changeModalVisible(
+                                setModalVisible,
+                                modalVisible,
+                                Index
+                              )
+                            }
+                            handleNav={() =>
+                              nav(
+                                navigation,
+                                setModalVisible,
+                                modalVisible,
+                                NavLocation,
+                                Index
+                              )
+                            }
+                            handleNext={() =>
+                              swapExhibit(
+                                setModalVisible,
+                                modalVisible,
+                                Index,
+                                (Index + 1) % 3
+                              )
+                            }
+                            handlePrevious={() =>
+                              swapExhibit(
+                                setModalVisible,
+                                modalVisible,
+                                Index,
+                                (Index - 1) % 3
+                              )
+                            }
+                            descriptionText={Description}
+                            exhibitName={Name}
+                            carouselData={carousel}
+                          />
+                        </Modal>
+                      )
+                    )}
+                  </>
                 </View>
                 {/**Studio 1 */}
 
                 {/**Map indicator locations */}
-
-                <View style={{ top: 100, left: 150, width: 25 }}>
-                  <Icon
-                    onPress={() => {
-                      handleLocationPress(
-                        zoomableViewRef,
-                        setModalVisible,
-                        modalVisible,
-                        0,
-                        3,
-                        340,
-                        470
-                      );
-                    }}
-                    name="location"
-                    type="evilicon"
-                    solid={true}
-                    size={20}
-                  />
-                </View>
-
-                <View style={{ top: 300, left: 50, width: 25 }}>
-                  <TouchableOpacity
-                    onPress={() =>
-                      handleLocationPress(
-                        zoomableViewRef,
-                        setModalVisible,
-                        modalVisible,
-                        1,
-                        3,
-                        340,
-                        270
-                      )
-                    }
-                  >
-                    <Icon name="location" type="evilicon" size={20} />
-                  </TouchableOpacity>
-                </View>
-
-                <View style={{ top: 200, left: 50, width: 25 }}>
-                  <TouchableOpacity
-                    onPress={() =>
-                      handleLocationPress(
-                        zoomableViewRef,
-                        setModalVisible,
-                        modalVisible,
-                        2,
-                        3,
-                        340,
-                        70
-                      )
-                    }
-                  >
-                    <Icon name="location" type="evilicon" size={20} />
-                  </TouchableOpacity>
-                </View>
+                <>
+                  {map1ModalViewData.map(({ positionData, Index }) => (
+                    <View
+                      style={{
+                        top: positionData.yPos,
+                        left: positionData.xPos,
+                        width: 25,
+                      }}
+                    >
+                      <Icon
+                        onPress={() => {
+                          handleLocationPress(
+                            zoomableViewRef,
+                            setModalVisible,
+                            modalVisible,
+                            Index,
+                            3,
+                            340,
+                            470
+                          );
+                        }}
+                        name="location"
+                        type="evilicon"
+                        size={20}
+                      />
+                    </View>
+                  ))}
+                </>
               </View>
             </ImageBackground>
           </View>

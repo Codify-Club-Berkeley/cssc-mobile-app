@@ -2,17 +2,6 @@ import ReactNativeZoomableView from "@openspacelabs/react-native-zoomable-view/s
 import { createRef, useState } from "react";
 
 //const zoomableViewRef = createRef<ReactNativeZoomableView>();
-/*
-const modalViewData: {
-  "Studio 1": {
-    "Nav Location": "Home2";
-    Description: "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists.";
-    "Exhibit Title": "Studio 1";
-    "xPos": 50,
-    "yPos": 50
-  };
-};
-*/
 
 //Close one modal and open another
 //Eventually should also call handleLocationPress to update zoom to new modal zoom
@@ -37,6 +26,28 @@ export function changeModalVisible(
     [modalNumber]: !modalVisible[modalNumber],
   }));
 }
+//May this function remain forever commented. It does not work.
+//The user is just going to have to sit through a one second animation. Too bad.
+/*
+export function testFunc(zoomLevel = 1, xPos = 154, yPos = 193, ref: any) {
+  //await ref.current!.moveTo(xPos, yPos);
+  //await ref.current!.zoomTo(zoomLevel);
+  //|| ref.current!.offsetX != xPos || ref.current!.offsetY != yPos
+  while (ref.current!.zoomLevel != zoomLevel) {
+    if (ref.current!.zoomLevel > zoomLevel) {
+      setTimeout(() => {
+        ref.current!.zoomBy(-0.01);
+      }, 5);
+    } else {
+      setTimeout(() => {
+        ref.current!.zoomBy(0.01);
+      }, 5);
+    }
+  }
+
+  //console.log(ref.current!.zoomLevel);
+}
+*/
 
 //Go to xPos, yPos with timeouts so that it will work
 export function moveView(xPos: number, yPos: number, time = 500, ref: any) {
@@ -52,7 +63,7 @@ export function moveView(xPos: number, yPos: number, time = 500, ref: any) {
 export function updateView(zoomLevel = 1, xPos = 154, yPos = 193, ref: any) {
   //updateView(1, 154, 193) to reset
   ref.current!.zoomTo(zoomLevel);
-  moveView(xPos, yPos, 500, ref);
+  moveView(xPos, yPos, 1000, ref);
   //don't mess with these functions, it works and it's not worth it
 }
 

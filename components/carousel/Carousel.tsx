@@ -5,9 +5,10 @@ import CarouselCardItem, { SLIDER_WIDTH, ITEM_WIDTH } from "./CarouselCardItem";
 import { Studio1Carousel, TouchTheSunCarousel } from "./data";
 
 export default function CarouselCards(props) {
-  const [index, setIndex] = React.useState(0);
-  const isCarousel = React.useRef(null);
-
+  //const [index, setIndex] = React.useState(0);
+  //const isCarousel = React.useRef(null);
+  //ref={isCarousel}
+  // onSnapToItem={(index) => setIndex(index)}
   return (
     <View
       style={{
@@ -21,12 +22,10 @@ export default function CarouselCards(props) {
     >
       <Carousel
         layout="default"
-        ref={isCarousel}
         data={props.imageList}
         renderItem={CarouselCardItem}
         sliderWidth={SLIDER_WIDTH}
         itemWidth={ITEM_WIDTH}
-        onSnapToItem={(index) => setIndex(index)}
         useScrollView={true}
         enableSnap={true}
         loop={true}

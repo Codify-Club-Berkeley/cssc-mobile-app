@@ -23,10 +23,12 @@ import MapObject3 from "../pages/maps/Map3";
 import { Icon } from "react-native-elements/dist/icons/Icon";
 import NavigationPage from "./NavigationPage";
 
+import { useState } from "react";
+
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-const prefix = Linking.makeUrl("/");
+const prefix = Linking.createURL("/");
 
 function NavigationPageNavigator() {
   return (
@@ -43,7 +45,7 @@ function HomeStackNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Home"
+        name="Home Page"
         component={Home}
         options={{ headerTitleStyle: globalStyles.titleText }}
       />
