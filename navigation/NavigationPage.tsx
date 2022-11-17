@@ -126,7 +126,9 @@ export default function NavigationPage({ navigation }) {
         <ButtonView location="Studio1" text="STUDIO 1"></ButtonView>
         <ButtonView location="Studio2" text="STUDIO 2"></ButtonView>
         <ButtonView location="Studio3" text="STUDIO 3"></ButtonView>
+        <ButtonView location="Calendar" text="Calendar"></ButtonView>
       </ScrollView>
+      
     </View>
   );
 }

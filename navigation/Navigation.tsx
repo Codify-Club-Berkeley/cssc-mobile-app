@@ -11,6 +11,7 @@ import { globalStyles } from "../GlobalStyles";
 import Home from "../pages/Home";
 import Home2 from "../pages/Home2";
 import BooBubbles from "../pages/demos/BooBubbles";
+import Calendar from "../pages/demos/Calendar";
 import Cladistics from "../pages/demos/Cladistics";
 import MapObject from "../pages/maps/Map";
 import Studio1 from "../pages/exhibits/Studio1";
@@ -35,6 +36,7 @@ function NavigationPageNavigator() {
     <Stack.Navigator defaultScreenOptions={{ headerShown: false }}>
       <Stack.Screen name="Navigation Page" component={NavigationPage} />
       <Stack.Screen name="Boo Bubbles" component={BooBubbles} />
+      <Stack.Screen name="Calendar" component={Calendar} />
       <Stack.Screen name="Studio1" component={Studio1} />
       <Stack.Screen name="Studio2" component={Studio2} />
       <Stack.Screen name="Studio3" component={Studio3} />
