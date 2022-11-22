@@ -12,83 +12,15 @@ import {
 } from "react-native";
 
 import { Component, useState } from "react";
-import Collapsible from "react-native-collapsible";
 import Accordion from "react-native-collapsible/Accordion";
-import Navigation from "./Navigation";
 import { globalStyles } from "../GlobalStyles";
 import {Collapse,CollapseHeader, CollapseBody, AccordionList} from 'accordion-collapse-react-native';
 
 
 import { useFonts } from "expo-font";
 import { ListItem } from "react-native-elements";
+import { ScreenWidth } from "react-native-elements/dist/helpers";
 
-//https://snack.expo.dev/embedded/@aboutreact/collapsible-and-accordion-view-in-react-native?iframeId=h1ftiunob9&preview=true&platform=ios&theme=dark
-/*
-const SECTIONS = [
-    {
-      title: 'First Title',
-      header: 'First Header',
-      content: 'First Content',
-      buttonLog: 'first',
-      color: 'blue'
-    },
-    {
-      title: 'Second Title',
-      header: 'Second Header',
-      content: 'Second Content',
-      buttonLog: 'second',
-      color: 'red'
-    },
-  ];
-*/
-
-//Usable AccordionView example component
-function AccordionView() {
-  const [activeSections, setActiveSections] = useState([]);
-
-  /*
-    _updateSections = (activeSections) => {
-        this.setState({ activeSections });
-      };
-  */
-
-  
-
-  const RenderSectionTitle = (section) => {
-    return (
-      <View style={styles.content}>
-        <Text>{section.title}</Text>
-      </View>
-    );
-  };
-
-  const RenderHeader = (section) => {
-    return (
-      <View style={styles.header}>
-        <Text style={styles.headerText}>{section.header}</Text>
-      </View>
-    );
-  };
-
-  const RenderContent = (section) => {
-    return (
-      <View style={styles.content}>
-        <Text style={{ color: section.color }}>{section.content}</Text>
-      </View>
-    );
-  };
-  
-  return (
-    <Accordion
-      sections={SECTIONS}
-      activeSections={activeSections}
-      renderSectionTitle={RenderSectionTitle}
-      renderHeader={RenderHeader}
-      renderContent={RenderContent}
-      onChange={setActiveSections}
-    />
-  );
-}
 
 export default function NavigationPage({ navigation }) {
   let [fontsLoaded] = useFonts({
@@ -105,7 +37,7 @@ export default function NavigationPage({ navigation }) {
 
     const SECTIONS = [
       {
-        title: 'Boo Bubbles',
+        title: 'Demos',
         content: 'boo bubbles',
         number: 0,
       },
@@ -128,18 +60,10 @@ export default function NavigationPage({ navigation }) {
 
     const [activeSections, setActive] = useState([]);
 
-    const title = (section) => {
-      return ( 
-        <View>
-          <Text>{section.title}</Text>
-        </View>
-      );
-    };
-
     const header = (section) => {
       return ( 
         <View>
-          <Text>{section.title}</Text>
+          <Text style={styles.button}>{section.title}</Text>
         </View>
       );
     };
@@ -148,13 +72,7 @@ export default function NavigationPage({ navigation }) {
       return ( 
         <View>
           <ListItem styles={styles.content}>
-            <Text>{section.content}</Text>
-          </ListItem>
-          <ListItem styles={styles.content}>
-            <Text>{section.content}</Text>
-          </ListItem>
-          <ListItem styles={styles.content}>
-            <Text>{section.content}</Text>
+            <Text style={styles.dropdown}>{section.content}</Text>
           </ListItem>
         </View>
       );
@@ -169,7 +87,6 @@ export default function NavigationPage({ navigation }) {
       <Accordion
         sections={SECTIONS}
         activeSections={activeSections}
-        // renderSectionTitle={title}
         renderHeader={header}
         renderContent={content}
         onChange={change}
@@ -204,7 +121,6 @@ export default function NavigationPage({ navigation }) {
             source={require("../assets/images/logo-mobile.png")}
           />
       <ScrollView>
-        
         <Accord title="Boo Bubbles" header="yuhhh" content="bubbles" change="yes">
           <ButtonView location="Boo Bubbles" text="BOO BUBBLES"></ButtonView>
           <ButtonView location="Studio1" text="STUDIO 1"></ButtonView>
@@ -230,15 +146,16 @@ const styles = StyleSheet.create({
   },
 
   button:{
-    shadowOpacity: 5,
-    shadowOffset: { width: 1, height: 5 },
-    backgroundColor: "#00a6b9",
-    borderRadius: 50,
-    width: 350,
-    height: 50,
-    alignItems: "center",
-    justifyContent: "center",
-    shadowColor: "grey"
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 100,
+    borderRadius: 26,
+    elevation: 3,
+    backgroundColor: 'white',
+    fontFamily: "Futura",
+    color: 'black',
+    borderWidth: 5,
   },
 
   buttonText:{
@@ -247,21 +164,15 @@ const styles = StyleSheet.create({
     fontFamily: "Futura"
   },
 
-  titleText:{
+  content: {
+    flexDirection: 'column',
     padding: 20,
-    backgroundColor: "white", 
-    width: "100%",
-    fontSize: 40,
-    color: "black",
-    fontWeight: "bold",
-    alignItems: "center",
-    justifyContent: "center",
-    fontFamily: "Futura"
+    fontFamily: "Futura",
+    color: 'blue',
   },
 
-  content: {
-    display: 'inline',
-    flexDirection: 'column',
+  dropdown: {
+    fontFamily: "Futura",
   }
 
 });
