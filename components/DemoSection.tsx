@@ -15,11 +15,43 @@ import { globalStyles } from "../GlobalStyles";
 const DEVICE_WIDTH = Dimensions.get("window").width;
 const DEVICE_HEIGHT = Dimensions.get("window").height;
 
-export default function DemoSection(props) {
+export default function DemoSection(props: {
+  textColor: ColorValue | undefined;
+  displayHeight: number;
+  imageUri: any;
+  displayType: string;
+  overlayTitle:
+    | boolean
+    | React.ReactChild
+    | React.ReactFragment
+    | React.ReactPortal
+    | null
+    | undefined;
+  content:
+    | boolean
+    | React.ReactChild
+    | React.ReactFragment
+    | React.ReactPortal
+    | null
+    | undefined;
+}) {
   const [myOpacity, setMyOpacity] = useState(100);
+  // Handles opacity differently based on displayType.
+  // Videos should have normal opacity until clicked once, at which point its opacity stays 0.
+  // Can be modified to include other displayTypes in the future.
+  // Otherwise, opacity should toggle back and forth when clicked.
+  function betterOpacity(props) {
+    const dispType = props.displayType;
+    if (dispType == "Video") {
+      setMyOpacity(0);
+    } else {
+      setMyOpacity(100 - myOpacity);
+    }
+  }
+
   return (
     <>
-      <TouchableOpacity onPress={() => setMyOpacity(100 - myOpacity)}>
+      <TouchableOpacity onPress={() => betterOpacity(props)}>
         {/**Overlay Image View */}
         <View
           style={[
@@ -44,7 +76,7 @@ export default function DemoSection(props) {
           <Text
             style={[
               {
-                color: "white",
+                color: props.textColor,
                 alignSelf: "center",
                 marginTop: -(props.displayHeight / 1.75),
                 fontSize: 30,

@@ -3,6 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import Home from "./pages/Home";
 import Navigation from "./navigation/Navigation";
+//import { ViewPropTypes } from 'deprecated-react-native-prop-types';
 
 function App() {
   return <Navigation />;
