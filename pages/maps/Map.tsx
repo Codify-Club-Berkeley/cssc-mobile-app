@@ -61,106 +61,7 @@ export default function MapObject({ navigation }) {
               <View style={{ flex: 1 }}>
                 <View style={{ top: 200, right: 0 }}>
                   {/**Modals Section */}
-                  {/** 
-                  
-                  <Modal
-                    visible={modalVisible[0]}
-                    transparent={true}
-                    animationType="slide"
-                    style={{ top: 0, right: 0 }}
-                  >
-                    <MapDisplay
-                      handlePress={() =>
-                        changeModalVisible(setModalVisible, modalVisible, 0)
-                      }
-                      handleNav={() =>
-                        nav(
-                          navigation,
-                          setModalVisible,
-                          modalVisible,
-                          "Studio1",
-                          0
-                        )
-                      }
-                      handleNext={() =>
-                        swapExhibit(setModalVisible, modalVisible, 0, 1)
-                      }
-                      handlePrevious={() =>
-                        swapExhibit(setModalVisible, modalVisible, 0, 2)
-                      }
-                      descriptionText={
-                        "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists."
-                      }
-                      exhibitName={"Studio 1"}
-                      carouselData={Studio1Carousel}
-                    />
-                  </Modal>
-                  
-                  <Modal
-                    visible={modalVisible[1]}
-                    transparent={true}
-                    animationType="slide"
-                    style={{ top: 0, right: 0 }}
-                  >
-                    <MapDisplay
-                      handlePress={() =>
-                        changeModalVisible(setModalVisible, modalVisible, 1)
-                      }
-                      handleNav={() =>
-                        nav(
-                          navigation,
-                          setModalVisible,
-                          modalVisible,
-                          "Studio2",
-                          1
-                        )
-                      }
-                      handleNext={() =>
-                        swapExhibit(setModalVisible, modalVisible, 1, 2)
-                      }
-                      handlePrevious={() =>
-                        swapExhibit(setModalVisible, modalVisible, 1, 0)
-                      }
-                      descriptionText={
-                        "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists."
-                      }
-                      exhibitName={"Studio 2"}
-                      carouselData={Studio1Carousel}
-                    />
-                  </Modal>
-                 
-                  <Modal
-                    visible={modalVisible[2]}
-                    transparent={true}
-                    animationType="slide"
-                    style={{ top: 0, right: 0 }}
-                  >
-                    <MapDisplay
-                      handlePress={() =>
-                        changeModalVisible(setModalVisible, modalVisible, 2)
-                      }
-                      handleNav={() =>
-                        nav(
-                          navigation,
-                          setModalVisible,
-                          modalVisible,
-                          "Studio3",
-                          2
-                        )
-                      }
-                      descriptionText={
-                        "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists."
-                      }
-                      handleNext={() =>
-                        swapExhibit(setModalVisible, modalVisible, 2, 0)
-                      }
-                      handlePrevious={() =>
-                        swapExhibit(setModalVisible, modalVisible, 2, 1)
-                      }
-                      exhibitName={"Studio3"}
-                      carouselData={Studio1Carousel}
-                    />
-                    </Modal>*/}
+
                   <>
                     {map1ModalViewData.map(
                       ({ Index, Name, NavLocation, Description, carousel }) => (
@@ -232,8 +133,8 @@ export default function MapObject({ navigation }) {
                             modalVisible,
                             Index,
                             3,
-                            340,
-                            470
+                            positionData.xPos + 100,
+                            positionData.yPos * 3
                           );
                         }}
                         name="location"

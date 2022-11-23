@@ -11,7 +11,7 @@ import { globalStyles } from "../GlobalStyles";
 import Home from "../pages/Home";
 import Home2 from "../pages/Home2";
 import BooBubbles from "../pages/demos/BooBubbles";
-import Calendar from "../pages/demos/Calendar";
+import Calendar from "../pages/Calendar";
 import Cladistics from "../pages/demos/Cladistics";
 import MapObject from "../pages/maps/Map";
 import Studio1 from "../pages/exhibits/Studio1";
@@ -110,7 +110,7 @@ function Navigation() {
 
         <Tab.Screen
           name="Preview"
-          component={Cladistics}
+          component={Calendar}
           options={{ headerShown: false }}
         />
       </Tab.Navigator>

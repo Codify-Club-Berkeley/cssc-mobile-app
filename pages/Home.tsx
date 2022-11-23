@@ -61,7 +61,7 @@ export default function Home() {
         <Text style={globalStyles.bodyText}>
           Wednesday-Sunday 10 a.m.-5 p.m.{"\n"}
           Closed on Monday and Tuesday {"\n"}
-          The museum is now closed{" "}
+          The museum is now closed
           {/**https://tecadmin.net/get-current-date-time-javascript/#:~:text=Getting%20the%20current%20date%20and,the%20built%2Din%20Date%20object.&text=This%20code%20will%20output%20the%20current%20date%20and%20time%20to%20the%20console. */}
         </Text>
         <Text style={globalStyles.headerTextLeft}>Visit</Text>

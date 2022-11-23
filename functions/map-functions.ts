@@ -51,9 +51,9 @@ export function testFunc(zoomLevel = 1, xPos = 154, yPos = 193, ref: any) {
 
 //Go to xPos, yPos with timeouts so that it will work
 export function moveView(xPos: number, yPos: number, time = 500, ref: any) {
-  setTimeout(() => {
-    ref.current!.moveBy(1, 1); //don't ask why this is needed, but it is
-  }, time);
+  // setTimeout(() => {
+  //   ref.current!.moveBy(1, 1); //don't ask why this is needed, but it is
+  // }, time);
   setTimeout(() => {
     ref.current!.moveTo(xPos, yPos);
   }, time + 50);
@@ -78,6 +78,7 @@ export function handleLocationPress(
   xPos: number,
   yPos: number
 ) {
+  console.log("Going to x: ", xPos, " y: ", yPos);
   ref.current!.zoomTo(zoomLevel);
 
   moveView(xPos, yPos, 500, ref);
@@ -85,7 +86,7 @@ export function handleLocationPress(
   //close a modal
   setTimeout(() => {
     changeModalVisible(setModalVisible, modalVisible, modalNumber);
-  }, 600);
+  }, 1100);
 }
 
 //This should, zoom to the spot on the map of the visible modal
