@@ -16,3 +16,9 @@ https://www.npmjs.com/package/react-native-youtube
 
 
 edited
+
+Map levels
+
+1 Planetarium, Lab 1, Studio 1, Cafe, Touch the Sun
+2 Studio 2
+3 Each of the three telescopes, Studio 3, Observation Deck

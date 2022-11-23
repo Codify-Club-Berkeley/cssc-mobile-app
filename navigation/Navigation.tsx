@@ -1,3 +1,4 @@
+import { registerRootComponent } from "expo";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -10,6 +11,7 @@ import { globalStyles } from "../GlobalStyles";
 import Home from "../pages/Home";
 import Home2 from "../pages/Home2";
 import BooBubbles from "../pages/demos/BooBubbles";
+import Calendar from "../pages/demos/Calendar";
 import Cladistics from "../pages/demos/Cladistics";
 import MapObject from "../pages/maps/Map";
 import Studio1 from "../pages/exhibits/Studio1";
@@ -22,16 +24,19 @@ import MapObject3 from "../pages/maps/Map3";
 import { Icon } from "react-native-elements/dist/icons/Icon";
 import NavigationPage from "./NavigationPage";
 
+import { useState } from "react";
+
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-const prefix = Linking.makeUrl("/");
+const prefix = Linking.createURL("/");
 
 function NavigationPageNavigator() {
   return (
     <Stack.Navigator defaultScreenOptions={{ headerShown: false }}>
       <Stack.Screen name="Navigation Page" component={NavigationPage} />
       <Stack.Screen name="Boo Bubbles" component={BooBubbles} />
+      <Stack.Screen name="Calendar" component={Calendar} />
       <Stack.Screen name="Studio1" component={Studio1} />
       <Stack.Screen name="Studio2" component={Studio2} />
       <Stack.Screen name="Studio3" component={Studio3} />
@@ -42,7 +47,7 @@ function HomeStackNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Home"
+        name="Home Page"
         component={Home}
         options={{ headerTitleStyle: globalStyles.titleText }}
       />
@@ -59,13 +64,17 @@ function MapStackNavigator() {
         component={MapObject2}
         options={{ headerBackVisible: false }}
       />
-      <Stack.Screen name="Map Level 3" component={MapObject3} />
+      <Stack.Screen
+        name="Map Level 3"
+        component={MapObject3}
+        options={{ headerBackVisible: false }}
+      />
       <Stack.Screen name="Nav" component={NavigationPageNavigator} />
     </Stack.Navigator>
   );
 }
 
-export default function Navigation() {
+function Navigation() {
   const linking = {
     prefixes: [prefix],
     config: {
@@ -108,3 +117,5 @@ export default function Navigation() {
     </NavigationContainer>
   );
 }
+
+registerRootComponent(Navigation);

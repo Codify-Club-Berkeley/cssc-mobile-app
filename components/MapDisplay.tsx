@@ -13,6 +13,7 @@ import { Studio1Carousel } from "./carousel/data";
 import { Icon } from "react-native-elements";
 
 export default function MapDisplay(props: {
+  carouselData: any;
   exhibitName: string;
   descriptionText: string;
   handlePress: () => void;
@@ -41,11 +42,12 @@ export default function MapDisplay(props: {
   return (
     <View
       style={{
-        top: DEVICE_HEIGHT / 3,
+        top: DEVICE_HEIGHT / 2,
         left: 0,
         width: DEVICE_WIDTH,
-        height: DEVICE_HEIGHT * (2 / 3),
-        borderWidth: 10,
+        height: DEVICE_HEIGHT * (1 / 2),
+        borderWidth: 12,
+        borderRadius: 10,
         borderColor: "#00B1BB",
         backgroundColor: "white",
       }}
@@ -75,51 +77,48 @@ export default function MapDisplay(props: {
               props.handlePress();
             }}
           >
-            <Icon name="close-o" type="evilicon" />
+            <Icon name="close-o" type="evilicon" size={30} />
           </TouchableOpacity>
         </View>
         <CarouselCards imageList={props.carouselData} />
         <View style={{ padding: 8 }}>
           <Text style={globalStyles.bodyText}>{props.descriptionText}</Text>
         </View>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-evenly",
-            alignItems: "center",
+      </ScrollView>
+      {/**Controls */}
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-evenly",
+          alignItems: "center",
+          paddingBottom: 20,
+        }}
+      >
+        <TouchableOpacity
+          onPress={() => {
+            props.handlePrevious();
           }}
         >
-          <TouchableOpacity
-            onPress={() => {
-              props.handlePrevious();
-            }}
-          >
-            <Icon
-              name="arrow-left"
-              type="evilicon"
-              size={40}
-              tvParallaxProperties={undefined}
-            />
-            <Text style={globalStyles.bodyText}>Previous</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => {
-              props.handleNav();
-            }}
-          >
-            <Icon name="play" type="evilicon" size={40} />
-            <Text style={globalStyles.bodyText}>Go</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => {
-              props.handleNext();
-            }}
-          >
-            <Icon name="arrow-right" type="evilicon" size={40} />
-            <Text style={globalStyles.bodyText}>Next</Text>
-          </TouchableOpacity>
-        </View>
-      </ScrollView>
+          <Icon name="arrow-left" type="evilicon" size={40} />
+          <Text style={globalStyles.bodyText}>Previous</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            props.handleNav();
+          }}
+        >
+          <Icon name="play" type="evilicon" size={40} />
+          <Text style={globalStyles.bodyText}>Go</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            props.handleNext();
+          }}
+        >
+          <Icon name="arrow-right" type="evilicon" size={40} />
+          <Text style={globalStyles.bodyText}>Next</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }

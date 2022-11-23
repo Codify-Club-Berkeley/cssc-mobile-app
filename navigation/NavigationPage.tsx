@@ -16,10 +16,78 @@ import Accordion from "react-native-collapsible/Accordion";
 import { globalStyles } from "../GlobalStyles";
 import {Collapse,CollapseHeader, CollapseBody, AccordionList} from 'accordion-collapse-react-native';
 
-
 import { useFonts } from "expo-font";
 import { ListItem } from "react-native-elements";
 import { ScreenWidth } from "react-native-elements/dist/helpers";
+
+
+const DEVICE_WIDTH = Dimensions.get("window").width;
+
+//https://snack.expo.dev/embedded/@aboutreact/collapsible-and-accordion-view-in-react-native?iframeId=h1ftiunob9&preview=true&platform=ios&theme=dark
+/*
+const SECTIONS = [
+    {
+      title: 'First Title',
+      header: 'First Header',
+      content: 'First Content',
+      buttonLog: 'first',
+      color: 'blue'
+    },
+    {
+      title: 'Second Title',
+      header: 'Second Header',
+      content: 'Second Content',
+      buttonLog: 'second',
+      color: 'red'
+    },
+  ];
+*/
+
+//Usable AccordionView example component
+function AccordionView() {
+  const [activeSections, setActiveSections] = useState([]);
+
+  /*
+    _updateSections = (activeSections) => {
+        this.setState({ activeSections });
+      };
+  */
+
+  const RenderSectionTitle = (section) => {
+    return (
+      <View style={styles.content}>
+        <Text>{section.title}</Text>
+      </View>
+    );
+  };
+
+  const RenderHeader = (section) => {
+    return (
+      <View style={styles.header}>
+        <Text style={styles.headerText}>{section.header}</Text>
+      </View>
+    );
+  };
+
+  const RenderContent = (section) => {
+    return (
+      <View style={styles.content}>
+        <Text style={{ color: section.color }}>{section.content}</Text>
+      </View>
+    );
+  };
+
+  return (
+    <Accordion
+      sections={SECTIONS}
+      activeSections={activeSections}
+      renderSectionTitle={RenderSectionTitle}
+      renderHeader={RenderHeader}
+      renderContent={RenderContent}
+      onChange={setActiveSections}
+    />
+  );
+}
 
 
 export default function NavigationPage({ navigation }) {
@@ -30,6 +98,7 @@ export default function NavigationPage({ navigation }) {
   const [collapsed, setCollapsed] = useState(false);
 
   const [activeSections, setActiveSections] = useState([]);
+
 
   const DEVICE_WIDTH = Dimensions.get("window").width;
 
@@ -95,9 +164,10 @@ export default function NavigationPage({ navigation }) {
     );
   }
 
+
   function ButtonView(props) {
     return (
-      <View style={{ paddingTop: 20, paddingBottom: 10 }}>
+      <View style={{ paddingTop: 20, paddingBottom: 10, alignSelf: "center" }}>
         <TouchableOpacity onPress={() => navigation.navigate(props.location)}>
           <View style={styles.button}>
             <Text style={styles.buttonText}>{props.text}</Text>
@@ -109,6 +179,7 @@ export default function NavigationPage({ navigation }) {
 
   return (
     <View style={styles.container}>
+
           <Image
             style={[
               globalStyles.image,
@@ -127,7 +198,9 @@ export default function NavigationPage({ navigation }) {
           <ButtonView location="Studio2" text="STUDIO 2"></ButtonView>
           <ButtonView location="Studio3" text="STUDIO 3"></ButtonView>
         </Accord> 
+
       </ScrollView>
+      
     </View>
   );
 }
@@ -145,6 +218,18 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
 
+
+  button2: {
+    shadowOpacity: 5,
+    shadowOffset: { width: 1, height: 5 },
+    backgroundColor: "#00a6b9",
+    borderRadius: 50,
+    width: DEVICE_WIDTH / 1.2,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    shadowColor: "grey",
+
   button:{
     alignItems: 'center',
     justifyContent: 'center',
@@ -156,12 +241,26 @@ const styles = StyleSheet.create({
     fontFamily: "Futura",
     color: 'black',
     borderWidth: 5,
+
   },
 
-  buttonText:{
+  buttonText: {
     color: "white",
     fontWeight: "bold",
-    fontFamily: "Futura"
+    fontFamily: "Futura",
+  },
+
+
+  titleText: {
+    padding: 20,
+    backgroundColor: "white",
+    width: "100%",
+    fontSize: 40,
+    color: "black",
+    fontWeight: "bold",
+    alignItems: "center",
+    justifyContent: "center",
+    fontFamily: "Futura",
   },
 
   content: {
@@ -174,5 +273,6 @@ const styles = StyleSheet.create({
   dropdown: {
     fontFamily: "Futura",
   }
+
 
 });
