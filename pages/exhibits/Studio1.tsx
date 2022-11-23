@@ -54,10 +54,10 @@ export default function Studio1() {
             <CarouselCards imageList={Studio1Carousel} />
             <Text style={globalStyles.bodyText}>
               The NASA Experience is a hands-on exhibition that brings to life
-              the thrilling, challenging and inspiring process of scientific
+              the thrilling, challenging, and inspiring process of scientific
               discovery by showcasing the real stories and people at NASA’s Ames
               Research Center. Visitors step into the role of a NASA scientist
-              through embarking on hands-on challenges, exploring more than 30+
+              and embark on hands-on challenges, exploring more than 30+
               objects that showcase Ames’ past and future, and getting to know
               real NASA scientists.
             </Text>
@@ -108,7 +108,7 @@ export default function Studio1() {
             titleText={"Embark on Hands on Challenges"}
             imageSource={require("../../assets/images/roversParking.jpg")}
             bodyText={
-              "Design and build rovers, planes and space robots for exploration. Then, test them in extraordinary environments like those at NASA’s Ames Research Center. These challenges spark curiosity around the scientific process of engineering!"
+              "Design and build rovers, planes, and space robots for exploration. Then, test them in extraordinary environments, like those at NASA’s Ames Research Center. These challenges spark curiosity around the scientific process of engineering!"
             }
             linkText={"hi"}
             linkUrl={

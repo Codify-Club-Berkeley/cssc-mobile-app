@@ -17,9 +17,25 @@ const DEVICE_HEIGHT = Dimensions.get("window").height;
 
 export default function DemoSection(props) {
   const [myOpacity, setMyOpacity] = useState(100);
+  
+  // Handles opacity differently based on displayType.
+  // Videos should have normal opacity until clicked once, at which point its opacity stays 0.
+  // Can be modified to include other displayTypes in the future.
+  // Otherwise, opacity should toggle back and forth when clicked.
+  function betterOpacity(props){
+    const dispType = props.displayType
+    if(dispType=="Video"){
+    setMyOpacity(0)
+    }
+    else{
+    setMyOpacity(100 - myOpacity)
+    }
+  }
+
   return (
     <>
-      <TouchableOpacity onPress={() => setMyOpacity(100 - myOpacity)}>
+      {/* <TouchableOpacity onPress={() => setMyOpacity(100 - myOpacity)}> */}
+      <TouchableOpacity onPress={() => betterOpacity(props)}>
         {/**Overlay Image View */}
         <View
           style={[
@@ -44,7 +60,7 @@ export default function DemoSection(props) {
           <Text
             style={[
               {
-                color: "white",
+                color: props.textColor,
                 alignSelf: "center",
                 marginTop: -(props.displayHeight / 1.75),
                 fontSize: 30,

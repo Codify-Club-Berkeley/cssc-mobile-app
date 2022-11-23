@@ -123,6 +123,7 @@ export default function NavigationPage({ navigation }) {
       />
       <ScrollView style={{ width: DEVICE_WIDTH / 1.1, borderWidth: 0 }}>
         <ButtonView location="Boo Bubbles" text="BOO BUBBLES"></ButtonView>
+        {/* <ButtonView location="Cladistics" text="CLADISTICS"></ButtonView> */}
         <ButtonView location="Studio1" text="STUDIO 1"></ButtonView>
         <ButtonView location="Studio2" text="STUDIO 2"></ButtonView>
         <ButtonView location="Studio3" text="STUDIO 3"></ButtonView>
