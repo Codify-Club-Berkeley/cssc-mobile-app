@@ -40,6 +40,18 @@ function Accord(props) {
           Name: "Boo Bubbles",
           Path: "Boo Bubbles",
         },
+        {
+          Name: "Cladistics",
+          Path: "Cladistics",
+        },
+        {
+          Name: "DryIceComets",
+          Path: "DryIceComets",
+        },
+        {
+          Name: "DryIcePh",
+          Path: "DryIcePh",
+        },
       ],
     },
     {
@@ -54,6 +66,21 @@ function Accord(props) {
         {
           Name: "Studio 2",
           Path: "Studio2",
+        },
+      ],
+    },
+    {
+      title: "Other",
+
+      number: 2,
+      subsections: [
+        {
+          Name: "Planetarium Schedule",
+          Path: "Planetarium Schedule",
+        },
+        {
+          Name: "Show Descriptions",
+          Path: "Show Descriptions",
         },
       ],
     },

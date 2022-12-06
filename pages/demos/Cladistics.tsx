@@ -47,7 +47,6 @@ export default function Cladistics() {
   ];
 
   return (
-    
     <ScrollView style={styles.scroll}>
       {/**<View style={styles.dropDown}>
           <SelectList data={data} SelectList={setSelected} />
@@ -127,22 +126,22 @@ export default function Cladistics() {
               Cladistics
             </Text>
             <Text style={globalStyles.bodyText}>
-              {"\n"}Cladistics is the science of studying and classifying organisms 
-              according to their evolutionary relationships, through a comparison of 
-              the organisms’ physical characteristics.
-              {"\n\n"}Similarities among organisms are found in internal anatomical 
-              features and patterns of development that can be used to infer the 
-              degree of relatedness among organisms.
-              {"\n\n"}Fossils can be compared to one another and to living organisms 
-              based on their similarities and differences. Some organisms that lived 
-              long ago are similar to existing organisms, but some are quite different. 
-              This helps scientists decide how animals evolved from prehistoric times. 
+              {"\n"}Cladistics is the science of studying and classifying
+              organisms according to their evolutionary relationships, through a
+              comparison of the organisms’ physical characteristics.
+              {"\n\n"}Similarities among organisms are found in internal
+              anatomical features and patterns of development that can be used
+              to infer the degree of relatedness among organisms.
+              {"\n\n"}Fossils can be compared to one another and to living
+              organisms based on their similarities and differences. Some
+              organisms that lived long ago are similar to existing organisms,
+              but some are quite different. This helps scientists decide how
+              animals evolved from prehistoric times.
               {/* (While the actual “rules” of cladistics classifications are often the subject 
               of intense scientific debate, this cart makes no attempt to impose a set of 
               rules as facts to be learned. The cart does, however, attempt to show that 
               groups of organisms can be sorted according to characteristics within a group, 
               and gives hands-on experience sorting fossils and fossil replicas into groups.) */}
-
             </Text>
           </>
         }
@@ -175,6 +174,7 @@ const styles = StyleSheet.create({
     backgroundColor: "blue",
     flex: 100,
     width: 200,
+  },
   container: {
     flex: 1,
     backgroundColor: "#fff",
@@ -192,6 +192,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontFamily: "Futura",
     color: "#00B1BB",
+  },
   dropDown: {
     flex: 1,
     justifyContent: "center",
@@ -203,6 +204,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     fontFamily: "Futura",
+  },
   card: {
     width: DEVICE_WIDTH - 300,
     height: 300,

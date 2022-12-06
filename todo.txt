@@ -29,3 +29,16 @@ Map levels
 2. Demo Pages
 3. Map
 4. 
+
+
+
+TODO before presentation
+
+1. Show Description Page (kinda)
+2. App Demo and Exhibit Pages
+3. Navigation Page
+4. Map with Demo Pages
+5. Actually publish app in order to test the deep linking
+6. General Beautification including home Page (see doc for more info)
+7. Cafe and other general pages
+8. Page bookmarks if time

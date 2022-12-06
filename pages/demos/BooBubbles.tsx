@@ -60,14 +60,7 @@ export default function BooBubbles() {
         overlayTitle={"Experiment"}
         content={
           <>
-            <Text
-              style={[
-                globalStyles.headerTextLeft,
-                {
-                  color: "#00B1BB",
-                },
-              ]}
-            >
+            <Text style={[globalStyles.headerTextLeft, globalStyles.tealText]}>
               Materials
             </Text>
 
@@ -76,14 +69,7 @@ export default function BooBubbles() {
               Maker, Gloves, Goggles {"\n"}
             </Text>
 
-            <Text
-              style={[
-                globalStyles.headerTextLeft,
-                {
-                  color: "#00B1BB",
-                },
-              ]}
-            >
+            <Text style={[globalStyles.headerTextLeft, globalStyles.tealText]}>
               Proceedure
             </Text>
             <Text style={globalStyles.bodyText}>
@@ -109,14 +95,7 @@ export default function BooBubbles() {
         overlayTitle={"Background"}
         content={
           <>
-            <Text
-              style={[
-                globalStyles.headerTextLeft,
-                {
-                  color: "#00B1BB",
-                },
-              ]}
-            >
+            <Text style={[globalStyles.headerTextLeft, globalStyles.tealText]}>
               Dry Ice
             </Text>
             <Text style={globalStyles.bodyText}>

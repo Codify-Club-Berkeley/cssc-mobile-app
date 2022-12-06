@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
+import { Text } from "react-native";
 
 export default function InvisibleBells() {
-  return (
-    <div>InvisibleBells</div>
-  )
+  return <Text>Invisble Bells</Text>;
 }

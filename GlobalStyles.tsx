@@ -24,6 +24,13 @@ const globalStyles = StyleSheet.create({
     alignSelf: "flex-start",
     textAlign: "center",
   },
+  subHeaderTextLeft: {
+    fontFamily: "Futura",
+    fontWeight: "600",
+    fontSize: 14,
+    alignSelf: "flex-start",
+    textAlign: "center",
+  },
   bodyText: {
     fontFamily: "Futura",
     fontWeight: "600",
@@ -38,9 +45,12 @@ const globalStyles = StyleSheet.create({
     alignSelf: "center",
   },
   tealText: {
+    //Chabot Teal
     color: "#27beb6",
   },
+
   darkTealText: {
+    //Chabot Dark Teal
     color: "#00a6b9",
   },
   image: {

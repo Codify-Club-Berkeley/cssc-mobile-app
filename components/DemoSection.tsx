@@ -15,27 +15,9 @@ import { globalStyles } from "../GlobalStyles";
 const DEVICE_WIDTH = Dimensions.get("window").width;
 const DEVICE_HEIGHT = Dimensions.get("window").height;
 
-export default function DemoSection(props: {
-  textColor: ColorValue | undefined;
-  displayHeight: number;
-  imageUri: any;
-  displayType: string;
-  overlayTitle:
-    | boolean
-    | React.ReactChild
-    | React.ReactFragment
-    | React.ReactPortal
-    | null
-    | undefined;
-  content:
-    | boolean
-    | React.ReactChild
-    | React.ReactFragment
-    | React.ReactPortal
-    | null
-    | undefined;
-}) {
+export default function DemoSection(props) {
   const [myOpacity, setMyOpacity] = useState(100);
+  const [pressable, setPressable] = useState(false);
   // Handles opacity differently based on displayType.
   // Videos should have normal opacity until clicked once, at which point its opacity stays 0.
   // Can be modified to include other displayTypes in the future.
@@ -44,6 +26,7 @@ export default function DemoSection(props: {
     const dispType = props.displayType;
     if (dispType == "Video") {
       setMyOpacity(0);
+      setPressable(true);
     } else {
       setMyOpacity(100 - myOpacity);
     }
@@ -51,7 +34,10 @@ export default function DemoSection(props: {
 
   return (
     <>
-      <TouchableOpacity onPress={() => betterOpacity(props)}>
+      <TouchableOpacity
+        disabled={pressable}
+        onPress={() => betterOpacity(props)}
+      >
         {/**Overlay Image View */}
         <View
           style={[
@@ -76,11 +62,15 @@ export default function DemoSection(props: {
           <Text
             style={[
               {
-                color: props.textColor,
+                color: "black",
                 alignSelf: "center",
                 marginTop: -(props.displayHeight / 1.75),
                 fontSize: 30,
                 fontFamily: "Futura",
+                borderWidth: 3,
+                backgroundColor: "white",
+                padding: 5,
+                opacity: 1,
               },
             ]}
           >

@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
+import { Text } from "react-native";
 
 export default function Spectroscopes() {
-  return (
-    <div>Spectroscopes</div>
-  )
+  return <Text>Spectroscopes</Text>;
 }

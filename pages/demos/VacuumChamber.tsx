@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Text } from "react-native";
 export default function VacuumChamber() {
-  return <div>VacuumChamber</div>;
+  return <Text>VacuumChamber</Text>;
 }
