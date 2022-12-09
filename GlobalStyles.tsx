@@ -44,6 +44,10 @@ const globalStyles = StyleSheet.create({
     color: "#0000FF",
     alignSelf: "center",
   },
+  titleBarText: {
+    fontFamily: "Futura",
+    fontSize: 25,
+  },
   tealText: {
     //Chabot Teal
     color: "#27beb6",
@@ -53,6 +57,7 @@ const globalStyles = StyleSheet.create({
     //Chabot Dark Teal
     color: "#00a6b9",
   },
+  darkGreyText: { color: "#1B2832" },
   image: {
     resizeMode: "contain",
   },
@@ -62,6 +67,11 @@ const globalStyles = StyleSheet.create({
     height: DEVICE_HEIGHT,
     width: DEVICE_WIDTH,
     backgroundColor: "white",
+  },
+  demoSectionImage: {
+    width: DEVICE_WIDTH / 1.2,
+    height: "100%",
+    resizeMode: "contain",
   },
 });
 

@@ -10,29 +10,16 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useFonts } from "expo-font";
-import {
-  Studio1Carousel,
-  TouchTheSunCarousel,
-} from "../components/carousel/data";
-import CarouselCards from "../components/carousel/Carousel";
-import * as Linking from "expo-linking";
 import * as WebBrowser from "expo-web-browser";
 
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 import { Icon } from "react-native-elements";
-
 import { globalStyles } from "../GlobalStyles";
 import { Link } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Home() {
   const [settings, setSettings] = useState("english");
-
-  const text = {
-    english: "hello",
-    spanish: "hola",
-    german: "bread",
-  };
 
   let [fontsLoaded] = useFonts({
     Futura: require("../assets/fonts/Futura.otf"),
@@ -44,6 +31,7 @@ export default function Home() {
   const DEVICE_WIDTH = Dimensions.get("window").width;
   const DEVICE_HEIGHT = Dimensions.get("window").height;
   //#1B2832 another Chabot Website Color
+
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -120,13 +108,6 @@ export default function Home() {
         />
       </ScrollView>
 
-      <TouchableOpacity
-        onPress={() => {
-          setSettings("german");
-        }}
-      >
-        <Text>{text[String(settings)]}</Text>
-      </TouchableOpacity>
       <StatusBar style="auto" />
     </View>
   );

@@ -39,7 +39,13 @@ export default function MapObject({ navigation }) {
   const zoomableViewRef = createRef<ReactNativeZoomableView>();
 
   //array containing visibility state of modals
-  const [modalVisible, setModalVisible] = useState([false, false, false]);
+  //ONCHANGE the number of falses is the number of modals
+  const [modalVisible, setModalVisible] = useState([
+    false,
+    false,
+    false,
+    false,
+  ]);
 
   return (
     <View style={styles.container}>
@@ -49,6 +55,7 @@ export default function MapObject({ navigation }) {
           bindToBorders={true}
           panBoundaryPadding={200}
           maxZoom={10}
+          minZoom={1}
           contentWidth={100}
           contentHeight={300}
           style={{ borderWidth: 0 }}
@@ -88,12 +95,13 @@ export default function MapObject({ navigation }) {
                                 Index
                               )
                             }
+                            //ONCHANGE, the index % 4 is for four modal displays on the page
                             handleNext={() =>
                               swapExhibit(
                                 setModalVisible,
                                 modalVisible,
                                 Index,
-                                (Index + 1) % 3
+                                (Index + 1) % 4
                               )
                             }
                             handlePrevious={() =>

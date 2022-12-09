@@ -1,36 +1,3 @@
-Map
-Exhibits
-https://www.npmjs.com/package/react-native-collapsible-list
-https://www.npmjs.com/package/react-native-collapsible
-
-
-
-Information (buy tickets, join/renew socials links, hours)
-movies (hopefully)
-Deep linking navigation (more or less done)
-
-
-Demo Pages***
-(Name of demo, photos or a video, materials, proceedure)
-https://www.npmjs.com/package/react-native-youtube
-
-
-edited
-
-Map levels
-
-1 Planetarium, Lab 1, Studio 1, Cafe, Touch the Sun
-2 Studio 2
-3 Each of the three telescopes, Studio 3, Observation Deck
-
-
-
-1. Nav Page
-2. Demo Pages
-3. Map
-4. 
-
-
 
 TODO before presentation
 
@@ -42,3 +9,8 @@ TODO before presentation
 6. General Beautification including home Page (see doc for more info)
 7. Cafe and other general pages
 8. Page bookmarks if time
+
+
+
+
+1. 

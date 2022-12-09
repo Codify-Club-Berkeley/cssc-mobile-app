@@ -18,41 +18,13 @@ import Constants from "expo-constants";
 import SelectList from "react-native-dropdown-select-list";
 
 import DemoSection from "../../components/DemoSection";
-import DemoSectionVideo from "../../components/DemoSectionVideo";
 
 const DEVICE_WIDTH = Dimensions.get("window").width;
 const DEVICE_HEIGHT = Dimensions.get("window").height;
 
 export default function DryIcePh() {
-  const [myOpacity, setMyOpacity] = useState(100);
-
-  const [selected, setSelected] = useState("5");
-  const data = [
-    { key: "1", value: "Overview" },
-    { key: "2", value: "Experiment" },
-    { key: "3", value: "What's going on?" },
-    { key: "4", value: "Video" },
-  ];
-
-  const cardData = [
-    {
-      front: {
-        text: "Hi",
-      },
-      back: {
-        text: "hihi",
-      },
-    },
-  ];
-
   return (
     <ScrollView style={styles.scroll}>
-      {/**<View style={styles.dropDown}>
-          <SelectList data={data} SelectList={setSelected} />
-        </View> */}
-
-      {/**Spacer */}
-
       <DemoSection
         displayHeight={300}
         imageUri={
@@ -62,92 +34,83 @@ export default function DryIcePh() {
         displayType={"Text"}
         content={
           <>
-            <Text
-              style={[
-                globalStyles.headerTextLeft,
-                {
-                  color: "#00B1BB",
-                },
-              ]}
-            >
-              Materials
-            </Text>
-
-            <Text style={globalStyles.bodyText}>
-              Dry Ice, Warm Water, Dish Soap, Plastic Tray, Dry Ice Bubble
-              Maker, Gloves, Goggles {"\n"}
-            </Text>
-
-            <Text
-              style={[
-                globalStyles.headerTextLeft,
-                {
-                  color: "#00B1BB",
-                },
-              ]}
-            >
+            <Text style={[globalStyles.headerTextLeft, globalStyles.tealText]}>
               Procedure
             </Text>
             <Text style={globalStyles.bodyText}>
-              1. Fill tray with a thin layer of water and a few drops of dish
-              soap {"\n\n"}
-              2. Fill Bubble Maker half way with hot water {"\n\n"}
-              3. Using Gloves and Goggles, carefully place a few pieces of dry
-              ice into the bubble maker and close the lid {"\n\n"}
-              4. Swish the end of the bubble maker in the tray of water to make
-              a Boo Bubble! {"\n\n"}
-              5. Place your hand in the soapy water of the tray to hold a Boo
-              Bubble {"\n\n"}
+              SAFETY: Wear eye protection and use gloves to handle the dry ice
+              since it can cause severe frost burns. 1. Start with 250 ml of
+              water in each cylinder. {"\n\n"}
+              2. Add enough indicator to give an easily visible green color.{" "}
+              {"\n\n"}
+              3. Add a small piece of dry ice, or half of a larger piece. Note
+              as the solution turns yellow and then orange. {"\n\n"}
+              4. Start adding small pinches of baking soda, noting the changes
+              in color. The solution will first turn yellow and then turn green.{" "}
+              {"\n\n"}
+              5. In one beaker create a gradient {"\n\n"}
+              a. Add about half a spoonful of baking soda to the existing
+              solution {"\n\n"}
+              b. Add a small amount of vinegar. The upper portion of the
+              solution should turn yellow. {"\n\n"}
+              c. Add more vinegar, making sure it stays near the surface.x-ou
+              should now have a gradient with green(7-8) at the bottom,
+              yellow(6-6.5) in the middle and orange(5.5) at the top {"\n\n"}
+              6. You can also create a more reactive baking soda and vinegar
+              reaction{"\n\n"}
+              a. Add a spoonful of baking soda to an existing solution {"\n\n"}
+              i. If you add it to a solution gradient solution you can get a
+              layer of blue bubbles at the top {"\n\n"}
+              b. Add a small amount of vinegar. The solution will foam, forming
+              red-orange bubbles. {"\n\n"}
+              7. You can use the three beakers if you want to show the
+              variations in the solutions. Keeping on permanently yellow-orange
+              with the acid and one green with the case and performing demos in
+              the third.
             </Text>
           </>
         }
       ></DemoSection>
 
       <DemoSection
-        displayHeight={500}
+        displayHeight={300}
         imageUri={
           "https://s3.amazonaws.com/static.wd7.us/3/36/Dry_Ice_Pellets_Subliming.jpg"
         }
-        overlayTitle={"Background"}
+        overlayTitle={"pH Scale"}
         displayType={"Text"}
         content={
           <>
-            <Text
-              style={[
-                globalStyles.headerTextLeft,
-                {
-                  color: "#00B1BB",
-                },
-              ]}
-            >
-              Dry Ice
+            <Text style={[globalStyles.headerTextLeft, globalStyles.tealText]}>
+              pH Scale
+            </Text>
+            <Image
+              style={globalStyles.demoSectionImage}
+              source={{
+                uri: "https://sciencenotes.org/wp-content/uploads/2020/09/The-pH-Scale-scaled.jpg",
+              }}
+            />
+          </>
+        }
+      ></DemoSection>
+      <DemoSection
+        displayHeight={300}
+        imageUri={
+          "https://s3.amazonaws.com/static.wd7.us/3/36/Dry_Ice_Pellets_Subliming.jpg"
+        }
+        overlayTitle={"Materials"}
+        displayType={"Text"}
+        content={
+          <>
+            <Text style={[globalStyles.headerTextLeft, globalStyles.tealText]}>
+              Materials
             </Text>
             <Text style={globalStyles.bodyText}>
-              {"\n"}Dry ice is frozen carbon dioxide (CO₂), the gas we exhale as
-              we breathe. It is much denser and colder than traditional ice.{" "}
-              {"\n\n"}
-              Dry ice is -109.3 F (-79.5 C). Traditional ice is 32 F (0 C). If
-              carbon dioxide is stored at 300psi pressure, then it turns into a
-              liquid. When fired into a container, the liquid turns in a white
-              powder, which is pressed together to form solid dry ice. {"\n\n"}
-              The atmosphere contains about .035% of this gas. CO₂ is a
-              greenhouse gas, which means it absorbs light at infrared
-              wavelengths. An increase in the concentration of this gas would,
-              scientists believe, cause an increase in the atmosphere's average
-              temperature. The high concentration of CO₂ in the atmosphere of
-              the planet Venus is said to contribute to that planet's high
-              average temperature. {"\n\n"}At normal atmospheric pressure on
-              Earth, frozen CO₂ does not melt into a liquid, but rather
-              evaporates directly into its gaseous form, hence the name dry ice.
-              This process is called sublimation. The Boo Bubbles experiment
-              relies on this property of dry ice. 1 pound of dry ice, when it
-              sublimates (turns to gas), will produce 250 liters of gas at
-              atmospheric pressure, enough to fill 125 2-liter bottles. {"\n\n"}
-              That's a whole lot of gas! {"\n\n"}Did you know that sound travels
-              more slowly in CO₂ than it does in air, just as light travels more
-              slowly in glass than in air or vacuum? As a rule, dry ice will
-              sublimate at a rate of five to ten pounds every 24 hours in a
-              typical ice chest. Therefore, do not take more than you need.
+              Eye protection, Measuring cylinders as many as the number of
+              indicators to be used, Expanded polystyrene cool-box to store the
+              dry ice, Tongs or large spoon/scoop for transferring dry ice, Long
+              stirring rod Gloves (leather or insulated) for handling dry ice,
+              Dry ice — allow 100 g for each indicator Universal Indicator
             </Text>
           </>
         }
@@ -164,7 +127,7 @@ export default function DryIcePh() {
             <YoutubePlayer
               height={300}
               width={DEVICE_WIDTH - 40}
-              videoId={"BJyX3b6-KGk"}
+              videoId={"BjQgvXpzEoY"}
               play={false}
             />
           </>

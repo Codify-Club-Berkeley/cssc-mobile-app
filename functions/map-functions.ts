@@ -26,6 +26,7 @@ export function changeModalVisible(
     [modalNumber]: !modalVisible[modalNumber],
   }));
 }
+
 //May this function remain forever commented. It does not work.
 //The user is just going to have to sit through a one second animation. Too bad.
 /*
@@ -78,15 +79,17 @@ export function handleLocationPress(
   xPos: number,
   yPos: number
 ) {
-  console.log("Going to x: ", xPos, " y: ", yPos);
-  ref.current!.zoomTo(zoomLevel);
+  //removed annoying console log for now
+  //console.log("Going to x: ", xPos, " y: ", yPos);
 
-  moveView(xPos, yPos, 500, ref);
+  // Configure to properly zoom in on location
+  //ref.current!.zoomTo(zoomLevel);
+  //moveView(xPos, yPos, 500, ref);
 
   //close a modal
   setTimeout(() => {
     changeModalVisible(setModalVisible, modalVisible, modalNumber);
-  }, 1100);
+  }, 100); //Reset this to 1100 later when working on updating the locaiton
 }
 
 //This should, zoom to the spot on the map of the visible modal

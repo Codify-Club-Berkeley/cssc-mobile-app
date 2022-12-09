@@ -30,6 +30,8 @@ import {
   nav,
 } from "../../functions/map-functions";
 
+import { map3ModalViewData } from "./modalData";
+
 export default function MapObject({ navigation }) {
   const DEVICE_WIDTH = Dimensions.get("window").width;
   const DEVICE_HEIGHT = Dimensions.get("window").height;
@@ -38,7 +40,13 @@ export default function MapObject({ navigation }) {
   const zoomableViewRef = createRef<ReactNativeZoomableView>();
 
   //array containing visibility state of modals
-  const [modalVisible, setModalVisible] = useState([false, false, false]);
+  const [modalVisible, setModalVisible] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
 
   return (
     <View style={styles.container}>
@@ -61,165 +69,89 @@ export default function MapObject({ navigation }) {
                 <View style={{ top: 200, right: 0 }}>
                   {/**Modals Section */}
 
-                  {/**Studio 1 */}
-                  <Modal
-                    visible={modalVisible[0]}
-                    transparent={true}
-                    animationType="slide"
-                    style={{ top: 0, right: 0 }}
-                  >
-                    <MapDisplay
-                      handlePress={() =>
-                        changeModalVisible(setModalVisible, modalVisible, 0)
-                      }
-                      handleNav={() =>
-                        nav(
-                          navigation,
-                          setModalVisible,
-                          modalVisible,
-                          "Studio1",
-                          0
-                        )
-                      }
-                      handleNext={() =>
-                        swapExhibit(setModalVisible, modalVisible, 0, 1)
-                      }
-                      handlePrevious={() =>
-                        swapExhibit(setModalVisible, modalVisible, 0, 2)
-                      }
-                      descriptionText={
-                        "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists."
-                      }
-                      exhibitName={"Studio 1"}
-                      carouselData={Studio1Carousel}
-                    />
-                  </Modal>
-                  {/**Studio 2 */}
-                  <Modal
-                    visible={modalVisible[1]}
-                    transparent={true}
-                    animationType="slide"
-                    style={{ top: 0, right: 0 }}
-                  >
-                    <MapDisplay
-                      handlePress={() =>
-                        changeModalVisible(setModalVisible, modalVisible, 1)
-                      }
-                      handleNav={() =>
-                        nav(
-                          navigation,
-                          setModalVisible,
-                          modalVisible,
-                          "Studio2",
-                          1
-                        )
-                      }
-                      handleNext={() =>
-                        swapExhibit(setModalVisible, modalVisible, 1, 2)
-                      }
-                      handlePrevious={() =>
-                        swapExhibit(setModalVisible, modalVisible, 1, 0)
-                      }
-                      descriptionText={
-                        "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists."
-                      }
-                      exhibitName={"Studio 2"}
-                      carouselData={Studio1Carousel}
-                    />
-                  </Modal>
-                  {/**Studio 3 */}
-                  <Modal
-                    visible={modalVisible[2]}
-                    transparent={true}
-                    animationType="slide"
-                    style={{ top: 0, right: 0 }}
-                  >
-                    <MapDisplay
-                      handlePress={() =>
-                        changeModalVisible(setModalVisible, modalVisible, 2)
-                      }
-                      handleNav={() =>
-                        nav(
-                          navigation,
-                          setModalVisible,
-                          modalVisible,
-                          "Studio3",
-                          2
-                        )
-                      }
-                      descriptionText={
-                        "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists."
-                      }
-                      handleNext={() =>
-                        swapExhibit(setModalVisible, modalVisible, 2, 0)
-                      }
-                      handlePrevious={() =>
-                        swapExhibit(setModalVisible, modalVisible, 2, 1)
-                      }
-                      exhibitName={"Studio3"}
-                      carouselData={Studio1Carousel}
-                    />
-                  </Modal>
+                  <>
+                    {map3ModalViewData.map(
+                      ({ Index, Name, NavLocation, Description, carousel }) => (
+                        <Modal
+                          visible={modalVisible[Index]}
+                          transparent={true}
+                          animationType="slide"
+                          style={{ top: 0, right: 0 }}
+                        >
+                          <MapDisplay
+                            handlePress={() =>
+                              changeModalVisible(
+                                setModalVisible,
+                                modalVisible,
+                                Index
+                              )
+                            }
+                            handleNav={() =>
+                              nav(
+                                navigation,
+                                setModalVisible,
+                                modalVisible,
+                                NavLocation,
+                                Index
+                              )
+                            }
+                            handleNext={() =>
+                              swapExhibit(
+                                setModalVisible,
+                                modalVisible,
+                                Index,
+                                (Index + 1) % 5
+                              )
+                            }
+                            handlePrevious={() =>
+                              swapExhibit(
+                                setModalVisible,
+                                modalVisible,
+                                Index,
+                                (Index - 1) % 5
+                              )
+                            }
+                            descriptionText={Description}
+                            exhibitName={Name}
+                            carouselData={carousel}
+                          />
+                        </Modal>
+                      )
+                    )}
+                  </>
                 </View>
                 {/**Studio 1 */}
 
                 {/**Map indicator locations */}
 
-                <View style={{ top: 100, left: 150, width: 25 }}>
-                  <Icon
-                    onPress={() => {
-                      handleLocationPress(
-                        zoomableViewRef,
-                        setModalVisible,
-                        modalVisible,
-                        0,
-                        3,
-                        340,
-                        470
-                      );
-                    }}
-                    name="location"
-                    type="evilicon"
-                    solid={true}
-                    size={20}
-                  />
-                </View>
-
-                <View style={{ top: 300, left: 50, width: 25 }}>
-                  <TouchableOpacity
-                    onPress={() =>
-                      handleLocationPress(
-                        zoomableViewRef,
-                        setModalVisible,
-                        modalVisible,
-                        1,
-                        3,
-                        340,
-                        270
-                      )
-                    }
-                  >
-                    <Icon name="location" type="evilicon" size={20} />
-                  </TouchableOpacity>
-                </View>
-
-                <View style={{ top: 200, left: 50, width: 25 }}>
-                  <TouchableOpacity
-                    onPress={() =>
-                      handleLocationPress(
-                        zoomableViewRef,
-                        setModalVisible,
-                        modalVisible,
-                        2,
-                        3,
-                        340,
-                        70
-                      )
-                    }
-                  >
-                    <Icon name="location" type="evilicon" size={20} />
-                  </TouchableOpacity>
-                </View>
+                <>
+                  {map3ModalViewData.map(({ positionData, Index }) => (
+                    <View
+                      style={{
+                        top: positionData.yPos,
+                        left: positionData.xPos,
+                        width: 25,
+                      }}
+                    >
+                      <Icon
+                        onPress={() => {
+                          handleLocationPress(
+                            zoomableViewRef,
+                            setModalVisible,
+                            modalVisible,
+                            Index,
+                            3,
+                            positionData.xPos + 100,
+                            positionData.yPos * 3
+                          );
+                        }}
+                        name="location"
+                        type="evilicon"
+                        size={20}
+                      />
+                    </View>
+                  ))}
+                </>
               </View>
             </ImageBackground>
           </View>

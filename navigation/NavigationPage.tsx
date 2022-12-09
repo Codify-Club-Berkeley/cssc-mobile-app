@@ -11,7 +11,7 @@ import {
   ScrollView,
 } from "react-native";
 
-import { Component, useState } from "react";
+import { Component, useEffect, useState } from "react";
 import Accordion from "react-native-collapsible/Accordion";
 import { globalStyles } from "../GlobalStyles";
 import {
@@ -25,15 +25,16 @@ import { useFonts } from "expo-font";
 import { ListItem } from "react-native-elements";
 import { ScreenWidth } from "react-native-elements/dist/helpers";
 
+import { getStorage } from "../functions/bookmark-functions";
+
 const DEVICE_WIDTH = Dimensions.get("window").width;
 
 //https://snack.expo.dev/embedded/@aboutreact/collapsible-and-accordion-view-in-react-native?iframeId=h1ftiunob9&preview=true&platform=ios&theme=dark
 
 function Accord(props) {
-  const SECTIONS = [
+  const constantSECTIONS = [
     {
       title: "Demos",
-
       number: 0,
       subsections: [
         {
@@ -45,12 +46,12 @@ function Accord(props) {
           Path: "Cladistics",
         },
         {
-          Name: "DryIceComets",
-          Path: "DryIceComets",
+          Name: "Dry Ice Comets",
+          Path: "Dry Ice Comets",
         },
         {
-          Name: "DryIcePh",
-          Path: "DryIcePh",
+          Name: "Dry Ice Ph",
+          Path: "Dry Ice Ph",
         },
       ],
     },
@@ -61,11 +62,11 @@ function Accord(props) {
       subsections: [
         {
           Name: "Studio 1",
-          Path: "Studio1",
+          Path: "Studio 1",
         },
         {
           Name: "Studio 2",
-          Path: "Studio2",
+          Path: "Studio 2",
         },
       ],
     },
@@ -85,9 +86,46 @@ function Accord(props) {
       ],
     },
   ];
+  const [SECTIONS, setSECTIONS] = useState(constantSECTIONS);
 
   const [activeSections, setActive] = useState([]);
 
+  //This is an awful way to implement this. I should do something to fetch the data when the button is clicked, but this will have to suffice for now
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     //console.log("This will be called every 5 seconds");
+  //     //Pull the data into an object
+  //     //Append each True item into a subsections array
+  //     //If there are any true items, then setSECTIONS with constantSECTIONS and all of the true sections
+  //     try {
+  //       //Pull in the data as an object
+  //       let store = getStorage("bookmarks");
+  //       //create an array
+  //       let bookmarkSubsections = [];
+
+  //       //store the keys and values in arrays
+  //       const keys = Object.keys(store);
+  //       const values = Object.values(store);
+
+  //       //iterate through the indicies of the arrays
+  //       for (let index = 0; index < keys.length; index++) {
+  //         //if the store value equals 1
+  //         if (values[index]) {
+  //           //Push another
+  //           bookmarkSubsections.push({
+  //             Name: String(keys[index]),
+  //             Path: String(keys[index]),
+  //           });
+  //         }
+  //       }
+  //       //finally, set the state
+  //     } catch (e) {
+  //       console.log(e);
+  //     }
+  //   }, 5000);
+
+  //   return () => clearInterval(interval);
+  // }, []);
   const header = (section) => {
     return (
       <View style={{ padding: 10 }}>
@@ -157,6 +195,7 @@ export default function NavigationPage({ navigation }) {
       />
       <ScrollView>
         <Accord nav={navigation} />
+        {/* <Accord nav={navigation} /> */}
       </ScrollView>
     </View>
   );

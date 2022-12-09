@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, ScrollView } from "react-native";
 
-import { globalStyles } from "../GlobalStyles";
-import { showData } from "./showData";
+import { globalStyles } from "../../GlobalStyles";
+import { showData } from "../showData";
 
 export default function ShowDescriptions() {
   return (

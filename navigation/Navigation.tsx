@@ -1,5 +1,6 @@
 import { registerRootComponent } from "expo";
 import React from "react";
+import { Text, Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import * as Linking from "expo-linking";
@@ -36,9 +37,17 @@ import TouchTheSun from "../pages/exhibits/TouchTheSun";
 import Cafe from "../pages/exhibits/Cafe";
 import ObservationDeck from "../pages/exhibits/ObservationDeck";
 
+//telescopes
+import Leah from "../pages/exhibits/Telescopes/Leah";
+import Nellie from "../pages/exhibits/Telescopes/Nellie";
+import Rachel from "../pages/exhibits/Telescopes/Rachel";
+
 //other
-import ShowDescriptions from "../pages/ShowDescripstions";
-import PlanetariumTimes from "../pages/PlanetariumTimes";
+import ShowDescriptions from "../pages/other/ShowDescripstions";
+import PlanetariumTimes from "../pages/other/PlanetariumTimes";
+
+//header component
+// import Header from "../components/Header";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -47,24 +56,44 @@ const prefix = Linking.createURL("/");
 
 function NavigationPageNavigator() {
   return (
-    <Stack.Navigator defaultScreenOptions={{ headerShown: false }}>
+    <Stack.Navigator
+      defaultScreenOptions={{ headerShown: false }}
+      screenOptions={{
+        headerTitleStyle: {
+          fontFamily: "Futura",
+          fontSize: 20,
+        },
+      }}
+    >
       <Stack.Screen name="Navigation Page" component={NavigationPage} />
       {/**Demos */}
       <Stack.Screen name="Boo Bubbles" component={BooBubbles} />
-      <Stack.Screen name="Cladistics" component={Cladistics} />
-      <Stack.Screen name="DryIceComets" component={DryIceComets} />
-      <Stack.Screen name="DryIcePh" component={DryIcePh} />
-      <Stack.Screen name="InvisibleBells" component={InvisibleBells} />
-      <Stack.Screen name="SpectraCart" component={SpectraCart} />
+      <Stack.Screen
+        name="Cladistics"
+        component={Cladistics}
+        // options={{
+        //   headerTitle: (props) => <Header title="Cladistics"></Header>,
+        // }}
+      />
+      <Stack.Screen name="Dry Ice Comets" component={DryIceComets} />
+      <Stack.Screen name="Dry Ice Ph" component={DryIcePh} />
+      <Stack.Screen name="Invisible Bells" component={InvisibleBells} />
+      <Stack.Screen name="Spectra Cart" component={SpectraCart} />
       <Stack.Screen name="Spectroscopes" component={Spectroscopes} />
-      <Stack.Screen name="VacuumChamber" component={VacuumChamber} />
+      <Stack.Screen name="Vacuum Chamber" component={VacuumChamber} />
 
       {/**Exhibits */}
-      <Stack.Screen name="Studio1" component={Studio1} />
-      <Stack.Screen name="Studio2" component={Studio2} />
-      <Stack.Screen name="Studio3" component={Studio3} />
+      <Stack.Screen name="Studio 1" component={Studio1} />
+      <Stack.Screen name="Studio 2" component={Studio2} />
+      <Stack.Screen name="Studio 3" component={Studio3} />
       <Stack.Screen name="Cafe" component={Cafe} />
       <Stack.Screen name="Touch The Sun" component={TouchTheSun} />
+      <Stack.Screen name="Observation Deck" component={ObservationDeck} />
+
+      {/* Telescopes */}
+      <Stack.Screen name="Nellie" component={Nellie} />
+      <Stack.Screen name="Leah" component={Leah} />
+      <Stack.Screen name="Rachel" component={Rachel} />
 
       {/**Other */}
       <Stack.Screen name="Planetarium Schedule" component={PlanetariumTimes} />
@@ -135,7 +164,7 @@ function Navigation() {
           }}
         />
         <Tab.Screen
-          name="NavigationPage"
+          name="Navigation Page"
           component={NavigationPageNavigator}
           options={{
             headerShown: false,

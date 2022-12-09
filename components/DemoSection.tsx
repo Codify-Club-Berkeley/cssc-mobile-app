@@ -102,6 +102,36 @@ export default function DemoSection(props) {
   );
 }
 
+//Pass an array of objects with header and body values
+
+export function TextSection(props: {
+  displayHeight: string;
+  imageUri: string;
+  overlayTitle: string;
+  textData: { header: string; body: string }[];
+}) {
+  return (
+    <DemoSection
+      displayHeight={props.displayHeight}
+      imageUri={props.imageUri}
+      overlayTitle={props.overlayTitle}
+      textColor={"black"}
+      displayType={"Text"}
+      content={props.textData.map(({ header, body }) => (
+        <>
+          <Text style={[globalStyles.subHeaderTextLeft, globalStyles.tealText]}>
+            {header}
+          </Text>
+          <Text style={globalStyles.bodyText}>
+            {body}
+            {"\n"}
+          </Text>
+        </>
+      ))}
+    ></DemoSection>
+  );
+}
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",

@@ -40,11 +40,11 @@ const NavBar = React.forwardRef(
         {/**Reset View */}
         <TouchableOpacity
           onPress={() =>
-            //updateView(1, DEVICE_WIDTH / 2, DEVICE_HEIGHT / 3, ref)
             //moveby depends on zoom
+            //ref.current!.moveBy(0, 50);
+            //console.log(ref.current!.xPos);
             {
-              ref.current!.moveBy(0, 50);
-              console.log(ref.current!.xPos);
+              updateView(1, DEVICE_WIDTH / 2, DEVICE_HEIGHT / 3, ref);
             }
           }
         >
