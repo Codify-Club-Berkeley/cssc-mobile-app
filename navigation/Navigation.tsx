@@ -1,7 +1,7 @@
 import { registerRootComponent } from "expo";
 import React from "react";
 import { Text, Image } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+import { LinkingOptions, NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import * as Linking from "expo-linking";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -51,8 +51,43 @@ import PlanetariumTimes from "../pages/other/PlanetariumTimes";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
-
+// npx uri-scheme open exp://192.168.1.121:19000/--/Navigation Page/Studio1 --ios
 const prefix = Linking.createURL("/");
+
+/**
+ * 
+ * screens: {
+    HomeStack: {
+      screens: {
+        Home: 'home',
+        Profile: 'user',
+      },
+    },
+    Settings: 'settings',
+  },
+ * 
+ */
+
+const linking: LinkingOptions = {
+  prefixes: [prefix],
+  config: {
+    screens: {
+      Home: "Home",
+      NavigationPage: {
+        initialRouteName: "Navigation Page",
+        screens: {
+          Cafe: "Cafe",
+          "Studio 1": "Studio1",
+          "Studio 2": "Studio2",
+          "Studio 3": "Studio3",
+          "Touch The Sun": "TouchTheSun",
+          "Planetarium Schedule": "PlanetariumSchedule",
+        },
+      },
+      Map: "Map",
+    },
+  },
+};
 
 function NavigationPageNavigator() {
   return (
@@ -133,17 +168,6 @@ function MapStackNavigator() {
 }
 
 function Navigation() {
-  const linking = {
-    prefixes: [prefix],
-    config: {
-      screens: {
-        Home: "Home",
-        Home2: "Home2",
-        Studio1: "Studio1",
-      },
-    },
-  };
-
   return (
     <NavigationContainer linking={linking}>
       <Tab.Navigator>
@@ -164,7 +188,7 @@ function Navigation() {
           }}
         />
         <Tab.Screen
-          name="Navigation Page"
+          name="NavigationPage"
           component={NavigationPageNavigator}
           options={{
             headerShown: false,
