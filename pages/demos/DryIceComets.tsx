@@ -21,7 +21,7 @@ import DemoSection from "../../components/DemoSection";
 export default function DryIceComets() {
   return (
     <ScrollView>
-      <DemoSection
+      {/* <DemoSection
         displayHeight={300}
         imageUri={
           "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Fish_cladogram.svg/800px-Fish_cladogram.svg.png"
@@ -67,7 +67,7 @@ export default function DryIceComets() {
           </>
         }
       ></DemoSection>
-      {/* https://www.youtube.com/watch?v=2lk874N7AjQ */}
+      https://www.youtube.com/watch?v=2lk874N7AjQ
       <DemoSection
         displayHeight={300}
         imageUri={
@@ -113,7 +113,8 @@ export default function DryIceComets() {
             </Text>
           </>
         }
-      ></DemoSection>
+      ></DemoSection> */}
+      <Text>Dry Ice Commets</Text>
     </ScrollView>
   );
 }

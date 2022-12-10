@@ -53,6 +53,22 @@ function Accord(props) {
           Name: "Dry Ice Ph",
           Path: "Dry Ice Ph",
         },
+        {
+          Name: "Invisible Bells",
+          Path: "Invisible Bells",
+        },
+        {
+          Name: "Spectra Cart",
+          Path: "Spectra Cart",
+        },
+        {
+          Name: "Spectroscopes",
+          Path: "Spectroscopes",
+        },
+        {
+          Name: "Vacuum Chamber",
+          Path: "Vacuum Chamber",
+        },
       ],
     },
     {
@@ -68,6 +84,31 @@ function Accord(props) {
           Name: "Studio 2",
           Path: "Studio 2",
         },
+        {
+          Name: "Studio 3",
+          Path: "Studio 3",
+        },
+
+        {
+          Name: "Observation Deck",
+          Path: "Observation Deck",
+        },
+        {
+          Name: "Touch The Sun",
+          Path: "Touch The Sun",
+        },
+        {
+          Name: "Leah Telescope",
+          Path: "Leah",
+        },
+        {
+          Name: "Nellie Telescope",
+          Path: "Nellie",
+        },
+        {
+          Name: "Rachel Telescope",
+          Path: "Rachel",
+        },
       ],
     },
     {
@@ -82,6 +123,25 @@ function Accord(props) {
         {
           Name: "Show Descriptions",
           Path: "Show Descriptions",
+        },
+        {
+          Name: "Cafe",
+          Path: "Cafe",
+        },
+        {
+          Name: "Calendar",
+          Path: "Calendar",
+        },
+      ],
+    },
+    {
+      title: "Bookmarks",
+
+      number: 3,
+      subsections: [
+        {
+          Name: "Boo Bubbles",
+          Path: "Boo Bubbles",
         },
       ],
     },
@@ -181,30 +241,21 @@ export default function NavigationPage({ navigation }) {
   const DEVICE_WIDTH = Dimensions.get("window").width;
 
   return (
-    <View style={styles.container}>
-      <Image
-        style={[
-          globalStyles.image,
-          {
-            backgroundColor: "#1B2832",
-            width: DEVICE_WIDTH / 1.05,
-            height: 100,
-          },
-        ]}
-        source={require("../assets/images/logo-mobile.png")}
-      />
-      <ScrollView>
-        <Accord nav={navigation} />
-        {/* <Accord nav={navigation} /> */}
-      </ScrollView>
-    </View>
+    <ScrollView
+      style={{ backgroundColor: "white" }}
+      contentContainerStyle={{
+        flex: 1,
+      }}
+    >
+      <Accord nav={navigation} />
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
-    padding: 16,
+    padding: 0,
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
@@ -227,7 +278,6 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    width: 260,
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 20,

@@ -45,28 +45,15 @@ import Rachel from "../pages/exhibits/Telescopes/Rachel";
 //other
 import ShowDescriptions from "../pages/other/ShowDescripstions";
 import PlanetariumTimes from "../pages/other/PlanetariumTimes";
+import Calendar from "../pages/other/Calendar";
 
 //header component
 // import Header from "../components/Header";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
-// npx uri-scheme open exp://192.168.1.121:19000/--/Navigation Page/Studio1 --ios
+// npx uri-scheme open exp://192.168.1.121:19000/--/Studio1 --ios
 const prefix = Linking.createURL("/");
-
-/**
- * 
- * screens: {
-    HomeStack: {
-      screens: {
-        Home: 'home',
-        Profile: 'user',
-      },
-    },
-    Settings: 'settings',
-  },
- * 
- */
 
 const linking: LinkingOptions = {
   prefixes: [prefix],
@@ -92,7 +79,7 @@ const linking: LinkingOptions = {
 function NavigationPageNavigator() {
   return (
     <Stack.Navigator
-      defaultScreenOptions={{ headerShown: false }}
+      defaultScreenOptions={{ headerShown: true }}
       screenOptions={{
         headerTitleStyle: {
           fontFamily: "Futura",
@@ -133,6 +120,7 @@ function NavigationPageNavigator() {
       {/**Other */}
       <Stack.Screen name="Planetarium Schedule" component={PlanetariumTimes} />
       <Stack.Screen name="Show Descriptions" component={ShowDescriptions} />
+      <Stack.Screen name="Calendar" component={Calendar} />
     </Stack.Navigator>
   );
 }
@@ -150,19 +138,38 @@ function HomeStackNavigator() {
 
 function MapStackNavigator() {
   return (
-    <Stack.Navigator defaultScreenOptions={{ headerBackVisible: false }}>
-      <Stack.Screen name="Map Level 1" component={MapObject} />
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Map Level 1"
+        component={MapObject}
+        options={{
+          headerBackVisible: true,
+          headerTitleStyle: globalStyles.titleText,
+        }}
+      />
       <Stack.Screen
         name="Map Level 2"
         component={MapObject2}
-        options={{ headerBackVisible: false }}
+        options={{
+          headerBackVisible: false,
+          headerTitleStyle: globalStyles.titleText,
+        }}
       />
       <Stack.Screen
         name="Map Level 3"
         component={MapObject3}
-        options={{ headerBackVisible: false }}
+        options={{
+          headerBackVisible: false,
+          headerTitleStyle: globalStyles.titleText,
+        }}
       />
-      <Stack.Screen name="Nav" component={NavigationPageNavigator} />
+      <Stack.Screen
+        name="Nav"
+        component={NavigationPageNavigator}
+        options={{
+          headerShown: true,
+        }}
+      />
     </Stack.Navigator>
   );
 }
@@ -196,14 +203,14 @@ function Navigation() {
           }}
         />
 
-        <Tab.Screen
+        {/* <Tab.Screen
           name="About"
           component={ShowDescriptions}
           options={{
             headerShown: false,
             tabBarIcon: () => <Icon name="info" type="evilicons" size={20} />,
           }}
-        />
+        /> */}
       </Tab.Navigator>
     </NavigationContainer>
   );

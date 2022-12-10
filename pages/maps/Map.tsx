@@ -55,14 +55,14 @@ export default function MapObject({ navigation }) {
           bindToBorders={true}
           panBoundaryPadding={200}
           maxZoom={10}
-          minZoom={1}
+          minZoom={0.5}
           contentWidth={100}
           contentHeight={300}
           style={{ borderWidth: 0 }}
         >
           <View style={{ flex: 1, borderWidth: 0, width: DEVICE_WIDTH }}>
             <ImageBackground
-              style={styles.image}
+              style={globalStyles.mapBackgroundImage}
               source={require("../../assets/maps/chabotUpdatedMap1.png")}
             >
               <View style={{ flex: 1 }}>
@@ -141,13 +141,13 @@ export default function MapObject({ navigation }) {
                             modalVisible,
                             Index,
                             3,
-                            positionData.xPos + 100,
-                            positionData.yPos * 3
+                            positionData.xPos,
+                            positionData.yPos + DEVICE_HEIGHT / 3
                           );
                         }}
                         name="location"
                         type="evilicon"
-                        size={20}
+                        size={30}
                       />
                     </View>
                   ))}
@@ -180,12 +180,5 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     marginVertical: 20,
-  },
-  image: {
-    position: "absolute",
-    justifyContent: "center",
-    width: "100%",
-    height: "100%",
-    resizeMode: "contain",
   },
 });

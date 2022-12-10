@@ -23,6 +23,7 @@
     "eas-cli": "^2.6.0",
     "expo": "^46.0.15",
     "expo-app-loading": "~2.1.0",
+    "expo-build-properties": "~0.3.0",
     "expo-cli": "^6.0.6",
     "expo-font": "~10.2.0",
     "expo-linking": "~3.2.2",

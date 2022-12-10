@@ -26,9 +26,9 @@ export default function DryIcePh() {
   return (
     <ScrollView style={styles.scroll}>
       <DemoSection
-        displayHeight={300}
+        displayHeight={700}
         imageUri={
-          "https://m.media-amazon.com/images/I/61y-diS0u7L._CR0,0,1280,675_SR580,306_.jpg"
+          "http://www.sciencelabsupplies.com/images/magictoolbox_cache_from_database/989c0dae0b8564c41c869993173ac374.jpg"
         }
         overlayTitle={"Experiment"}
         displayType={"Text"}
@@ -75,7 +75,7 @@ export default function DryIcePh() {
       <DemoSection
         displayHeight={300}
         imageUri={
-          "https://s3.amazonaws.com/static.wd7.us/3/36/Dry_Ice_Pellets_Subliming.jpg"
+          "https://www.thoughtco.com/thmb/c1K2u-AYBfMjfAcA-AdZAjoJACY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Litmus-PH-58e694155f9b58ef7edbd61d.jpg"
         }
         overlayTitle={"pH Scale"}
         displayType={"Text"}
@@ -94,7 +94,7 @@ export default function DryIcePh() {
         }
       ></DemoSection>
       <DemoSection
-        displayHeight={300}
+        displayHeight={200}
         imageUri={
           "https://s3.amazonaws.com/static.wd7.us/3/36/Dry_Ice_Pellets_Subliming.jpg"
         }
@@ -118,7 +118,7 @@ export default function DryIcePh() {
       <DemoSection
         displayHeight={300}
         imageUri={
-          "https://s3.amazonaws.com/static.wd7.us/3/36/Dry_Ice_Pellets_Subliming.jpg"
+          "https://images.fineartamerica.com/images-medium-large/1-universal-indicator-andrew-lambert-photography.jpg"
         }
         overlayTitle={"Video"}
         displayType={"Video"}

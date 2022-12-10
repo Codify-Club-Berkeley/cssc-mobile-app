@@ -46,10 +46,6 @@ export default function Studio1() {
               padding: 20,
             }}
           >
-            <Text style={[globalStyles.titleText, globalStyles.tealText]}>
-              Studio1
-            </Text>
-
             {/**At some point this will an image carousel */}
             <CarouselCards imageList={Studio1Carousel} />
             <Text style={globalStyles.bodyText}>

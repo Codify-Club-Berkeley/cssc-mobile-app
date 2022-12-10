@@ -27,7 +27,7 @@ const DEVICE_HEIGHT = Dimensions.get("window").height;
 export default function Cladistics() {
   return (
     <ScrollView style={styles.scroll}>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         onPress={() => {
           createStorage();
         }}
@@ -40,7 +40,7 @@ export default function Cladistics() {
         }}
       >
         <Text>get</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       <DemoSection
         displayHeight={300}
         imageUri={
@@ -78,9 +78,9 @@ export default function Cladistics() {
         }
       ></DemoSection>
       <DemoSection
-        displayHeight={300}
+        displayHeight={200}
         imageUri={
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Fish_cladogram.svg/800px-Fish_cladogram.svg.png"
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Darwin%27s_finches_by_Gould.jpg/1200px-Darwin%27s_finches_by_Gould.jpg"
         }
         overlayTitle={"Key Terms"}
         textColor={"black"}
@@ -112,9 +112,9 @@ export default function Cladistics() {
         }
       ></DemoSection>
       <DemoSection
-        displayHeight={300}
+        displayHeight={200}
         imageUri={
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Fish_cladogram.svg/800px-Fish_cladogram.svg.png"
+          "https://skullsite.com/wp-content/uploads/dbimages/large/athyafuligula_s.jpg"
         }
         overlayTitle={"Experiment"}
         textColor={"black"}
@@ -124,23 +124,10 @@ export default function Cladistics() {
             <Text
               style={[globalStyles.subHeaderTextLeft, globalStyles.tealText]}
             >
-              Cladistics
+              Experiment
             </Text>
             <Text style={globalStyles.bodyText}>
-              Cladistics – the science of studying and classifying organisms
-              according to their evolutionary relationships, through a
-              comparison of the organisms’ physical characteristics {"\n"}
-            </Text>
-            <Text
-              style={[globalStyles.subHeaderTextLeft, globalStyles.tealText]}
-            >
-              Evolution
-            </Text>
-            <Text style={globalStyles.bodyText}>
-              Evolution - a theory that the various types of animals and plants
-              have their origin in other preexisting types and that the
-              distinguishable differences are due to modifications in successive
-              generations
+              Match each image with it's corresponding skull. {"\n"}
             </Text>
           </>
         }

@@ -50,13 +50,14 @@ export default function MapObject({ navigation }) {
           bindToBorders={true}
           panBoundaryPadding={200}
           maxZoom={10}
+          minZoom={0.5}
           contentWidth={100}
           contentHeight={300}
           style={{ borderWidth: 0 }}
         >
           <View style={{ flex: 1, borderWidth: 0, width: DEVICE_WIDTH }}>
             <ImageBackground
-              style={styles.image}
+              style={globalStyles.mapBackgroundImage}
               source={require("../../assets/maps/chabotUpdatedMap2.png")}
             >
               <View style={{ flex: 1 }}>
@@ -141,7 +142,7 @@ export default function MapObject({ navigation }) {
                         }}
                         name="location"
                         type="evilicon"
-                        size={20}
+                        size={25}
                       />
                     </View>
                   ))}
@@ -181,5 +182,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "110%",
     resizeMode: "contain",
+    borderWidth: 1,
   },
 });

@@ -1,6 +1,12 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, ScrollView } from "react-native";
+import DemoSection from "../../components/DemoSection";
+import { globalStyles } from "../../GlobalStyles";
 
 export default function Spectroscopes() {
-  return <Text>Spectroscopes</Text>;
+  return (
+    <ScrollView style={globalStyles.demoScrollView}>
+      <DemoSection></DemoSection>
+    </ScrollView>
+  );
 }

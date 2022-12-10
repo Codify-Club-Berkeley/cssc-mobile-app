@@ -5135,6 +5135,7 @@ __metadata:
     eas-cli: ^2.6.0
     expo: ^46.0.15
     expo-app-loading: ~2.1.0
+    expo-build-properties: ~0.3.0
     expo-cli: ^6.0.6
     expo-font: ~10.2.0
     expo-linking: ~3.2.2
@@ -7338,6 +7339,19 @@ __metadata:
     path-browserify: ^1.0.0
     url-parse: ^1.5.9
   checksum: d4576be5afd3b705544af40359c51e2f279044e624b1f03f611a14d35daf7089b2da6a9eac8010c7ae28dc0f69870e66827fb90f74decd75f02452c49e21af8c
+  languageName: node
+  linkType: hard
+
+"expo-build-properties@npm:~0.3.0":
+  version: 0.3.0
+  resolution: "expo-build-properties@npm:0.3.0"
+  dependencies:
+    "@expo/config-plugins": ~5.0.0
+    ajv: ^8.11.0
+    semver: ^7.3.5
+  peerDependencies:
+    expo: "*"
+  checksum: 4ad85aa5f8c02b9a1c6da6f416ea6f9765076cad449b610fcc284081e4e7a31adb1d1f9bc4f1a64b65ee83527c1c335f147e1b7f99eef4d70f78338d5364f885
   languageName: node
   linkType: hard
 

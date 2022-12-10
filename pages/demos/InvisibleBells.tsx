@@ -1,5 +1,5 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, ScrollView } from "react-native";
 import YoutubePlayer from "react-native-youtube-iframe";
 import { globalStyles } from "../../GlobalStyles";
 import Constants from "expo-constants";
@@ -7,12 +7,10 @@ import DemoSection from "../../components/DemoSection";
 
 export default function InvisibleBells() {
   return (
-    <ScrollView style={styles.scroll}>
+    <ScrollView style={globalStyles.demoScrollView}>
       <DemoSection
-        displayHeight={300}
-        imageUri={
-          "https://m.media-amazon.com/images/I/61y-diS0u7L._CR0,0,1280,675_SR580,306_.jpg"
-        }
+        displayHeight={100}
+        imageUri={""}
         overlayTitle={"Materials"}
         displayType={"Text"}
         content={

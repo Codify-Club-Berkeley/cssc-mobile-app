@@ -73,6 +73,20 @@ const globalStyles = StyleSheet.create({
     height: "100%",
     resizeMode: "contain",
   },
+  mapBackgroundImage: {
+    position: "absolute",
+    justifyContent: "center",
+    width: "100%",
+    height: "100%",
+    resizeMode: "contain",
+    borderWidth: 1,
+  },
+  demoScrollView: {
+    flex: 1,
+    backgroundColor: "white",
+    padding: 10,
+    justifyContent: "center",
+  },
 });
 
 export { globalStyles };

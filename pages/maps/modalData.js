@@ -1,4 +1,7 @@
 import * as carouselData from "../../components/carousel/data";
+import { Dimensions } from "react-native";
+const DEVICE_WIDTH = Dimensions.get("window").width;
+const DEVICE_HEIGHT = Dimensions.get("window").height;
 
 export const map1ModalViewData = [
   {
@@ -7,7 +10,7 @@ export const map1ModalViewData = [
     NavLocation: "Studio 1",
     Description:
       "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists.",
-    positionData: { xPos: 200, yPos: 225 },
+    positionData: { xPos: DEVICE_WIDTH / 1.6, yPos: DEVICE_HEIGHT / 3 },
     carousel: carouselData.Studio1Carousel,
     Next: "",
     Previous: "",
@@ -18,7 +21,7 @@ export const map1ModalViewData = [
     NavLocation: "Cafe",
     Description: "The Chabot Cafe",
 
-    positionData: { xPos: 140, yPos: 175 },
+    positionData: { xPos: DEVICE_WIDTH / 2.1, yPos: DEVICE_HEIGHT / 3.8 },
     carousel: carouselData.Studio1Carousel,
     Next: "",
     Previous: "",
@@ -27,10 +30,8 @@ export const map1ModalViewData = [
     Index: 2,
     Name: "Touch The Sun",
     NavLocation: "Touch The Sun",
-    Description:
-      "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists.",
-    "Exhibit Title": "Studio 1",
-    positionData: { xPos: 120, yPos: 280 },
+    Description: "",
+    positionData: { xPos: DEVICE_WIDTH / 2.4, yPos: DEVICE_HEIGHT / 2.5 },
     carousel: carouselData.Studio1Carousel,
     Next: "",
     Previous: "",
@@ -39,10 +40,8 @@ export const map1ModalViewData = [
     Index: 3,
     Name: "Chabot Planetarium",
     NavLocation: "Planetarium Schedule",
-    Description:
-      "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists.",
-    "Exhibit Title": "Studio 1",
-    positionData: { xPos: 220, yPos: 360 },
+    Description: "",
+    positionData: { xPos: DEVICE_WIDTH / 1.5, yPos: DEVICE_HEIGHT / 2 },
     carousel: carouselData.Studio1Carousel,
     Next: "",
     Previous: "",
@@ -55,9 +54,8 @@ export const map2ModalViewData = [
     Name: "Studio 2",
     NavLocation: "Studio 2",
     Description:
-      "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists.",
-
-    positionData: { xPos: 200, yPos: 310 },
+      "Explore how humans are expanding our boundaries by moving farther into the Universe than ever before. With inspiration and content provided by NASA’s Ames Research Center, Caltech’s Jet Propulsion Laboratory, Planet, and SpaceX, the exhibit traces our journey through the cosmos, and where we are headed.",
+    positionData: { xPos: DEVICE_WIDTH / 1.5, yPos: DEVICE_HEIGHT / 2.5 },
     carousel: carouselData.Studio1Carousel,
     Next: "",
     Previous: "",
@@ -66,10 +64,8 @@ export const map2ModalViewData = [
     Index: 1,
     Name: "Chabot Planetarium",
     NavLocation: "Planetarium Schedule",
-    Description:
-      "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists.",
-
-    positionData: { xPos: 235, yPos: 520 },
+    Description: "",
+    positionData: { xPos: DEVICE_WIDTH / 1.5, yPos: DEVICE_HEIGHT / 1.6 },
     carousel: carouselData.Studio1Carousel,
     Next: "",
     Previous: "",
@@ -81,10 +77,8 @@ export const map3ModalViewData = [
     Index: 0,
     Name: "Observation Deck",
     NavLocation: "Observation Deck",
-    Description:
-      "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists.",
-    "Exhibit Title": "Studio 1",
-    positionData: { xPos: 180, yPos: 170 },
+    Description: "",
+    positionData: { xPos: DEVICE_WIDTH / 2, yPos: DEVICE_HEIGHT / 3.8 },
     carousel: carouselData.Studio1Carousel,
     Next: "",
     Previous: "",
@@ -94,9 +88,8 @@ export const map3ModalViewData = [
     Name: "Studio 3",
     NavLocation: "Studio 3",
     Description:
-      "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists.",
-    "Exhibit Title": "Studio 1",
-    positionData: { xPos: 150, yPos: 310 },
+      "What would be different if you lived and worked on another planet? Living and building outside of Earth means leaving behind the life-sustaining features of our world. Our out-of-this world homes need to mimic Earth’s environment, but how will we build them?",
+    positionData: { xPos: DEVICE_WIDTH / 2, yPos: DEVICE_HEIGHT / 2.3 },
     carousel: carouselData.Studio1Carousel,
     Next: "",
     Previous: "",
@@ -105,10 +98,8 @@ export const map3ModalViewData = [
     Index: 2,
     Name: "Nellie",
     NavLocation: "Nellie",
-    Description:
-      "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists.",
-    "Exhibit Title": "Studio 1",
-    positionData: { xPos: 45, yPos: 70 },
+    Description: "",
+    positionData: { xPos: DEVICE_WIDTH / 10, yPos: DEVICE_HEIGHT / 9 },
     carousel: carouselData.Studio1Carousel,
     Next: "",
     Previous: "",
@@ -117,10 +108,8 @@ export const map3ModalViewData = [
     Index: 3,
     Name: "Rachel",
     NavLocation: "Rachel",
-    Description:
-      "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists.",
-    "Exhibit Title": "Studio 1",
-    positionData: { xPos: 50, yPos: 150 },
+    Description: "",
+    positionData: { xPos: DEVICE_WIDTH / 8, yPos: DEVICE_HEIGHT / 4.5 },
     carousel: carouselData.Studio1Carousel,
     Next: "",
     Previous: "",
@@ -129,10 +118,8 @@ export const map3ModalViewData = [
     Index: 4,
     Name: "Leah",
     NavLocation: "Leah",
-    Description:
-      "The NASA Experience is a hands-on exhibition that brings to life the thrilling, challenging and inspiring process of scientific discovery by showcasing the real stories and people at NASA’s Ames Research Center. Visitors step into the role of a NASA scientist through embarking on hands-on challenges, exploring more than 30+ objects that showcase Ames’ past and future, and getting to know real NASA scientists.",
-    "Exhibit Title": "Studio 1",
-    positionData: { xPos: 50, yPos: 230 },
+    Description: "",
+    positionData: { xPos: DEVICE_WIDTH / 8, yPos: DEVICE_HEIGHT / 3.2 },
     carousel: carouselData.Studio1Carousel,
     Next: "",
     Previous: "",
