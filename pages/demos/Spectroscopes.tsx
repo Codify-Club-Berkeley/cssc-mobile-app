@@ -4,9 +4,5 @@ import DemoSection from "../../components/DemoSection";
 import { globalStyles } from "../../GlobalStyles";
 
 export default function Spectroscopes() {
-  return (
-    <ScrollView style={globalStyles.demoScrollView}>
-      <DemoSection></DemoSection>
-    </ScrollView>
-  );
+  return <Text>Spectroscopes</Text>;
 }

@@ -46,7 +46,7 @@ const DEVICE_HEIGHT = Dimensions.get("window").height;
 
 export default function BooBubbles() {
   return (
-    <ScrollView style={globalStyles.demoScrollView}>
+    <ScrollView contentContainerStyle={globalStyles.demoScrollView}>
       <DemoSection
         displayHeight={300}
         imageUri={

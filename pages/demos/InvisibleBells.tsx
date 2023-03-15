@@ -7,7 +7,7 @@ import DemoSection from "../../components/DemoSection";
 
 export default function InvisibleBells() {
   return (
-    <ScrollView style={globalStyles.demoScrollView}>
+    <ScrollView contentContainerStyle={globalStyles.demoScrollView}> 
       <DemoSection
         displayHeight={100}
         imageUri={""}

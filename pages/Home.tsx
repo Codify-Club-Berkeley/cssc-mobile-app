@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <View style={{ padding: 10, backgroundColor: "#1B2832" }}>
+        <View style={{ padding: 10, backgroundColor: "#1B2832" }}> 
           <Image
             style={[
               globalStyles.image,
