@@ -11,7 +11,7 @@ import {
   TouchableOpacity,
   Pressable,
 } from "react-native";
-import { useFonts } from "expo-font";
+import { processFontFamily, useFonts } from "expo-font";
 import {
   Studio1Carousel,
   TouchTheSunCarousel,
@@ -42,26 +42,70 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <View style={{ padding: 10, backgroundColor: "#1B2832" }}> 
-          <Image
+        <View style={{ height: 108, padding: 0, backgroundColor: "#1B2832" }}>
+        <Image
             style={[
               globalStyles.image,
-              { width: DEVICE_WIDTH / 1.1, height: 100 },
+              { width: DEVICE_WIDTH / 1, height: 60, marginTop: 25}, 
             ]}
             source={require("../assets/images/logo-mobile.png")}
           />
+          
         </View>
-        <Text style={styles.description}>
-          Home of NASA Ames Visitor Center, Chabot Space & Science Center is a
-          non-profit science center that serves Oakland and the greater Bay Area
-          with an Observatory, Planetarium, exhibition galleries and more.
-        </Text>
+        
+            <Image
+                style={[
+                  globalStyles.image,
+                  {width: '100%', height: undefined, aspectRatio: 2.65, opacity: .75, backgroundColor: "#000000",  }
+                ]}
+                source={require("../assets/images/chabot_home_header.png")}
+            />
+          
+          
+      
+        <View style={{justifyContent: "center", 
+                      position: "absolute", 
+                      left: 20, marginTop: 213, 
+                      height: 250, 
+                      width: '90%', 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+            <Text style={globalStyles.titleText}>
+              Welcome!
+              </Text>
+            <Text style={globalStyles.headerText}>  
+              Founded in 1883 as an astronomical observatory, 
+              Chabot is located on 13 trail-laced acres in Oakland's 
+              Redwood Regional Park within the largest stand of coastal 
+              redwoods in the East Bay.
+            </Text>
+            <Pressable style={[styles.button, {width: '80%', height: 45, borderRadius: 50}]}>
+                
+              <Text style={styles.buttonText}>Get Tickets{"\n"}</Text>
+
+            </Pressable>
+        
+        </View>
+        
+        <View style={{height: 100}}>
+
+
+        </View>
         {/* <CarouselCards/> */}
         <View
           style={{
             flexDirection: "row",
             justifyContent: "space-evenly",
             paddingBottom: 20,
+            marginTop: 150,
           }}
         >
           <Pressable
