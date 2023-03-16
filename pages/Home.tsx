@@ -25,6 +25,7 @@ import { Icon } from "react-native-elements";
 
 import { globalStyles } from "../GlobalStyles";
 import { Link } from "@react-navigation/native";
+import { assets } from "../react-native.config";
 
 export default function Home() {
   const [settings, setSettings] = useState("english");
@@ -87,20 +88,377 @@ export default function Home() {
               Redwood Regional Park within the largest stand of coastal 
               redwoods in the East Bay.
             </Text>
-            <Pressable style={[styles.button, {width: '80%', height: 45, borderRadius: 50}]}>
+            <Pressable 
+              style={[styles.button, {width: '90%', height: 50, borderRadius: 50}]}
+              onPress={() =>
+              Linking.openURL("https://14884.blackbaudhosting.com/14884/tickets?tab=3&txobjid=3d868201-c3eb-4a0c-9dd5-2ba9d2a188e4")
+              }
+              >
                 
-              <Text style={styles.buttonText}>Get Tickets{"\n"}</Text>
-
+              <Text style={[styles.buttonText, {fontSize: 20}]}>Get Tickets{"\n"}</Text>
+              
             </Pressable>
         
         </View>
-        
-        <View style={{height: 100}}>
 
+        <View style={{height: 700}}>
+          <Text style={{fontFamily: "Futura", fontSize: 28, marginTop: 250, paddingLeft: 20}}>
+              Shows Happening Today
+          </Text>
+
+          <ScrollView horizontal={true}>
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 30, 
+                      left: 20, 
+                      right: 20,
+                      height: 310, 
+                      width: 205, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 20, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             height: undefined,
+                             aspectRatio: 1.01, 
+                             marginTop: -12,
+                             backgroundColor: "#000000", 
+                             borderRadius: 20, 
+                             borderWidth: 0.5}
+                            ]
+                          }
+                          source={"../assets/images/astronauts.jpg"}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 10, marginTop: 0}]}>
+                          What does it take to be part of this incredible journey?
+                           Experience a rocket launch from inside the body 
+                           of an astronaut.
+                          
+                           </Text>
+                        
+
+                           <Pressable 
+                              style={[
+                                styles.button, 
+                                {width: '70%', 
+                                height: 25, 
+                                borderRadius: 50, 
+                                padding: 6}
+                              ]
+                            }
+                          >
+                
+                              <Text style={[
+                                styles.buttonText, 
+                                {fontSize: 10}
+                              ]
+                            }
+                          >
+                                  Learn More{"\n"}
+                                  
+                              </Text>
+              
+            </Pressable>
+
+
+            </View>
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 30, 
+                      left: 20, 
+                      height: 310, 
+                      width: 205, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 20, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             height: undefined,
+                             aspectRatio: 1.01, 
+                             marginTop: -12,
+                             backgroundColor: "#000000", 
+                             borderRadius: 20, 
+                             borderWidth: 0.5}
+                            ]
+                          }
+                          source={"../assets/images/astronauts"}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 10, marginTop: 0}]}>
+                          An exciting exploration of dark matter, from the Big Bang
+                           to its anticipated discovery at the Large Hadron Collider.
+                           Lorem ipsum dolor. 
+                          
+                           </Text>
+                        
+
+                           <Pressable 
+                              style={[
+                                styles.button, 
+                                {width: '70%', 
+                                height: 25, 
+                                borderRadius: 50, 
+                                padding: 6,
+                                }
+                              ]
+                            }
+                          >
+                
+                              <Text style={[
+                                styles.buttonText, 
+                                {fontSize: 10}
+                              ]
+                            }
+                          >
+                                  Learn More{"\n"}
+                                  
+                              </Text>
+              
+            </Pressable>
+
+
+            </View>
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 30, 
+                      left: 20, 
+                      height: 310, 
+                      width: 205, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 20, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             height: undefined,
+                             aspectRatio: 1.01, 
+                             marginTop: -12,
+                             backgroundColor: "#000000", 
+                             borderRadius: 20, 
+                             borderWidth: 0.5}
+                            ]
+                          }
+                          source={"../assets/images/astronauts"}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 10, marginTop: 0}]}>
+                          The story unfolds as a conversation between a curious young 
+                          child and the Moon - Luna - over the course of a night, 
+                          from moonrise to moonset.
+                          
+                           </Text>
+                        
+
+                           <Pressable 
+                              style={[
+                                styles.button, 
+                                {width: '70%', 
+                                height: 25, 
+                                borderRadius: 50, 
+                                padding: 6}
+                              ]
+                            }
+                          >
+                
+                              <Text style={[
+                                styles.buttonText, 
+                                {fontSize: 10}
+                              ]
+                            }
+                          >
+                                  Learn More{"\n"}
+                                  
+                              </Text>
+              
+            </Pressable>
+
+
+            </View>
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 30, 
+                      left: 20, 
+                      height: 310, 
+                      width: 205, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 20, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             height: undefined,
+                             aspectRatio: 1.01, 
+                             marginTop: -12,
+                             backgroundColor: "#000000", 
+                             borderRadius: 20, 
+                             borderWidth: 0.5}
+                            ]
+                          }
+                          source={"../assets/images/astronauts"}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 10, marginTop: 0}]}>
+                        Lorem ipsum dolor sit amet, eam dicant splendide eu. Cu sonet 
+                        omnesque ponderum vim, eum ex augue suscipiantur, graeco 
+                        invenire te sit.
+                          
+                           </Text>
+                        
+
+                           <Pressable 
+                              style={[
+                                styles.button, 
+                                {width: '70%', 
+                                height: 25, 
+                                borderRadius: 50, 
+                                padding: 6}
+                              ]
+                            }
+                          >
+                
+                              <Text style={[
+                                styles.buttonText, 
+                                {fontSize: 10}
+                              ]
+                            }
+                          >
+                                  Learn More{"\n"}
+                                  
+                              </Text>
+              
+            </Pressable>
+
+
+            </View>
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 30, 
+                      left: 20, 
+                      height: 310, 
+                      width: 205, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 20, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             height: undefined,
+                             aspectRatio: 1.01, 
+                             marginTop: -12,
+                             backgroundColor: "#000000", 
+                             borderRadius: 20, 
+                             borderWidth: 0.5}
+                            ]
+                          }
+                          source={"../assets/images/astronauts"}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 10, marginTop: 0}]}>
+                          Lorem ipsum dolor sit amet, eam dicant splendide eu. Cu sonet 
+                          omnesque ponderum vim, eum ex augue suscipiantur, graeco 
+                          invenire te sit.
+                          
+                           </Text>
+                        
+
+                           <Pressable 
+                              style={[
+                                styles.button, 
+                                {width: '70%', 
+                                height: 25, 
+                                borderRadius: 50, 
+                                padding: 6}
+                              ]
+                            }
+                          >
+                
+                              <Text style={[
+                                styles.buttonText, 
+                                {fontSize: 10}
+                              ]
+                            }
+                          >
+                                  Learn More{"\n"}
+                                  
+                              </Text>
+              
+            </Pressable>
+
+
+            </View>
+
+            <View style={{width: 20}}>
+
+            </View>
+
+          </ScrollView>
 
         </View>
+
+        <View style={{height: 200, opacity: 0}}>
+
+        </View>
+        
         {/* <CarouselCards/> */}
-        <View
+        {/* <View
           style={{
             flexDirection: "row",
             justifyContent: "space-evenly",
@@ -147,7 +505,8 @@ export default function Home() {
           >
             <Text style={styles.buttonText}>Chabot Website</Text>
           </Pressable>
-        </View>
+        </View> */}
+
         <View
           style={{
             flexDirection: "row",
@@ -249,16 +608,15 @@ const styles = StyleSheet.create({
   description: {
     padding: 10,
     fontFamily: "Futura",
-    fontSize: 14,
-    alignSelf: "center",
-    textAlign: "center",
+    fontSize: 10,
+    textAlign: "left",
   },
   button: {
     fontFamily: "Futura",
     fontWeight: "600",
     fontSize: 16,
     color: "black",
-    backgroundColor: "#00a6b9",
+    backgroundColor: "#1B2832",
     padding: 10,
 
     alignSelf: "center",
