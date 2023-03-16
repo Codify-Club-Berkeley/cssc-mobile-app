@@ -30,8 +30,8 @@ import {
   nav,
 } from "../../functions/map-functions";
 import { map1ModalViewData } from "./modalData";
-/*import 'react-native-get-random-values'
-import { v4 as uuidv4 } from 'uuid';*/
+// import 'react-native-get-random-values'
+// import { v4 as uuidv4 } from 'uuid';
 
 export default function MapObject({ navigation }) {
   const DEVICE_WIDTH = Dimensions.get("window").width;
