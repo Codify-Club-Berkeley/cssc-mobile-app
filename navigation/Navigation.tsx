@@ -46,6 +46,7 @@ import Rachel from "../pages/exhibits/Telescopes/Rachel";
 import ShowDescriptions from "../pages/other/ShowDescripstions";
 import PlanetariumTimes from "../pages/other/PlanetariumTimes";
 import Calendar from "../pages/other/Calendar";
+import Header from "../components/Header";
 
 //header component
 // import Header from "../components/Header";
@@ -79,12 +80,10 @@ const linking: LinkingOptions = {
 function NavigationPageNavigator() {
   return (
     <Stack.Navigator
-      defaultScreenOptions={{ headerShown: true }}
+      defaultScreenOptions={{ headerShown: false }}
       screenOptions={{
-        headerTitleStyle: {
-          fontFamily: "Futura",
-          fontSize: 20,
-        },
+        
+        headerShown: true
       }}
     >
       <Stack.Screen name="Navigation Page" component={NavigationPage} />
@@ -126,11 +125,13 @@ function NavigationPageNavigator() {
 }
 function HomeStackNavigator() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen
-        name="Home Page"
+        name="Home"
         component={Home}
-        options={{ headerTitleStyle: globalStyles.titleText }}
+        
+        
+        //options={{ headerTitleStyle: globalStyles.titleText }}
       />
     </Stack.Navigator>
   );
@@ -183,6 +184,7 @@ function Navigation() {
           component={HomeStackNavigator}
           options={{
             headerShown: false,
+          
             tabBarIcon: () => <Icon name="home" type="evilicons" size={20} />,
           }}
         />
