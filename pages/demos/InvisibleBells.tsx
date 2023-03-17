@@ -1,13 +1,34 @@
 import React from "react";
-import { Text, ScrollView } from "react-native";
+import { Text, ScrollView, View, Image, Dimensions } from "react-native";
 import YoutubePlayer from "react-native-youtube-iframe";
 import { globalStyles } from "../../GlobalStyles";
 import Constants from "expo-constants";
 import DemoSection from "../../components/DemoSection";
 
+const DEVICE_WIDTH = Dimensions.get("window").width;
+const DEVICE_HEIGHT = Dimensions.get("window").height;
+
 export default function InvisibleBells() {
   return (
-    <ScrollView contentContainerStyle={globalStyles.demoScrollView}> 
+    <View>
+      <View style={{ height: 130, padding: 0, backgroundColor: "#1B2832" }}>
+        <Image
+            style={[
+              globalStyles.image,
+              { width: DEVICE_WIDTH / 1, height: 55, marginTop: 55}, 
+            ]}
+            source={require("../../assets/images/logo-mobile.png")}
+          />
+          
+        </View>
+    <ScrollView contentContainerStyle={{
+      //flex: 1,
+      backgroundColor: "white",
+      padding: 10,
+      justifyContent: "center",
+      height: 1150,
+      }}>
+
       <DemoSection
         displayHeight={100}
         imageUri={""}
@@ -139,6 +160,13 @@ export default function InvisibleBells() {
           </>
         }
       ></DemoSection>
+
+      <View style={{height: 160}}>
+
+      </View>
+
     </ScrollView>
+    
+    </View>
   );
 }

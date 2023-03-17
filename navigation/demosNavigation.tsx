@@ -25,7 +25,7 @@ import { useState } from "react";
 import { Icon, Tab } from "react-native-elements";
 
 import { globalStyles } from "../GlobalStyles";
-import { Link, NavigationContainer } from "@react-navigation/native";
+import { Link, NavigationContainer, useNavigation } from "@react-navigation/native";
 import { assets } from "../react-native.config";
 import BooBubbles from "../pages/demos/BooBubbles";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -202,6 +202,8 @@ export default function demosNavigation() {
   const DEVICE_WIDTH = Dimensions.get("window").width;
   const DEVICE_HEIGHT = Dimensions.get("window").height;
 
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <ScrollView 
@@ -225,7 +227,7 @@ export default function demosNavigation() {
 
           <ScrollView horizontal={false} style={{height: 1000}}>
 
-          <Pressable 
+          <TouchableOpacity 
               style={[
                 styles.button, 
                 {width: '100%', 
@@ -234,6 +236,8 @@ export default function demosNavigation() {
                 padding: 0}
               ]
             }     
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Boo Bubbles")}
             >
 
             <View style={{justifyContent: "center", 
@@ -278,12 +282,12 @@ export default function demosNavigation() {
                         
             </View>
                 
-          </Pressable>
+          </TouchableOpacity>
 
 
             
 
-          <Pressable 
+          <TouchableOpacity 
               style={[
                 styles.button, 
                 {width: '100%', 
@@ -291,7 +295,9 @@ export default function demosNavigation() {
                 borderRadius: 0, 
                 padding: 0}
               ]
-            }            
+            }     
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Cladistics")}       
             >
 
             <View style={{justifyContent: "center", 
@@ -335,10 +341,10 @@ export default function demosNavigation() {
                            </Text>
                         
             </View>
-          </Pressable>
+          </TouchableOpacity>
 
 
-          <Pressable 
+          <TouchableOpacity 
               style={[
                 styles.button, 
                 {width: '100%', 
@@ -346,7 +352,9 @@ export default function demosNavigation() {
                 borderRadius: 0, 
                 padding: 0}
               ]
-            }            
+            }   
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Dry Ice Comets")}         
             >
 
             <View style={{justifyContent: "center", 
@@ -390,10 +398,10 @@ export default function demosNavigation() {
                            </Text>
                         
             </View>
-          </Pressable>
+          </TouchableOpacity>
 
         
-          <Pressable 
+          <TouchableOpacity 
               style={[
                 styles.button, 
                 {width: '100%', 
@@ -401,7 +409,9 @@ export default function demosNavigation() {
                 borderRadius: 0, 
                 padding: 0}
               ]
-            }            
+            }       
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Dry Ice Ph")} 
             >
 
             <View style={{justifyContent: "center", 
@@ -445,9 +455,9 @@ export default function demosNavigation() {
                            </Text>
                         
             </View>
-          </Pressable>
+          </TouchableOpacity>
 
-          <Pressable 
+          <TouchableOpacity 
               style={[
                 styles.button, 
                 {width: '100%', 
@@ -455,7 +465,9 @@ export default function demosNavigation() {
                 borderRadius: 0, 
                 padding: 0}
               ]
-            }            
+            }       
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Invisible Bells")}     
             >
 
             <View style={{justifyContent: "center", 
@@ -499,7 +511,7 @@ export default function demosNavigation() {
                            </Text>
                         
             </View>
-          </Pressable>
+          </TouchableOpacity>
 
         </ScrollView>
 
@@ -558,19 +570,15 @@ export default function demosNavigation() {
             </View>
           </Pressable>
 
-  
-    
-        <View style={{height: 50}}>
-
-        </View>
 
         <Text style={styles.connect}>Connect with Chabot</Text>
 
         <View style={{ flexDirection: "row", justifyContent: "space-evenly" }}>
-          <Pressable
+          <TouchableOpacity
             onPress={() =>
               WebBrowser.openBrowserAsync("https://twitter.com/ChabotSpace")
             }
+            activeOpacity={0.5}
           >
             <Icon
               name="twitter"
@@ -578,13 +586,14 @@ export default function demosNavigation() {
               size={40}
               //tvParallaxProperties={undefined}
             />
-          </Pressable>
-          <Pressable
+          </TouchableOpacity>
+          <TouchableOpacity
             onPress={() =>
               WebBrowser.openBrowserAsync(
                 "https://www.facebook.com/ChabotSpace/"
               )
             }
+            activeOpacity={0.5}
           >
             <Icon
               name="facebook"
@@ -592,14 +601,14 @@ export default function demosNavigation() {
               size={40}
               //tvParallaxProperties={undefined}
             />
-          </Pressable>
-          <Pressable
+          </TouchableOpacity>
+          <TouchableOpacity
             onPress={() =>
               WebBrowser.openBrowserAsync(
                 "https://www.instagram.com/chabotspace/"
               )
             }
-            style={{zIndex: 0.5}}
+            activeOpacity={0.5}
           >
             <Icon
               name="instagram"
@@ -607,7 +616,7 @@ export default function demosNavigation() {
               size={40}
               //tvParallaxProperties={undefined}
             />
-          </Pressable>
+          </TouchableOpacity>
         </View>
 
 

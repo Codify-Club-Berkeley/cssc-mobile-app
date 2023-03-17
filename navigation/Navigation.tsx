@@ -73,6 +73,7 @@ import PlanetariumTimes from "../pages/other/PlanetariumTimes";
 //calendar
 import ChabotCalendar from "../pages/ChabotCalendar";
 import Header from "../components/Header";
+import { setStatusBarBackgroundColor, StatusBar } from "expo-status-bar";
 
 //header component
 // import Header from "../components/Header";
@@ -165,8 +166,10 @@ function HomeStackNavigator() {
         component={Home}
         
         
-        //options={{ headerTitleStyle: globalStyles.titleText }}
       />
+
+    <Stack.Screen name="Show Descriptions" component={ShowDescriptions} />
+
     </Stack.Navigator>
   );
 }
@@ -176,16 +179,17 @@ function DemosStackNavigator() {
   const DEVICE_HEIGHT = Dimensions.get("window").height;
   return (
       <Stack.Navigator
-        defaultScreenOptions={{ headerShown: false }}
+        defaultScreenOptions={{ headerShown: false}}
         screenOptions={{
           
-          headerShown: false
+          headerShown: false,
         }}
       >
   
         <Stack.Screen name="Demos" component={demosNavigation}/>
        {/**Demos */}
-        <Stack.Screen name="Boo Bubbles" component={BooBubbles} />
+        <Stack.Screen name="Boo Bubbles" component={BooBubbles} 
+        />
         <Stack.Screen name="Cladistics" component={Cladistics} />
         <Stack.Screen name="Dry Ice Comets" component={DryIceComets} />
         <Stack.Screen name="Dry Ice Ph" component={DryIcePh} />
@@ -262,7 +266,7 @@ function Navigation() {
           options={{
             headerShown: false,
           
-            tabBarIcon: () => <Icon name="home" type="evilicons" size={20} />,
+            tabBarIcon: () => <Icon name="home" type="ionicon" size={25} color={"#1B2832"}/>,
           }}
         />
         <Tab.Screen
@@ -270,7 +274,7 @@ function Navigation() {
           component={MapStackNavigator}
           options={{
             headerShown: false,
-            tabBarIcon: () => <Icon name="map" type="evilicons" size={20} />,
+            tabBarIcon: () => <Icon name="location" type="ionicon" size={25} color={"#1B2832"}/>,
           }}
         />
         <Tab.Screen
@@ -278,7 +282,7 @@ function Navigation() {
           component={NavigationPageNavigator}
           options={{
             headerShown: false,
-            tabBarIcon: () => <Icon name="search" type="evilicons" size={20} />,
+            tabBarIcon: () => <Icon name="search" type="evilicons" size={25} color={"#1B2832"}/>,
           }}
         />
         <Tab.Screen
@@ -287,7 +291,7 @@ function Navigation() {
           options={{
             headerShown: false,
           
-            tabBarIcon: () => <Icon name="link" type="evilicons" size={20} />,
+            tabBarIcon: () => <Icon name="calendar" type="ionicon" size={25} color={"#1B2832"}/>,
           }}
         />
         <Tab.Screen
@@ -296,7 +300,7 @@ function Navigation() {
           options={{
             headerShown: false,
 
-            tabBarIcon: () => <Icon name="flag" type="evilicons" size={20} />,
+            tabBarIcon: () => <Icon name="science" type="materials" size={30} color={"#1B2832"}/>,
           }}
         />
 

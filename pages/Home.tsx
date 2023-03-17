@@ -24,8 +24,9 @@ import { useState } from "react";
 import { Icon } from "react-native-elements";
 
 import { globalStyles } from "../GlobalStyles";
-import { Link } from "@react-navigation/native";
+import { Link, useNavigation } from "@react-navigation/native";
 import { assets } from "../react-native.config";
+import ShowDescriptions from "./other/ShowDescripstions";
 
 export default function Home() {
   const [settings, setSettings] = useState("english");
@@ -37,6 +38,9 @@ export default function Home() {
   if (!fontsLoaded) {
     return null;
   }
+
+  const navigation = useNavigation();
+
   const DEVICE_WIDTH = Dimensions.get("window").width;
   const DEVICE_HEIGHT = Dimensions.get("window").height;
   //#1B2832 another Chabot Website Color
@@ -91,15 +95,16 @@ export default function Home() {
               redwoods in the East Bay.
             </Text>
 
-            <Pressable 
+            <TouchableOpacity 
               style={[styles.button, {width: '90%', height: 50, borderRadius: 50}]}
               onPress={() => Linking.openURL("https://14884.blackbaudhosting.com/14884/tickets?tab=3&txobjid=3d868201-c3eb-4a0c-9dd5-2ba9d2a188e4")
                 }
+              activeOpacity={0.8}
               >
                 
               <Text style={[styles.buttonText, {fontSize: 20}]}>Get Tickets{"\n"}</Text>
               
-            </Pressable>
+            </TouchableOpacity>
         
         </View>
 
@@ -132,7 +137,7 @@ export default function Home() {
                             {width: "100%", 
                              height: undefined,
                              aspectRatio: 1.01, 
-                             marginTop: -12,
+                             marginTop: -10,
                              backgroundColor: "#000000", 
                              borderRadius: 20, 
                             }
@@ -142,8 +147,13 @@ export default function Home() {
 
 
                         </Image>
+
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -40, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                          Astronaut
+                          
+                           </Text>
                         
-                        <Text style={[styles.description, {padding: 10, marginTop: 0}]}>
+                        <Text style={[styles.description, {padding: 10, marginTop: 15}]}>
                           What does it take to be part of this incredible journey?
                            Experience a rocket launch from inside the body 
                            of an astronaut.
@@ -151,7 +161,7 @@ export default function Home() {
                            </Text>
                         
 
-                           <Pressable 
+                           <TouchableOpacity 
                               style={[
                                 styles.button, 
                                 {width: '70%', 
@@ -160,6 +170,7 @@ export default function Home() {
                                 padding: 6}
                               ]
                             }
+                            activeOpacity={0.8}
                             
                           >
                 
@@ -173,7 +184,7 @@ export default function Home() {
                                   
                               </Text>
               
-            </Pressable>
+            </TouchableOpacity>
 
 
             </View>
@@ -210,8 +221,13 @@ export default function Home() {
 
 
                         </Image>
+
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 5, marginTop: -40, fontSize: 17, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                          Phantom of the Universe
+                          
+                           </Text>
                         
-                        <Text style={[styles.description, {padding: 10, marginTop: 0}]}>
+                        <Text style={[styles.description, {padding: 10, marginTop: 18}]}>
                           An exciting exploration of dark matter, from the Big Bang
                            to its anticipated discovery at the Large Hadron Collider.
                            Lorem ipsum dolor. 
@@ -219,7 +235,7 @@ export default function Home() {
                            </Text>
                         
 
-                           <Pressable 
+                           <TouchableOpacity 
                               style={[
                                 styles.button, 
                                 {width: '70%', 
@@ -229,6 +245,7 @@ export default function Home() {
                                 }
                               ]
                             }
+                            activeOpacity={0.8}
                           >
                 
                               <Text style={[
@@ -241,7 +258,7 @@ export default function Home() {
                                   
                               </Text>
               
-            </Pressable>
+            </TouchableOpacity>
 
 
             </View>
@@ -268,7 +285,7 @@ export default function Home() {
                             {width: "100%", 
                              height: undefined,
                              aspectRatio: 1.01, 
-                             marginTop: -12,
+                             marginTop: -10,
                              backgroundColor: "#000000", 
                              borderRadius: 20, 
                             }
@@ -278,8 +295,13 @@ export default function Home() {
 
 
                         </Image>
+
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -40, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                          Lunaverse
+                          
+                           </Text>
                         
-                        <Text style={[styles.description, {padding: 10, marginTop: 0}]}>
+                        <Text style={[styles.description, {padding: 10, marginTop: 15}]}>
                           The story unfolds as a conversation between a curious young 
                           child and the Moon - Luna - over the course of a night, 
                           from moonrise to moonset.
@@ -287,7 +309,7 @@ export default function Home() {
                            </Text>
                         
 
-                           <Pressable 
+                           <TouchableOpacity 
                               style={[
                                 styles.button, 
                                 {width: '70%', 
@@ -296,6 +318,7 @@ export default function Home() {
                                 padding: 6}
                               ]
                             }
+                            activeOpacity={0.8}
                           >
                 
                               <Text style={[
@@ -308,7 +331,7 @@ export default function Home() {
                                   
                               </Text>
               
-            </Pressable>
+            </TouchableOpacity>
 
 
             </View>
@@ -335,7 +358,7 @@ export default function Home() {
                             {width: "100%", 
                              height: undefined,
                              aspectRatio: 1.01, 
-                             marginTop: -12,
+                             marginTop: -10,
                              backgroundColor: "#000000", 
                              borderRadius: 20, 
                             }
@@ -345,16 +368,20 @@ export default function Home() {
 
 
                         </Image>
+
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -40, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                          Sunstruck
+                          
+                           </Text>
                         
-                        <Text style={[styles.description, {padding: 10, marginTop: 0}]}>
-                        Lorem ipsum dolor sit amet, eam dicant splendide eu. Cu sonet 
-                        omnesque ponderum vim, eum ex augue suscipiantur, graeco 
-                        invenire te sit.
+                        <Text style={[styles.description, {padding: 10, marginTop: 15}]}>
+                        Explore the sun in all its glory in this fulldome show. Sunstruck 
+                        takes us on a journey to discover the wonders of our magnificent sun.
                           
                            </Text>
                         
 
-                           <Pressable 
+                           <TouchableOpacity 
                               style={[
                                 styles.button, 
                                 {width: '70%', 
@@ -363,6 +390,7 @@ export default function Home() {
                                 padding: 6}
                               ]
                             }
+                            activeOpacity={0.8}
                           >
                 
                               <Text style={[
@@ -375,7 +403,7 @@ export default function Home() {
                                   
                               </Text>
               
-            </Pressable>
+            </TouchableOpacity>
 
 
             </View>
@@ -402,7 +430,7 @@ export default function Home() {
                             {width: "100%", 
                              height: undefined,
                              aspectRatio: 1.01, 
-                             marginTop: -12,
+                             marginTop: -10,
                              backgroundColor: "#000000", 
                              borderRadius: 20, 
                             }
@@ -412,8 +440,13 @@ export default function Home() {
 
 
                         </Image>
+
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -40, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                          Telescope Viewing
+                          
+                           </Text>
                         
-                        <Text style={[styles.description, {padding: 10, marginTop: 0}]}>
+                        <Text style={[styles.description, {padding: 10, marginTop: 15}]}>
                           Lorem ipsum dolor sit amet, eam dicant splendide eu. Cu sonet 
                           omnesque ponderum vim, eum ex augue suscipiantur, graeco 
                           invenire te sit.
@@ -421,7 +454,7 @@ export default function Home() {
                            </Text>
                         
 
-                           <Pressable 
+                           <TouchableOpacity 
                               style={[
                                 styles.button, 
                                 {width: '70%', 
@@ -430,6 +463,7 @@ export default function Home() {
                                 padding: 6}
                               ]
                             }
+                            activeOpacity={0.8}
                           >
                 
                               <Text style={[
@@ -442,7 +476,7 @@ export default function Home() {
                                   
                               </Text>
               
-            </Pressable>
+            </TouchableOpacity>
 
 
             </View>
@@ -455,11 +489,14 @@ export default function Home() {
 
           <View style={{height: 10}}></View> 
 
-          <Pressable style={[styles.button, {width: '80%', height: 50, borderRadius: 50, margin: 0}]}>
+          <TouchableOpacity style={[styles.button, {width: '80%', height: 50, borderRadius: 50, margin: 0}]}
+                     activeOpacity={0.8}
+                     onPress={() => navigation.navigate("Show Descriptions")}
+            >
 
           <Text style={[styles.buttonText, {fontSize: 20}]}>View All Shows{"\n"}</Text>
 
-          </Pressable>
+          </TouchableOpacity>
 
         
 
@@ -497,7 +534,7 @@ export default function Home() {
                             {width: "100%", 
                              height: undefined,
                              aspectRatio: 1.01, 
-                             marginTop: -12,
+                             marginTop: -10,
                              backgroundColor: "#000000", 
                              borderRadius: 20, 
                             }
@@ -507,8 +544,13 @@ export default function Home() {
 
 
                         </Image>
+
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -40, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                          Lorem Ipsum
+                          
+                           </Text>
                         
-                        <Text style={[styles.description, {padding: 10, marginTop: 0}]}>
+                        <Text style={[styles.description, {padding: 10, marginTop: 15}]}>
                         Lorem ipsum dolor sit amet, eam dicant splendide eu. Cu sonet 
                           omnesque ponderum vim, eum ex augue suscipiantur, graeco 
                           invenire te sit.
@@ -516,7 +558,7 @@ export default function Home() {
                            </Text>
                         
 
-                           <Pressable 
+                           <TouchableOpacity 
                               style={[
                                 styles.button, 
                                 {width: '70%', 
@@ -525,7 +567,7 @@ export default function Home() {
                                 padding: 6}
                               ]
                             }
-                            
+                            activeOpacity={0.8}
                           >
                 
                               <Text style={[
@@ -538,7 +580,7 @@ export default function Home() {
                                   
                               </Text>
               
-            </Pressable>
+            </TouchableOpacity>
 
 
             </View>
@@ -565,7 +607,7 @@ export default function Home() {
                             {width: "100%", 
                              height: undefined,
                              aspectRatio: 1.01, 
-                             marginTop: -12,
+                             marginTop: -10,
                              backgroundColor: "#000000", 
                              borderRadius: 20, 
                             }
@@ -576,7 +618,12 @@ export default function Home() {
 
                         </Image>
                         
-                        <Text style={[styles.description, {padding: 10, marginTop: 0}]}>
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -40, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                          Lorem Ipsum
+                          
+                           </Text>
+
+                        <Text style={[styles.description, {padding: 10, marginTop: 15}]}>
                         Lorem ipsum dolor sit amet, eam dicant splendide eu. Cu sonet 
                           omnesque ponderum vim, eum ex augue suscipiantur, graeco 
                           invenire te sit. 
@@ -584,7 +631,7 @@ export default function Home() {
                            </Text>
                         
 
-                           <Pressable 
+                           <TouchableOpacity 
                               style={[
                                 styles.button, 
                                 {width: '70%', 
@@ -594,6 +641,7 @@ export default function Home() {
                                 }
                               ]
                             }
+                            activeOpacity={0.8}
                           >
                 
                               <Text style={[
@@ -606,7 +654,7 @@ export default function Home() {
                                   
                               </Text>
               
-            </Pressable>
+            </TouchableOpacity>
 
 
             </View>
@@ -633,7 +681,7 @@ export default function Home() {
                             {width: "100%", 
                              height: undefined,
                              aspectRatio: 1.01, 
-                             marginTop: -12,
+                             marginTop: -10,
                              backgroundColor: "#000000", 
                              borderRadius: 20, 
                             }
@@ -643,8 +691,13 @@ export default function Home() {
 
 
                         </Image>
+
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -40, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                          Lorem Ipsum
+                          
+                           </Text>
                         
-                        <Text style={[styles.description, {padding: 10, marginTop: 0}]}>
+                        <Text style={[styles.description, {padding: 10, marginTop: 15}]}>
                         Lorem ipsum dolor sit amet, eam dicant splendide eu. Cu sonet 
                           omnesque ponderum vim, eum ex augue suscipiantur, graeco 
                           invenire te sit.
@@ -652,7 +705,7 @@ export default function Home() {
                            </Text>
                         
 
-                           <Pressable 
+                           <TouchableOpacity 
                               style={[
                                 styles.button, 
                                 {width: '70%', 
@@ -661,6 +714,7 @@ export default function Home() {
                                 padding: 6}
                               ]
                             }
+                            activeOpacity={0.8}
                           >
                 
                               <Text style={[
@@ -673,7 +727,7 @@ export default function Home() {
                                   
                               </Text>
               
-            </Pressable>
+            </TouchableOpacity>
           
           </View>
 
@@ -773,10 +827,11 @@ export default function Home() {
         <Text style={styles.connect}>Connect with Chabot</Text>
 
         <View style={{ flexDirection: "row", justifyContent: "space-evenly" }}>
-          <Pressable
+          <TouchableOpacity
             onPress={() =>
               WebBrowser.openBrowserAsync("https://twitter.com/ChabotSpace")
             }
+            activeOpacity={0.5}
           >
             <Icon
               name="twitter"
@@ -784,13 +839,14 @@ export default function Home() {
               size={40}
               //tvParallaxProperties={undefined}
             />
-          </Pressable>
-          <Pressable
+          </TouchableOpacity>
+          <TouchableOpacity
             onPress={() =>
               WebBrowser.openBrowserAsync(
                 "https://www.facebook.com/ChabotSpace/"
               )
             }
+            activeOpacity={0.5}
           >
             <Icon
               name="facebook"
@@ -798,14 +854,14 @@ export default function Home() {
               size={40}
               //tvParallaxProperties={undefined}
             />
-          </Pressable>
-          <Pressable
+          </TouchableOpacity>
+          <TouchableOpacity
             onPress={() =>
               WebBrowser.openBrowserAsync(
                 "https://www.instagram.com/chabotspace/"
               )
             }
-            style={{zIndex: 0.5}}
+            activeOpacity={0.5}
           >
             <Icon
               name="instagram"
@@ -813,7 +869,7 @@ export default function Home() {
               size={40}
               //tvParallaxProperties={undefined}
             />
-          </Pressable>
+          </TouchableOpacity>
         </View>
 
 
