@@ -42,12 +42,13 @@ export default function Home() {
   //#1B2832 another Chabot Website Color
   return (
     <View style={styles.container}>
-      <ScrollView>
-        <View style={{ height: 108, padding: 0, backgroundColor: "#1B2832" }}>
+      <ScrollView 
+        bounces={true}>
+        <View style={{ height: 130, padding: 0, backgroundColor: "#1B2832" }}>
         <Image
             style={[
               globalStyles.image,
-              { width: DEVICE_WIDTH / 1, height: 60, marginTop: 25}, 
+              { width: DEVICE_WIDTH / 1, height: 55, marginTop: 55}, 
             ]}
             source={require("../assets/images/logo-mobile.png")}
           />
@@ -82,17 +83,18 @@ export default function Home() {
             <Text style={globalStyles.titleText}>
               Welcome!
               </Text>
-            <Text style={globalStyles.headerText}>  
+
+            <Text style={[globalStyles.headerText, {marginBottom: 5}]}>  
               Founded in 1883 as an astronomical observatory, 
               Chabot is located on 13 trail-laced acres in Oakland's 
               Redwood Regional Park within the largest stand of coastal 
               redwoods in the East Bay.
             </Text>
+
             <Pressable 
               style={[styles.button, {width: '90%', height: 50, borderRadius: 50}]}
-              onPress={() =>
-              Linking.openURL("https://14884.blackbaudhosting.com/14884/tickets?tab=3&txobjid=3d868201-c3eb-4a0c-9dd5-2ba9d2a188e4")
-              }
+              onPress={() => Linking.openURL("https://14884.blackbaudhosting.com/14884/tickets?tab=3&txobjid=3d868201-c3eb-4a0c-9dd5-2ba9d2a188e4")
+                }
               >
                 
               <Text style={[styles.buttonText, {fontSize: 20}]}>Get Tickets{"\n"}</Text>
@@ -101,12 +103,11 @@ export default function Home() {
         
         </View>
 
-        <View style={{height: 700}}>
-          <Text style={{fontFamily: "Futura", fontSize: 28, marginTop: 250, paddingLeft: 20}}>
+          <Text style={{fontFamily: "Futura", fontSize: 28, marginTop: 240, paddingLeft: 20}}>
               Shows Happening Today
           </Text>
 
-          <ScrollView horizontal={true}>
+          <ScrollView horizontal={true} style={{height: 380}}>
 
             <View style={{justifyContent: "center", 
                       margin: 10,
@@ -134,10 +135,10 @@ export default function Home() {
                              marginTop: -12,
                              backgroundColor: "#000000", 
                              borderRadius: 20, 
-                             borderWidth: 0.5}
+                            }
                             ]
                           }
-                          source={"../assets/images/astronauts.jpg"}>
+                          source={require("../assets/images/astronaut-mars-collage.jpg")}>
 
 
                         </Image>
@@ -159,6 +160,7 @@ export default function Home() {
                                 padding: 6}
                               ]
                             }
+                            
                           >
                 
                               <Text style={[
@@ -201,10 +203,10 @@ export default function Home() {
                              marginTop: -12,
                              backgroundColor: "#000000", 
                              borderRadius: 20, 
-                             borderWidth: 0.5}
+                            }
                             ]
                           }
-                          source={"../assets/images/astronauts"}>
+                          source={require("../assets/images/universe-projection.jpg")}>
 
 
                         </Image>
@@ -269,10 +271,10 @@ export default function Home() {
                              marginTop: -12,
                              backgroundColor: "#000000", 
                              borderRadius: 20, 
-                             borderWidth: 0.5}
+                            }
                             ]
                           }
-                          source={"../assets/images/astronauts"}>
+                          source={require("../assets/images/crescent-moon.jpg")}>
 
 
                         </Image>
@@ -336,10 +338,10 @@ export default function Home() {
                              marginTop: -12,
                              backgroundColor: "#000000", 
                              borderRadius: 20, 
-                             borderWidth: 0.5}
+                            }
                             ]
                           }
-                          source={"../assets/images/astronauts"}>
+                          source={require("../assets/images/sun-at-sea.jpg")}>
 
 
                         </Image>
@@ -403,10 +405,10 @@ export default function Home() {
                              marginTop: -12,
                              backgroundColor: "#000000", 
                              borderRadius: 20, 
-                             borderWidth: 0.5}
+                            }
                             ]
                           }
-                          source={"../assets/images/astronauts"}>
+                          source={require("../assets/images/chabot-telescopes.jpg")}>
 
 
                         </Image>
@@ -445,15 +447,246 @@ export default function Home() {
 
             </View>
 
-            <View style={{width: 20}}>
+            <View style={{width: 40}}>
 
             </View>
 
           </ScrollView>
 
+          <View style={{height: 10}}></View> 
+
+          <Pressable style={[styles.button, {width: '80%', height: 50, borderRadius: 50, margin: 0}]}>
+
+          <Text style={[styles.buttonText, {fontSize: 20}]}>View All Shows{"\n"}</Text>
+
+          </Pressable>
+
+        
+
+        <View style={{height: 50}}>
+
         </View>
 
-        <View style={{height: 200, opacity: 0}}>
+        
+          <Text style={{fontFamily: "Futura", fontSize: 28, marginTop: 0, paddingLeft: 20}}>
+              Current Exhibitions
+          </Text>
+
+          <ScrollView horizontal={true} style={{height: 380}}>
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 30, 
+                      left: 20, 
+                      right: 20,
+                      height: 310, 
+                      width: 205, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 20, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             height: undefined,
+                             aspectRatio: 1.01, 
+                             marginTop: -12,
+                             backgroundColor: "#000000", 
+                             borderRadius: 20, 
+                            }
+                            ]
+                          }
+                          source={require("../assets/images/chabot.jpg")}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 10, marginTop: 0}]}>
+                        Lorem ipsum dolor sit amet, eam dicant splendide eu. Cu sonet 
+                          omnesque ponderum vim, eum ex augue suscipiantur, graeco 
+                          invenire te sit.
+                          
+                           </Text>
+                        
+
+                           <Pressable 
+                              style={[
+                                styles.button, 
+                                {width: '70%', 
+                                height: 25, 
+                                borderRadius: 50, 
+                                padding: 6}
+                              ]
+                            }
+                            
+                          >
+                
+                              <Text style={[
+                                styles.buttonText, 
+                                {fontSize: 10}
+                              ]
+                            }
+                          >
+                                  Learn More{"\n"}
+                                  
+                              </Text>
+              
+            </Pressable>
+
+
+            </View>
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 30, 
+                      left: 20, 
+                      height: 310, 
+                      width: 205, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 20, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             height: undefined,
+                             aspectRatio: 1.01, 
+                             marginTop: -12,
+                             backgroundColor: "#000000", 
+                             borderRadius: 20, 
+                            }
+                            ]
+                          }
+                          source={require("../assets/images/chabot-deck.jpg")}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 10, marginTop: 0}]}>
+                        Lorem ipsum dolor sit amet, eam dicant splendide eu. Cu sonet 
+                          omnesque ponderum vim, eum ex augue suscipiantur, graeco 
+                          invenire te sit. 
+                          
+                           </Text>
+                        
+
+                           <Pressable 
+                              style={[
+                                styles.button, 
+                                {width: '70%', 
+                                height: 25, 
+                                borderRadius: 50, 
+                                padding: 6,
+                                }
+                              ]
+                            }
+                          >
+                
+                              <Text style={[
+                                styles.buttonText, 
+                                {fontSize: 10}
+                              ]
+                            }
+                          >
+                                  Learn More{"\n"}
+                                  
+                              </Text>
+              
+            </Pressable>
+
+
+            </View>
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 30, 
+                      left: 20, 
+                      height: 310, 
+                      width: 205, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 20, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             height: undefined,
+                             aspectRatio: 1.01, 
+                             marginTop: -12,
+                             backgroundColor: "#000000", 
+                             borderRadius: 20, 
+                            }
+                            ]
+                          }
+                          source={require("../assets/images/chabot-activities.jpg")}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 10, marginTop: 0}]}>
+                        Lorem ipsum dolor sit amet, eam dicant splendide eu. Cu sonet 
+                          omnesque ponderum vim, eum ex augue suscipiantur, graeco 
+                          invenire te sit.
+                          
+                           </Text>
+                        
+
+                           <Pressable 
+                              style={[
+                                styles.button, 
+                                {width: '70%', 
+                                height: 25, 
+                                borderRadius: 50, 
+                                padding: 6}
+                              ]
+                            }
+                          >
+                
+                              <Text style={[
+                                styles.buttonText, 
+                                {fontSize: 10}
+                              ]
+                            }
+                          >
+                                  Learn More{"\n"}
+                                  
+                              </Text>
+              
+            </Pressable>
+          
+          </View>
+
+            
+
+            <View style={{width: 40}}>
+
+            </View>
+
+          </ScrollView>
+
+
+        <View style={{height: 0, opacity: 0}}>
 
         </View>
         
@@ -507,6 +740,11 @@ export default function Home() {
           </Pressable>
         </View> */}
 
+        
+        
+
+        
+
         <View
           style={{
             flexDirection: "row",
@@ -518,24 +756,24 @@ export default function Home() {
           <View style={{ flexDirection: "column", flex: 1 }}>
             <Text style={styles.header}>Hours</Text>
             <Text style={styles.bodyText}>
-              Wednesday-Sunday 10 a.m.-5 p.m.{"\n"}
-              First Friday of the Month: 6-10 p.m. {"\n"}
-              Closed Monday and Tuesday {"\n"}
+              Wednesday-Sunday:{"\n"}10 AM - 5 PM{"\n"}
+              First Friday of the Month: {"\n"}6 PM - 10 PM {"\n"}
+              Monday and Tuesday: {"\n"} Closed
             </Text>
           </View>
           <View style={{ flexDirection: "column", flex: 1 }}>
             <Text style={styles.header}>Visit</Text>
             <Text style={styles.bodyText}>
-              10000 Skyline Blvd. Oakland, {"\n"}
+              10000 Skyline Blvd. {"\n"}Oakland, 
               California 94619 {"\n"}(510) 336 - 7300
             </Text>
           </View>
         </View>
 
-        <Text style={styles.connect}>Connect With Chabot</Text>
+        <Text style={styles.connect}>Connect with Chabot</Text>
 
-        <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
-          <TouchableOpacity
+        <View style={{ flexDirection: "row", justifyContent: "space-evenly" }}>
+          <Pressable
             onPress={() =>
               WebBrowser.openBrowserAsync("https://twitter.com/ChabotSpace")
             }
@@ -544,10 +782,10 @@ export default function Home() {
               name="twitter"
               type="entypo"
               size={40}
-              tvParallaxProperties={undefined}
+              //tvParallaxProperties={undefined}
             />
-          </TouchableOpacity>
-          <TouchableOpacity
+          </Pressable>
+          <Pressable
             onPress={() =>
               WebBrowser.openBrowserAsync(
                 "https://www.facebook.com/ChabotSpace/"
@@ -558,24 +796,42 @@ export default function Home() {
               name="facebook"
               type="entypo"
               size={40}
-              tvParallaxProperties={undefined}
+              //tvParallaxProperties={undefined}
             />
-          </TouchableOpacity>
-          <TouchableOpacity
+          </Pressable>
+          <Pressable
             onPress={() =>
               WebBrowser.openBrowserAsync(
                 "https://www.instagram.com/chabotspace/"
               )
             }
+            style={{zIndex: 0.5}}
           >
             <Icon
               name="instagram"
               type="entypo"
               size={40}
-              tvParallaxProperties={undefined}
+              //tvParallaxProperties={undefined}
             />
-          </TouchableOpacity>
+          </Pressable>
         </View>
+
+
+        <Image style={[globalStyles.image,
+                            {width: "100%", 
+                             height: undefined,
+                             aspectRatio: 1.01, 
+                             marginTop: -5,
+                             marginBottom: -100,
+                             //backgroundColor: "#FFFFFF"
+                            } 
+                             //borderRadius: 20, 
+                             //borderWidth: 0.5}
+                            ]
+                          }
+                          source={require("../assets/images/trees.png")}>
+
+        </Image>
       </ScrollView>
     </View>
   );
@@ -631,7 +887,14 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     fontSize: 12,
     alignSelf: "flex-start",
-    fontColor: "white",
+    fontColor: "black",
+  },
+  footerText: {
+    fontFamily: "Futura",
+    fontWeight: "600",
+    fontSize: 12,
+    alignSelf: "flex-start",
+    fontColor: "#000000", 
   },
   information: {
     flexDirection: "row",

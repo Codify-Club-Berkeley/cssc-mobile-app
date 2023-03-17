@@ -1,12 +1,35 @@
 import { registerRootComponent } from "expo";
 import React from "react";
-import { Text, Image } from "react-native";
 import { LinkingOptions, NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import * as Linking from "expo-linking";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Icon } from "react-native-elements/dist/icons/Icon";
+
 import { globalStyles } from "../GlobalStyles";
+
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  ScrollView,
+  Image,
+  Dimensions,
+  TouchableOpacity,
+  Pressable,
+} from "react-native";
+import { processFontFamily, useFonts } from "expo-font";
+import {
+  Studio1Carousel,
+  TouchTheSunCarousel,
+} from "../components/carousel/data";
+import * as WebBrowser from "expo-web-browser";
+
+import { useState } from "react";
+
+import { Link } from "@react-navigation/native";
+import { assets } from "../react-native.config";
 
 //page imports
 //general
@@ -17,6 +40,7 @@ import MapObject from "../pages/maps/Map";
 import MapObject2 from "../pages/maps/Map2";
 import MapObject3 from "../pages/maps/Map3";
 import NavigationPage from "./NavigationPage";
+import demosNavigation from "./demosNavigation";
 
 //demos
 
@@ -45,7 +69,10 @@ import Rachel from "../pages/exhibits/Telescopes/Rachel";
 //other
 import ShowDescriptions from "../pages/other/ShowDescripstions";
 import PlanetariumTimes from "../pages/other/PlanetariumTimes";
-import Calendar from "../pages/other/Calendar";
+
+//calendar
+import ChabotCalendar from "../pages/ChabotCalendar";
+import Header from "../components/Header";
 
 //header component
 // import Header from "../components/Header";
@@ -72,30 +99,35 @@ const linking: LinkingOptions = {
         },
       },
       Map: "Map",
+      ChabotCalendar: "Calendar", 
     },
   },
 };
 
+
+
 function NavigationPageNavigator() {
+  const DEVICE_WIDTH = Dimensions.get("window").width;
+  const DEVICE_HEIGHT = Dimensions.get("window").height;
   return (
+
     <Stack.Navigator
-      defaultScreenOptions={{ headerShown: true }}
+      defaultScreenOptions={{ headerShown: false }}
       screenOptions={{
-        headerTitleStyle: {
-          fontFamily: "Futura",
-          fontSize: 20,
-        },
+        
+        headerShown: true
       }}
     >
+
       <Stack.Screen name="Navigation Page" component={NavigationPage} />
-      {/**Demos */}
+     {/**Demos */}
       <Stack.Screen name="Boo Bubbles" component={BooBubbles} />
       <Stack.Screen
-        name="Cladistics"
-        component={Cladistics}
-        // options={{
-        //   headerTitle: (props) => <Header title="Cladistics"></Header>,
-        // }}
+       name="Cladistics"
+       component={Cladistics}
+       // options={{
+       //   headerTitle: (props) => <Header title="Cladistics"></Header>,
+       // }}
       />
       <Stack.Screen name="Dry Ice Comets" component={DryIceComets} />
       <Stack.Screen name="Dry Ice Ph" component={DryIcePh} />
@@ -120,18 +152,48 @@ function NavigationPageNavigator() {
       {/**Other */}
       <Stack.Screen name="Planetarium Schedule" component={PlanetariumTimes} />
       <Stack.Screen name="Show Descriptions" component={ShowDescriptions} />
-      <Stack.Screen name="Calendar" component={Calendar} />
+    
     </Stack.Navigator>
+  
   );
 }
 function HomeStackNavigator() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen
-        name="Home Page"
+        name="Home"
         component={Home}
-        options={{ headerTitleStyle: globalStyles.titleText }}
+        
+        
+        //options={{ headerTitleStyle: globalStyles.titleText }}
       />
+    </Stack.Navigator>
+  );
+}
+
+function DemosStackNavigator() {
+  const DEVICE_WIDTH = Dimensions.get("window").width;
+  const DEVICE_HEIGHT = Dimensions.get("window").height;
+  return (
+      <Stack.Navigator
+        defaultScreenOptions={{ headerShown: false }}
+        screenOptions={{
+          
+          headerShown: false
+        }}
+      >
+  
+        <Stack.Screen name="Demos" component={demosNavigation}/>
+       {/**Demos */}
+        <Stack.Screen name="Boo Bubbles" component={BooBubbles} />
+        <Stack.Screen name="Cladistics" component={Cladistics} />
+        <Stack.Screen name="Dry Ice Comets" component={DryIceComets} />
+        <Stack.Screen name="Dry Ice Ph" component={DryIcePh} />
+        <Stack.Screen name="Invisible Bells" component={InvisibleBells} />
+        <Stack.Screen name="Spectra Cart" component={SpectraCart} />
+        <Stack.Screen name="Spectroscopes" component={Spectroscopes} />
+        <Stack.Screen name="Vacuum Chamber" component={VacuumChamber} />
+  
     </Stack.Navigator>
   );
 }
@@ -174,6 +236,22 @@ function MapStackNavigator() {
   );
 }
 
+
+function CalendarStackNavigator() {
+  return (
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen
+        name="Calendar"
+        component={ChabotCalendar}
+        
+        
+        //options={{ headerTitleStyle: globalStyles.titleText }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+
 function Navigation() {
   return (
     <NavigationContainer linking={linking}>
@@ -183,6 +261,7 @@ function Navigation() {
           component={HomeStackNavigator}
           options={{
             headerShown: false,
+          
             tabBarIcon: () => <Icon name="home" type="evilicons" size={20} />,
           }}
         />
@@ -195,11 +274,29 @@ function Navigation() {
           }}
         />
         <Tab.Screen
-          name="NavigationPage"
+          name="Navigation"
           component={NavigationPageNavigator}
           options={{
             headerShown: false,
             tabBarIcon: () => <Icon name="search" type="evilicons" size={20} />,
+          }}
+        />
+        <Tab.Screen
+          name="Calendar"
+          component={CalendarStackNavigator}
+          options={{
+            headerShown: false,
+          
+            tabBarIcon: () => <Icon name="link" type="evilicons" size={20} />,
+          }}
+        />
+        <Tab.Screen
+          name="Demos"
+          component={DemosStackNavigator}
+          options={{
+            headerShown: false,
+
+            tabBarIcon: () => <Icon name="flag" type="evilicons" size={20} />,
           }}
         />
 
