@@ -38,153 +38,7 @@ import Spectroscopes from "../pages/demos/Spectroscopes";
 import VacuumChamber from "../pages/demos/VacuumChamber";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Accordion from "react-native-collapsible/Accordion";
-/*
-function Accord(props) {
-  const constantSECTIONS = [
-    {
-      title: "Boo Bubbles",
-      Path: "Boo Bubbles",
-      number: 0,
-      
-        },
-        {
-          title: "Cladistics",
-          Path: "Cladistics",
-        },
-        {
-          title: "Dry Ice Comets",
-          Path: "Dry Ice Comets",
-        },
-        {
-          title: "Dry Ice Ph",
-          Path: "Dry Ice Ph",
-        },
-        {
-          title: "Invisible Bells",
-          Path: "Invisible Bells",
-        },
-        {
-          title: "Spectra Cart",
-          Path: "Spectra Cart",
-        },
-        {
-          title: "Spectroscopes",
-          Path: "Spectroscopes",
-        },
-        {
-          title: "Vacuum Chamber",
-          Path: "Vacuum Chamber",
-        },
-      ];
-    
-  const [SECTIONS, setSECTIONS] = useState(constantSECTIONS);
 
-  const [activeSections, setActive] = useState([]);
-  const header = (section) => {
-    return (
-      <View style={{ padding: 10 }}>
-        <View style={styles.button}>
-          <Text style={styles.buttonText}>{section.title}</Text>
-        </View>
-      </View>
-    );
-  };
-
-  const content = (section) => {
-    return (
-      <View>
-        {section.subsections.map(({ Name, Path }) => (
-          <ButtonView location={Path} text={Name} nav={props.nav}></ButtonView>
-        ))}
-      </View>
-    );
-  };
-
-  const change = (section) => {
-    setActive([section[0]]);
-  };
-
-  return (
-    <Accordion
-      sections={SECTIONS}
-      activeSections={activeSections}
-      renderHeader={header}
-      renderContent={content}
-      onChange={change}
-    />
-  );
-}
-
-function ButtonView(props) {
-  return (
-    <View style={{ paddingTop: 5, paddingBottom: 5, alignSelf: "center" }}>
-      <TouchableOpacity onPress={() => props.nav.navigate(props.location)}>
-        <View style={styles.button2}>
-          <Text style={styles.buttonText}>{props.text}</Text>
-        </View>
-      </TouchableOpacity>
-    </View>
-  );
-}
-
-
-function BooBubblesStackNavigator() {
-  return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen
-        name="Boo Bubbles"
-        component={BooBubbles}
-        
-        
-        //options={{ headerTitleStyle: globalStyles.titleText }}
-      />
-    </Stack.Navigator>
-  );
-}
-
-function CladisticsStackNavigator() {
-  return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen
-        name="Cladistics"
-        component={Cladistics}
-        
-        
-        //options={{ headerTitleStyle: globalStyles.titleText }}
-      />
-    </Stack.Navigator>
-  );
-}
-
-
-function Navigation() {
-  return (
-    <NavigationContainer linking={linking}>
-      <Tab.Navigator>
-        <Tab.Screen
-          name="Boo Bubbles"
-          component={BooBubblesStackNavigator}
-          options={{
-            headerShown: false,
-          
-            tabBarIcon: () => <Icon name="home" type="evilicons" size={20} />,
-          }}
-        />
-        <Tab.Screen
-          name="Cladistics"
-          component={CladisticsStackNavigator}
-          options={{
-            headerShown: false,
-            tabBarIcon: () => <Icon name="map" type="evilicons" size={20} />,
-          }}
-        />
-        
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
-}
-
-*/
 
 
 
@@ -225,7 +79,7 @@ export default function demosNavigation() {
               Demos
           </Text>
 
-          <ScrollView horizontal={false} style={{height: 1000}}>
+          <ScrollView horizontal={false} style={{height: 1600}}>
 
           <TouchableOpacity 
               style={[
@@ -513,10 +367,7 @@ export default function demosNavigation() {
             </View>
           </TouchableOpacity>
 
-        </ScrollView>
-
-
-        <Pressable 
+          <TouchableOpacity 
               style={[
                 styles.button, 
                 {width: '100%', 
@@ -524,7 +375,9 @@ export default function demosNavigation() {
                 borderRadius: 0, 
                 padding: 0}
               ]
-            }            
+            }       
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Spectra Cart")}     
             >
 
             <View style={{justifyContent: "center", 
@@ -557,7 +410,7 @@ export default function demosNavigation() {
                             }
                             ]
                           }
-                          source={require("../assets/images/studio1astrobees.jpg")}>
+                          source={require("../assets/images/VIPER_lunar_rover.jpg")}>
 
 
                         </Image>
@@ -568,7 +421,135 @@ export default function demosNavigation() {
                            </Text>
                         
             </View>
-          </Pressable>
+          </TouchableOpacity>
+
+
+          <TouchableOpacity 
+              style={[
+                styles.button, 
+                {width: '100%', 
+                height: 0, 
+                borderRadius: 0, 
+                padding: 0}
+              ]
+            }       
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Spectroscopes")}     
+            >
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 1170, 
+                      left: 20, 
+                      right: 20,
+                      height: 150, 
+                      width: 320, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             resizeMode:"cover",
+                             height: undefined,
+                             aspectRatio: 321/150, 
+                             marginTop: -16,
+                             backgroundColor: "#000000", 
+                             borderRadius: 10, 
+                            }
+                            ]
+                          }
+                          source={require("../assets/images/VIPER_lunar_rover.jpg")}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                          Spectroscopes
+                          
+                           </Text>
+                        
+            </View>
+          </TouchableOpacity>
+
+
+          <TouchableOpacity 
+              style={[
+                styles.button, 
+                {width: '100%', 
+                height: 0, 
+                borderRadius: 0, 
+                padding: 0}
+              ]
+            }       
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Vacuum Chamber")}     
+            >
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 1360, 
+                      left: 20, 
+                      right: 20,
+                      height: 150, 
+                      width: 320, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             resizeMode:"cover",
+                             height: undefined,
+                             aspectRatio: 321/150, 
+                             marginTop: -16,
+                             backgroundColor: "#000000", 
+                             borderRadius: 10, 
+                            }
+                            ]
+                          }
+                          source={require("../assets/images/VIPER_lunar_rover.jpg")}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                          Vacuum Chamber
+                          
+                           </Text>
+                        
+            </View>
+          </TouchableOpacity>
+
+
+
+
+
+
+        </ScrollView>
+
+
+
+
+
+
+
 
 
         <Text style={styles.connect}>Connect with Chabot</Text>

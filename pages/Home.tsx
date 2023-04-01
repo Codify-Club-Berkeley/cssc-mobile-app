@@ -211,7 +211,7 @@ export default function Home() {
                             {width: "100%", 
                              height: undefined,
                              aspectRatio: 1.01, 
-                             marginTop: -12,
+                             marginTop: -10,
                              backgroundColor: "#000000", 
                              borderRadius: 20, 
                             }
@@ -222,7 +222,7 @@ export default function Home() {
 
                         </Image>
 
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 5, marginTop: -40, fontSize: 17, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 5, marginTop: -63, fontSize: 17, color: "black", backgroundColor:"white", opacity: 0.75}]}>
                           Phantom of the Universe
                           
                            </Text>
@@ -441,7 +441,7 @@ export default function Home() {
 
                         </Image>
 
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -40, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -80, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
                           Telescope Viewing
                           
                            </Text>
@@ -545,7 +545,7 @@ export default function Home() {
 
                         </Image>
 
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -40, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -53, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
                           Lorem Ipsum
                           
                            </Text>
@@ -618,7 +618,7 @@ export default function Home() {
 
                         </Image>
                         
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -40, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -53, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
                           Lorem Ipsum
                           
                            </Text>
@@ -692,7 +692,7 @@ export default function Home() {
 
                         </Image>
 
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -40, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -53, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
                           Lorem Ipsum
                           
                            </Text>
