@@ -1,14 +1,12 @@
-import { SafeAreaView, TouchableOpacity, Text } from "react-native";
-
-import React, {Component} from "react";
+import React, {Component } from "react";
 import { useState } from 'react';
-import { WebView } from "react-native-webview";
+import * as RN from "react-native";
 
 import Calendar from 'react-calendar';
 import moment from 'moment'
 
 //import 'react-calendar/dist/Calendar.css';
-
+/*
 export default function ChabotCalendar() {
   
   return (
@@ -23,205 +21,135 @@ export default function ChabotCalendar() {
     );
 
 }
+*/
 
-/*
-import { addMinutes, addHours, subMonths, startOfWeek, endOfWeek, startOfMonth, endOfMonth, addDays, isSameDay, isSameMonth, parse, addMonths, addYears, format } from 'date-fns';
+
 
 class ChabotCalendar extends React.Component {
+  months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+  weekDays = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]; 
+
+  nDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
   state = {
-    currentMonth: new Date(),
-    selectedDate: new Date(),
-  };
-
-  renderHeader() {
-    const dateFormat = "MMMM yyyy";
-
-    return (
-      <div className="header row flex-middle">
-        <div className="col col-start">
-          <div className="icon" onClick={this.prevMonth}>
-            chevron_left
-          </div>
-        </div>
-        <div className="col col-center">
-          <span>{format(this.state.currentMonth, dateFormat)}</span>
-        </div>
-        <div className="col col-end" onClick={this.nextMonth}>
-          <div className="icon">chevron_right</div>
-        </div>
-      </div>
-    );
+    activeDate: new Date(),
+    dateObject: moment().set("month", 1), // placeholder, will be changed when setMonth is ran
   }
 
-  renderDays() {
-    const dateFormat = "dddd";
-    const days = [];
+  setMonth = (month: string) => {  
+    let monthNo = this.months.indexOf(month);// get month number  
+    let dateObject = Object.assign({}, this.state.dateObject);  
+    dateObject = moment(dateObject).set("month", monthNo); // change month value  
+    this.setState({  
+    dateObject: dateObject // add to state  
+    });  
+    };
+ 
+  changeMonth = (n: number) => {
+      this.setState(() => {
+        this.state.activeDate.setMonth(
+          this.state.activeDate.getMonth() + n
+        )
+        return this.state;
+      });
+    } 
 
-    let startDate = startOfWeek(this.state.currentMonth);
-
-    for (let i = 0; i < 7; i++) {
-      days.push(
-        <div className="col col-center" key={i}>
-          {format(addDays(startDate, i), dateFormat, { useAdditionalDayOfYearTokens: true })}
-        </div>
-      );
-    }
-
-    return <Text>{days}</Text>;
+    //needs to be linked to the website and updated regularly 
+  _onPress = (i: number) => {
+      <RN.Text>Events of the Day</RN.Text>
   }
-
-  renderCells() {
-    const { currentMonth, selectedDate } = this.state;
-    const monthStart = startOfMonth(currentMonth);
-    const monthEnd = endOfMonth(monthStart);
-    const startDate = startOfWeek(monthStart);
-    const endDate = endOfWeek(monthEnd);
-
-    const dateFormat = "D";
-    const rows = [];
-
-    let days = [];
-    let day = startDate;
-    let formattedDate = "";
-
-    while (day <= endDate) {
-      for (let i = 0; i < 7; i++) {
-        formattedDate = format(day, dateFormat, { useAdditionalDayOfYearTokens: true });
-        const cloneDay = day;
-        days.push(
-          <div
-            className={`col cell ${
-              !isSameMonth(day, monthStart)
-                ? "disabled"
-                : isSameDay(day, selectedDate) ? "selected" : ""
-            }`}
-            key={day}
-            onClick={() => this.onDateClick(parse(cloneDay))}
-          >
-            <span className="number">{formattedDate}</span>
-            <span className="bg">{formattedDate}</span>
-          </div>
-        );
-        day = addDays(day, 1);
-      }
-      rows.push(
-        <div className="row" key={day}>
-          {days}
-        </div>
-      );
-      days = [];
-    }
-    return <div className="body">{rows}</div>;
-  }
-
-  onDateClick = day => {
-    this.setState({
-      selectedDate: day
-    });
-  };
-
-  nextMonth = () => {
-    this.setState({
-      currentMonth: addMonths(this.state.currentMonth, 1)
-    });
-  };
-
-  prevMonth = () => {
-    this.setState({
-      currentMonth: subMonths(this.state.currentMonth, 1)
-    });
-  };
 
   render() {
+
+    var year = this.state.activeDate.getFullYear();
+    var month = this.state.activeDate.getMonth();
+    var firstDay = new Date(year, month, 1).getDay();
+
+    var maxDays = this.nDays[month];
+    if (month == 1) { // February leap year
+      if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {maxDays += 1;}
+    } 
+    
+    //this is a placeholder, matrix needs to be modified for each month
+    var matrix = [[1, 2, 3, 4, 5, 6, 7], [8, 9, 10, 11, 12, 13, 14], [15, 16, 17, 18, 19, 20, 21], [22, 23, 24, 25, 26, 27, 28], [29, 30]];
+    var rows = [];
+    rows = matrix.map((row, rowIndex) => {
+      var rowItems = row.map((item, colIndex) => {
+        return (
+          <RN.Text
+            style={{
+              flex: 1,
+              height: 200,
+              textAlign: 'center',
+              // Highlight header
+              backgroundColor: rowIndex == 0 ? '#ddd' : '#fff',
+              // Highlight Sundays
+              color: colIndex == 0 ? '#a00' : '#000',
+              // Highlight current date
+              //fontWeight: item == this.state.activeDate.getDate() 
+              //                    ? 'bold': ''
+            }}
+            
+            onPress={() => this._onPress(item)}>
+            
+            {item}
+            
+          </RN.Text>
+        );
+      });
+      return (
+        <RN.View
+          style={{
+            flex: 1,
+            flexDirection: 'row',
+            padding: 15,
+            justifyContent: 'space-around',
+            alignItems: 'center',
+          }}>
+          {rowItems}
+        </RN.View>
+      );
+    }); 
+ 
+    
+
     return (
-      <div className="calendar">
-        {this.renderHeader()}
-        {this.renderDays()}
-        {this.renderCells()}
-      </div>
+      
+      <RN.View>
+
+
+        <RN.Text style={{
+          fontWeight: 'bold',
+          fontSize: 18,
+          marginTop: 100,
+          textAlign: 'center'
+        }}>
+          {this.months[this.state.activeDate.getMonth()]}  {this.state.activeDate.getFullYear()}
+        </RN.Text> 
+        
+        <RN.Button title="Previous"
+         onPress={() => this.changeMonth(-1)}/>
+        <RN.Button title="Next"
+         onPress={() => this.changeMonth(+1)}/>
+
+
+
+        <RN.Text>
+          {rows}
+        </RN.Text>
+
+
+
+        
+      </RN.View>
     );
   }
-}
-
-export default ChabotCalendar;
+} 
 
 
-export default function ChabotCalendar() {
-  const [dateState, setDateState] = useState(new Date())
-  const changeDate = (e) => {
-    setDateState(e)
+export default class App extends React.Component {
+  render() {
+    return <ChabotCalendar/>;
   }
-  return (
-    <>
-      <Calendar 
-      value={dateState}
-      onChange={changeDate}
-      />
-    <p>Current selected date is <b>{moment(dateState).format('MMMM Do YYYY')}</b></p>
-    </>
-  )
-}
-
-
-function ChabotCalendar() {
-  const [date, setDate] = useState(new Date());
-
-  return (
-    <div className='app'>
-      <h1 className='text-center'>React Calendar</h1>
-      <div className='calendar-container'>
-        <Calendar onChange={setDate} value={date} />
-      </div>
-      <p className='text-center'>
-        <span className='bold'>Selected Date:</span>{' '}
-        {date.toDateString()}
-      </p>
-    </div>
-  );
-}
-
-export default ChabotCalendar;
-
-
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components'
-
-const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-const Container = styled.div`
-  width: 300px;
-  border: 1px solid black;
-  margin: 0 auto;
-  box-shadow: 10px 10px 0px black;
-`
-
-const MonthText = styled.div`
-  font-size: 26px;
-  font-weight: bold;
-  text-align: center;
-`
-
-const App = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [dates, setDates] = useState([]);
-  const [calendar, setCalendar] = useState({
-    month: selectedDay.getMonth(),
-    year: selectedDay.getFullYear(),
-  });
-
-
-  useEffect(() => {}, [])
-
-  return (
-    <div style={{ width: '100%', paddingTop: 50 }}>
-      <Container>
-        <MonthText>
-          {months[calendar.month]}
-        </MonthText>
-      </Container>
-    </div>
-  );
-}
-
-export default App;
-*/
+} 
