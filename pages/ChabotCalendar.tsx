@@ -85,13 +85,14 @@ function CalendarMatrix(dateObject: Date) {
           <Text
             style={{
               flex: 1,
-              height: 18,
+              height: 20,
+              fontSize: 13,
               marginTop: 5,
               textAlign: 'center',
               // Highlight header
-              backgroundColor: '#1B2832',
+              backgroundColor: 'white',
               // Highlight Sundays
-              color: 'white',
+              color: 'grey',
               // Highlight current date
               fontWeight: 'bold'
             }}
@@ -117,6 +118,7 @@ function CalendarMatrix(dateObject: Date) {
           style={{
             flex: 1,
             height: 18,
+            fontSize: 13,
             marginTop: 5,
             textAlign: 'center',
             // Highlight header
@@ -139,7 +141,9 @@ function CalendarMatrix(dateObject: Date) {
         style={{
           flex: 1,
           flexDirection: 'row',
-          padding: 15,
+          padding: 20,
+          paddingLeft: 30,
+          paddingRight: 30,
           justifyContent: 'space-around',
           alignItems: 'center',
         }}>
@@ -156,6 +160,8 @@ function CalendarMatrix(dateObject: Date) {
           flex: 1,
           flexDirection: 'row',
           padding: 20,
+          paddingLeft: 30,
+          paddingRight: 30,
           justifyContent: 'space-around',
           alignItems: 'center',
         }}>
@@ -188,14 +194,20 @@ export default function ChabotCalendar() {
   } 
 
   
-  const setMonth = (month: number) => {    
+  const setMonth = (month: number, reset: boolean) => {    
     var newYear = state.getFullYear();
-    if (state.getMonth() === 11 && month === 0) {
-      newYear = newYear + 1;
-    } else if (state.getMonth() === 0 && month === 11) {
-      newYear = newYear - 1;
-    }
     var momentObject = moment().set({'month': month, 'year': newYear}); // change month value  
+
+    if (reset) {
+      momentObject = moment().set({'month': new Date().getMonth(), 'year': new Date().getFullYear()}); // change month value    
+    } else {
+      if (state.getMonth() === 11 && month === 0) {
+        newYear = newYear + 1;
+      } else if (state.getMonth() === 0 && month === 11) {
+        newYear = newYear - 1;
+      }
+    momentObject = moment().set({'month': month, 'year': newYear});
+    } // change month value  
     setState(momentObject.toDate());  // add to state   
     };   
 
@@ -203,12 +215,18 @@ export default function ChabotCalendar() {
     var currentMon = state.getMonth();
     var newMon = (currentMon + n) % 12;
     setState(() => {
-      setMonth(newMon)
-
+      setMonth(newMon, false)
       return state;
     });
 } 
 
+  function resetMonth() {
+    var originalMon = new Date().getMonth();
+    setState(() => {
+      setMonth(originalMon, true)
+      return state;
+    });
+  }
 
 
   return (
@@ -224,33 +242,111 @@ export default function ChabotCalendar() {
             ]}
             source={require("../assets/images/logo-mobile.png")}
           />
-          
+         </View>
+
+        <View style={{justifyContent: "top", 
+                      marginTop: 40, 
+                      left: 20,
+                      height: 380, 
+                      width: 350, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 15, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+        <View style={{
+          flexDirection: 'row',
+          height: 50,
+          width: 350,
+          marginTop: 30, 
+          paddingLeft: 35,
+          paddingRight: 35,
+          left: 0, 
+          right: 20,
+          justifyContent: "space-between"
+          }}>  
+
+
+          <Pressable
+          onPress={() => resetMonth()}
+          style={({pressed}) => [{
+            opacity: pressed ? 0.2 : 1
+          }]}
+        >
+          <View style={styles.button}>
+            <Text style={{
+            fontWeight: 'bold',
+            fontSize: 18,
+            color: 'white',
+            paddingLeft: 0,
+            textAlign: 'center'
+          }}>
+              {months[state.getMonth()]}  {state.getFullYear()}
+            </Text>
+          </View>
+          </Pressable>
+
+          <View style={{
+            flexDirection: 'row',
+            justifyContent: "space-between"
+          }}>
+
+          <Pressable
+          onPress={() => changeMonth(-1)}
+          style={({pressed}) => [{
+            opacity: pressed ? 0.2 : 1
+          }]}
+        >
+          <View style={styles.button}>
+            <Text style={{
+            fontWeight: 'bold',
+            fontSize: 18,
+            color: 'white',
+            paddingLeft: 0,
+            textAlign: 'center'
+          }}>
+              《
+            </Text>
+          </View>
+          </Pressable>
+ 
+        <Pressable
+          onPress={() => changeMonth(+1)}
+          style={({pressed}) => [{
+            opacity: pressed ? 0.2 : 1
+          }]}
+        >
+          <View style={styles.button}>
+            <Text style={{
+            fontWeight: 'bold',
+            fontSize: 18,
+            color: 'white',
+            paddingRight:0,
+            textAlign: 'center'
+          }}>
+              》
+            </Text>
         </View>
-          
-        <Text style={{
-          fontWeight: 'bold',
-          fontSize: 25,
-          marginTop: 20,
-          paddingLeft: 20,
-          textAlign: 'left'
-        }}>
-          {months[state.getMonth()]}  {state.getFullYear()}
-          &emsp;&emsp;
-          <Button title="<"
-          onPress={() => changeMonth(-1)}/>
-          &ensp;
-          <Button title=">"
-          onPress={() => changeMonth(+1)}/>
-        </Text> 
+        </Pressable>
+        </View>
+
+        </View>
 
 
 
         <View>{CalendarMatrix(state)}</View>
-          
+        </View>   
         
       </ScrollView>
       </View>
 
+      
 
   );
 }
