@@ -188,9 +188,14 @@ export default function ChabotCalendar() {
   } 
 
   
-  const setMonth = (month: string) => {  
-    let monthNo = months.indexOf(month);// get month number   
-    var momentObject = moment().set({'month': monthNo, 'year': state.getFullYear()}); // change month value  
+  const setMonth = (month: number) => {    
+    var newYear = state.getFullYear();
+    if (state.getMonth() === 11 && month === 0) {
+      newYear = newYear + 1;
+    } else if (state.getMonth() === 0 && month === 11) {
+      newYear = newYear - 1;
+    }
+    var momentObject = moment().set({'month': month, 'year': newYear}); // change month value  
     setState(momentObject.toDate());  // add to state   
     };   
 
@@ -198,32 +203,11 @@ export default function ChabotCalendar() {
     var currentMon = state.getMonth();
     var newMon = (currentMon + n) % 12;
     setState(() => {
-      setMonth(
-        months[newMon]
-      )
-      if (currentMon + n > 11) {
-        changeYear(+1)
-      } else if (currentMon === 0 && newMon === 11) {
-        changeYear(-1)
-      }
+      setMonth(newMon)
+
       return state;
     });
 } 
-
-  const setYear = (year: number) => {  
-    var momentObject = moment().set({'month': state.getMonth(), 'year': year}); // change year number  
-    setState(momentObject.toDate());  // add to state   
-    };   
-
-  function changeYear(n: number) {
-    setState(() => {
-      setYear(
-        state.getFullYear() + n
-      )
-      return state;
-    });
-  } 
-  
 
 
 
