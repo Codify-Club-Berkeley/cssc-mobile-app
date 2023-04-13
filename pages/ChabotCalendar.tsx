@@ -1,155 +1,344 @@
 import React, {Component } from "react";
 import { useState } from 'react';
-import * as RN from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  ScrollView,
+  Image,
+  Button, 
+  Dimensions,
+  TouchableOpacity,
+  Pressable,
+} from "react-native";
 
 import Calendar from 'react-calendar';
-import moment from 'moment'
+import moment from 'moment';
+import { processFontFamily, useFonts } from "expo-font";
 
-//import 'react-calendar/dist/Calendar.css';
-/*
-export default function ChabotCalendar() {
-  
-  return (
-    //original link to chabot's website calendar
-    <SafeAreaView style={{ flex: 1 }}>
-      <WebView
-        source={{
-          uri: "https://chabotspace.org/events/calendar-view/",
-        }}
-      />
-    </SafeAreaView>
-    );
+import * as Linking from "expo-linking";
+import * as WebBrowser from "expo-web-browser";
+
+import { globalStyles } from "../GlobalStyles";
+import { Link, useNavigation } from "@react-navigation/native";
+import { assets } from "../react-native.config";
+import ShowDescriptions from "./other/ShowDescripstions";
+import { ButtonGroup } from "react-native-elements";
+
+
+
+
+const DEVICE_WIDTH = Dimensions.get("window").width;
+const DEVICE_HEIGHT = Dimensions.get("window").height;
+
+
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+const weekDays = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]; 
+
+var nDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+function buildMatrix(dateObject: Date) {
+  var state =  dateObject;
+  var matrix = []
+  var year = state.getFullYear();
+  var month = state.getMonth();
+  var firstDay = new Date(year, month, 1).getDay();
+
+  var maxDays = nDays[month];
+  if (month == 1) { // February leap year
+    if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+      maxDays += 1;
+    }
+  }
+
+  var d = 1;
+  var currentDay = firstDay;
+
+  for (let x = 0; x < 7; x++) {
+    var row = [];
+    for (let y = 0; y < 7; y++) {
+      if (x === 0 && y < firstDay) {
+        row.push(-1);
+      } else if (x > 0 && d > maxDays) {
+        row.push(-1);
+      } else {
+        row.push(d);
+        d += 1;
+      }
+    }
+    matrix.push(row);
+    if (d > maxDays) {break;}
+  }
+
+  return matrix;
 
 }
-*/
 
 
+function CalendarMatrix(dateObject: Date) {
 
-class ChabotCalendar extends React.Component {
-  months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-  weekDays = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]; 
-
-  nDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-  state = {
-    activeDate: new Date(),
-    dateObject: moment().set("month", 1), // placeholder, will be changed when setMonth is ran
-  }
-
-  setMonth = (month: string) => {  
-    let monthNo = this.months.indexOf(month);// get month number  
-    let dateObject = Object.assign({}, this.state.dateObject);  
-    dateObject = moment(dateObject).set("month", monthNo); // change month value  
-    this.setState({  
-    dateObject: dateObject // add to state  
-    });  
-    };
- 
-  changeMonth = (n: number) => {
-      this.setState(() => {
-        this.state.activeDate.setMonth(
-          this.state.activeDate.getMonth() + n
-        )
-        return this.state;
-      });
-    } 
-
-    //needs to be linked to the website and updated regularly 
-  _onPress = (i: number) => {
-      <RN.Text>Events of the Day</RN.Text>
-  }
-
-  render() {
-
-    var year = this.state.activeDate.getFullYear();
-    var month = this.state.activeDate.getMonth();
-    var firstDay = new Date(year, month, 1).getDay();
-
-    var maxDays = this.nDays[month];
-    if (month == 1) { // February leap year
-      if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {maxDays += 1;}
-    } 
-    
-    //this is a placeholder, matrix needs to be modified for each month
-    var matrix = [[1, 2, 3, 4, 5, 6, 7], [8, 9, 10, 11, 12, 13, 14], [15, 16, 17, 18, 19, 20, 21], [22, 23, 24, 25, 26, 27, 28], [29, 30]];
-    var rows = [];
-    rows = matrix.map((row, rowIndex) => {
-      var rowItems = row.map((item, colIndex) => {
+  var dayHeader = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  var header = dayHeader.map((day) => {
         return (
-          <RN.Text
+          <Text
             style={{
               flex: 1,
-              height: 200,
+              height: 18,
+              marginTop: 5,
               textAlign: 'center',
               // Highlight header
-              backgroundColor: rowIndex == 0 ? '#ddd' : '#fff',
+              backgroundColor: '#1B2832',
               // Highlight Sundays
-              color: colIndex == 0 ? '#a00' : '#000',
+              color: 'white',
               // Highlight current date
-              //fontWeight: item == this.state.activeDate.getDate() 
-              //                    ? 'bold': ''
+              fontWeight: 'bold'
             }}
-            
-            onPress={() => this._onPress(item)}>
-            
-            {item}
-            
-          </RN.Text>
+            >
+            {day}
+          </Text>
+          
         );
-      });
+  });
+
+  var today = new Date();
+  var todayDate = today.getDate;
+  var todayYear = today.getFullYear;
+  var todayMonth = today.getMonth;
+
+  var matrix = buildMatrix(dateObject);
+  var rows = [];
+
+  rows = matrix.map((row, rowIndex) => {
+    var rowItems = row.map((item, colIndex) => {
       return (
-        <RN.View
+        <Text
           style={{
             flex: 1,
-            flexDirection: 'row',
-            padding: 15,
-            justifyContent: 'space-around',
-            alignItems: 'center',
-          }}>
-          {rowItems}
-        </RN.View>
+            height: 18,
+            marginTop: 5,
+            textAlign: 'center',
+            // Highlight header
+            backgroundColor: '#fff',
+            // Highlight Sundays
+            color: '#000',
+            // Highlight current date
+            fontWeight: 'normal'
+          }}
+          //onPress={() => this._onPress(item)}
+          >
+          {item != -1 ? item : ''}
+        </Text>
+        
       );
-    }); 
- 
-    
+    });
 
     return (
-      
-      <RN.View>
-
-
-        <RN.Text style={{
-          fontWeight: 'bold',
-          fontSize: 18,
-          marginTop: 100,
-          textAlign: 'center'
+      <View
+        style={{
+          flex: 1,
+          flexDirection: 'row',
+          padding: 15,
+          justifyContent: 'space-around',
+          alignItems: 'center',
         }}>
-          {this.months[this.state.activeDate.getMonth()]}  {this.state.activeDate.getFullYear()}
-        </RN.Text> 
-        
-        <RN.Button title="Previous"
-         onPress={() => this.changeMonth(-1)}/>
-        <RN.Button title="Next"
-         onPress={() => this.changeMonth(+1)}/>
 
-
-
-        <RN.Text>
-          {rows}
-        </RN.Text>
-
-
-
-        
-      </RN.View>
+        {rowItems}
+      </View>
     );
-  }
-} 
+  }); 
+  
+  return (
+  <View>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: 'row',
+          padding: 20,
+          justifyContent: 'space-around',
+          alignItems: 'center',
+        }}>
+
+        {header}
+      </View>
+
+    {rows}
+    </View>);
+}
 
 
-export default class App extends React.Component {
-  render() {
-    return <ChabotCalendar/>;
-  }
+  
+
+export default function ChabotCalendar() {
+
+
+  const [state, setState] = useState(new Date());
+
+
+  var year = state.getFullYear();
+  var month = state.getMonth();
+  var firstDay = new Date(year, month, 1).getDay();
+
+  var maxDays = nDays[month];
+  if (month == 1) { // February leap year
+    if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+      maxDays += 1;
+    }
+  } 
+
+  
+  const setMonth = (month: string) => {  
+    let monthNo = months.indexOf(month);// get month number   
+    var momentObject = moment().set({'month': monthNo, 'year': state.getFullYear()}); // change month value  
+    setState(momentObject.toDate());  // add to state   
+    };   
+
+  function changeMonth(n: number) {
+    var currentMon = state.getMonth();
+    var newMon = (currentMon + n) % 12;
+    setState(() => {
+      setMonth(
+        months[newMon]
+      )
+      if (currentMon + n > 11) {
+        changeYear(+1)
+      } else if (currentMon === 0 && newMon === 11) {
+        changeYear(-1)
+      }
+      return state;
+    });
 } 
+
+  const setYear = (year: number) => {  
+    var momentObject = moment().set({'month': state.getMonth(), 'year': year}); // change year number  
+    setState(momentObject.toDate());  // add to state   
+    };   
+
+  function changeYear(n: number) {
+    setState(() => {
+      setYear(
+        state.getFullYear() + n
+      )
+      return state;
+    });
+  } 
+  
+
+
+
+  return (
+
+      <View style={styles.container}>
+      <ScrollView 
+        bounces={true}>
+        <View style={{ height: 130, padding: 0, backgroundColor: "#1B2832" }}>
+        <Image
+            style={[
+              globalStyles.image,
+              { width: DEVICE_WIDTH / 1, height: 55, marginTop: 55}, 
+            ]}
+            source={require("../assets/images/logo-mobile.png")}
+          />
+          
+        </View>
+          
+        <Text style={{
+          fontWeight: 'bold',
+          fontSize: 25,
+          marginTop: 20,
+          paddingLeft: 20,
+          textAlign: 'left'
+        }}>
+          {months[state.getMonth()]}  {state.getFullYear()}
+          &emsp;&emsp;
+          <Button title="<"
+          onPress={() => changeMonth(-1)}/>
+          &ensp;
+          <Button title=">"
+          onPress={() => changeMonth(+1)}/>
+        </Text> 
+
+
+
+        <View>{CalendarMatrix(state)}</View>
+          
+        
+      </ScrollView>
+      </View>
+
+
+  );
+}
+ 
+
+
+
+
+
+
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+  },
+  header: {
+    paddingTop: 10,
+    fontFamily: "Futura",
+    fontWeight: "600",
+    fontSize: 20,
+    alignSelf: "flex-start",
+    textAlign: "center",
+    fontColor: "white",
+  },
+  connect: {
+    padding: 10,
+    fontFamily: "Futura",
+    fontWeight: "600",
+    fontSize: 16,
+    alignSelf: "center",
+    textAlign: "center",
+    marginTop: 20,
+  },
+  description: {
+    padding: 10,
+    fontFamily: "Futura",
+    fontSize: 10,
+    textAlign: "left",
+  },
+  button: {
+    fontFamily: "Futura",
+    fontWeight: "600",
+    fontSize: 16,
+    color: "black",
+    backgroundColor: "#1B2832",
+    padding: 10,
+
+    alignSelf: "center",
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: "white",
+    alignSelf: "center",
+  },
+  bodyText: {
+    fontFamily: "Futura",
+    fontWeight: "600",
+    fontSize: 12,
+    alignSelf: "flex-start",
+    fontColor: "black",
+  },
+  footerText: {
+    fontFamily: "Futura",
+    fontWeight: "600",
+    fontSize: 12,
+    alignSelf: "flex-start",
+    fontColor: "#000000", 
+  },
+  information: {
+    flexDirection: "row",
+  },
+});
