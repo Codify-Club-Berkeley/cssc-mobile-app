@@ -39,9 +39,11 @@ const weekDays = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 
 var nDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
+
+
 function buildMatrix(dateObject: Date) {
   var state =  dateObject;
-  var matrix = []
+  var matrix = [];
   var year = state.getFullYear();
   var month = state.getMonth();
   var firstDay = new Date(year, month, 1).getDay();
@@ -56,6 +58,7 @@ function buildMatrix(dateObject: Date) {
   var d = 1;
   var currentDay = firstDay;
 
+
   for (let x = 0; x < 7; x++) {
     var row = [];
     for (let y = 0; y < 7; y++) {
@@ -64,6 +67,12 @@ function buildMatrix(dateObject: Date) {
       } else if (x > 0 && d > maxDays) {
         row.push(-1);
       } else {
+        /*var item = (n: number) => {
+          <View>
+            <Button title={d.toString()}
+            onPress={() => selectDate(d)}/>
+          </View>
+        }*/
         row.push(d);
         d += 1;
       }
@@ -75,6 +84,7 @@ function buildMatrix(dateObject: Date) {
   return matrix;
 
 }
+
 
 
 function CalendarMatrix(dateObject: Date) {
@@ -104,16 +114,61 @@ function CalendarMatrix(dateObject: Date) {
   });
 
   var today = new Date();
-  var todayDate = today.getDate;
-  var todayYear = today.getFullYear;
-  var todayMonth = today.getMonth;
+  var todayDate = today.getDate();
+  var todayYear = today.getFullYear();
+  var todayMonth = today.getMonth();
 
   var matrix = buildMatrix(dateObject);
   var rows = [];
 
+  function highlightToday(item: number) {
+    if (todayDate != item || todayYear != dateObject.getFullYear() || todayMonth != dateObject.getMonth()) {
+      return (
+        <Text
+        style={{
+          flex: 1,
+          height: 18,
+          fontSize: 13,
+          marginTop: 5,
+          textAlign: 'center',
+          // Highlight header
+          backgroundColor: '#fff',
+          // Highlight Sundays
+          color: '#303050',
+          // Highlight current date
+          fontWeight: 'normal'
+        }}>
+        {item != -1 ? item : ''}
+        </Text>)
+    } else {
+      return (            
+      <Text
+        style={{
+          flex: 1,
+          height: 18,
+          fontSize: 13,
+          marginTop: 5,
+          textAlign: 'center',
+          // Highlight header
+          backgroundColor: '#303050',
+          // Highlight Sundays
+          color: 'white',
+          // Highlight current date
+          fontWeight: 'bold'
+        }}>
+        {item}
+      </Text>)
+    }
+  }
+
   rows = matrix.map((row, rowIndex) => {
     var rowItems = row.map((item, colIndex) => {
+      if (todayMonth === dateObject.getMonth()) {
+          return (highlightToday(item))
+      }
+
       return (
+
         <Text
           style={{
             flex: 1,
@@ -180,6 +235,7 @@ export default function ChabotCalendar() {
 
 
   const [state, setState] = useState(new Date());
+  const navigation = useNavigation();
 
 
   var year = state.getFullYear();
@@ -237,6 +293,7 @@ export default function ChabotCalendar() {
       <View style={styles.container}>
       <ScrollView 
         bounces={true}>
+      <ScrollView horizontal={false} style={{height: 1200}}>
         <View style={{ height: 130, padding: 0, backgroundColor: "#1B2832" }}>
         <Image
             style={[
@@ -247,8 +304,25 @@ export default function ChabotCalendar() {
           />
          </View>
 
+
+        <View style={{paddingTop: 35}}>
+          <Text style={{    
+            paddingLeft: 30,
+            fontFamily: "Futura",
+            fontWeight: "600",
+            fontSize: 28,
+            alignSelf: "flex-start",
+            textAlign: "center",
+            color: "black"
+          }}>
+            Calendar
+          </Text>
+        </View>
+
+
+
         <View style={{justifyContent: "flex-start", 
-                      marginTop: 40, 
+                      marginTop: 20, 
                       left: 20,
                       height: 380, 
                       width: 350, 
@@ -286,7 +360,7 @@ export default function ChabotCalendar() {
             <Text style={{
             fontWeight: 'bold',
             fontSize: 18,
-            color: 'black',
+            color: '#303050',
             backgroundColor: 'white',
             paddingTop: 22,
             paddingLeft: 2,
@@ -362,6 +436,357 @@ export default function ChabotCalendar() {
         <View>{CalendarMatrix(state)}</View>
         </View>   
         
+
+        <View style={{marginTop: 35}}>
+          <Text style={{    
+            paddingLeft: 30,
+            fontFamily: "Futura",
+            fontWeight: "600",
+            fontSize: 28,
+            alignSelf: "flex-start",
+            textAlign: "center",
+            color: "black"
+          }}>
+            Exhibitions
+          </Text>
+        </View>
+
+        <ScrollView horizontal={true} style={{height: 200}}>
+        <View style={{
+          height: 200,
+          width: 350,
+          marginTop: 10
+          }}>
+        <TouchableOpacity 
+              style={[
+                styles.button, 
+                {width: '100%', 
+                height: 0, 
+                borderRadius: 0, 
+                padding: 0}
+              ]
+            }     
+            activeOpacity={0.8}
+            onPress={() => null}
+            >
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 10, 
+                      left: 20, 
+                      right: 20,
+                      height: 150, 
+                      width: 320, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={
+                            {width: "100%", 
+                             resizeMode:"cover",
+                             height: undefined,
+                             aspectRatio: 321/150, 
+                             marginTop: -16,
+                             backgroundColor: "#000000", 
+                             borderRadius: 10, 
+                            }
+                            
+                          }
+                          source={require("../assets/images/astronaut-mars-collage.jpg")}>
+
+
+                        </Image>
+
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 5, marginTop: -40, fontSize: 17, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                        Astronaut
+                          
+                           </Text>
+                        
+            </View>
+                
+          </TouchableOpacity>
+
+          </View>
+
+          <View style={{
+          height: 200,
+          width: 350,
+          marginTop: 10
+          }}>
+        <TouchableOpacity 
+              style={[
+                styles.button, 
+                {width: '100%', 
+                height: 0, 
+                borderRadius: 0, 
+                padding: 0}
+              ]
+            }     
+            activeOpacity={0.8}
+            onPress={() => null}
+            >
+
+            <View style={{justifyContent: "center", 
+                      margin: 10, 
+                      left: 20, 
+                      right: 20,
+                      height: 150, 
+                      width: 320, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={
+                            {width: "100%", 
+                             resizeMode:"cover",
+                             height: undefined,
+                             aspectRatio: 321/150, 
+                             marginTop: -16,
+                             backgroundColor: "#000000", 
+                             borderRadius: 10, 
+                            }
+                            
+                          }
+                          source={require("../assets/images/crescent-moon.jpg")}>
+
+
+                        </Image>
+
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 5, marginTop: -40, fontSize: 17, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                        Lunaverse
+                          
+                           </Text>
+                        
+            </View>
+                
+          </TouchableOpacity>
+          </View>
+
+          <View style={{
+          height: 200,
+          width: 350,
+          marginTop: 10
+          }}>
+        <TouchableOpacity 
+              style={[
+                styles.button, 
+                {width: '100%', 
+                height: 0, 
+                borderRadius: 0, 
+                padding: 0}
+              ]
+            }     
+            activeOpacity={0.8}
+            onPress={() => null}
+            >
+
+            <View style={{justifyContent: "center", 
+                      margin: 10, 
+                      left: 20, 
+                      right: 20,
+                      height: 150, 
+                      width: 320, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={
+                            {width: "100%", 
+                             resizeMode:"cover",
+                             height: undefined,
+                             aspectRatio: 321/150, 
+                             marginTop: -16,
+                             backgroundColor: "#000000", 
+                             borderRadius: 10, 
+                            }
+                            
+                          }
+                          source={require("../assets/images/sun-at-sea.jpg")}>
+
+
+                        </Image>
+
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 5, marginTop: -40, fontSize: 17, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                        Sunstruck
+                          
+                           </Text>
+                        
+            </View>
+                
+          </TouchableOpacity>
+          </View>
+
+          </ScrollView>
+
+        <View style={{marginTop: 10}}>
+          <Text style={{    
+            paddingLeft: 30,
+            fontFamily: "Futura",
+            fontWeight: "600",
+            fontSize: 28,
+            alignSelf: "flex-start",
+            textAlign: "center",
+            color: "black"
+          }}>
+            Shows
+          </Text>
+        </View>
+
+        <ScrollView horizontal={true} style={{height: 200}}>
+        <View style={{
+          height: 200,
+          width: 350,
+          marginTop: 10
+          }}>
+          <TouchableOpacity 
+              style={[
+                styles.button, 
+                {width: '100%', 
+                height: 0, 
+                borderRadius: 0, 
+                padding: 0}
+              ]
+            }     
+            activeOpacity={0.8}
+            onPress={() => null}
+            >
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 10, 
+                      left: 20, 
+                      right: 20,
+                      height: 150, 
+                      width: 320, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={
+                            {width: "100%", 
+                             resizeMode:"cover",
+                             height: undefined,
+                             aspectRatio: 321/150, 
+                             marginTop: -16,
+                             backgroundColor: "#000000", 
+                             borderRadius: 10, 
+                            }
+                            
+                          }
+                          source={require("../assets/images/chabot.jpg")}>
+
+
+                        </Image>
+
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 5, marginTop: -40, fontSize: 17, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                        Lorem Ipsum
+                          
+                           </Text>
+                        
+            </View>
+
+                
+          </TouchableOpacity>
+          </View>
+
+
+          <View style={{
+          height: 200,
+          width: 350,
+          marginTop: 10
+          }}>
+          <TouchableOpacity 
+              style={[
+                styles.button, 
+                {width: '100%', 
+                height: 0, 
+                borderRadius: 0, 
+                padding: 0}
+              ]
+            }     
+            activeOpacity={0.8}
+            onPress={() => null}
+            >
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 10, 
+                      left: 20, 
+                      right: 20,
+                      height: 150, 
+                      width: 320, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={
+                            {width: "100%", 
+                             resizeMode:"cover",
+                             height: undefined,
+                             aspectRatio: 321/150, 
+                             marginTop: -16,
+                             backgroundColor: "#000000", 
+                             borderRadius: 10, 
+                            }
+                            
+                          }
+                          source={require("../assets/images/universe-projection.jpg")}>
+
+
+                        </Image>
+
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 5, marginTop: -40, fontSize: 17, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                        Lorem Ipsum
+                          
+                           </Text>
+                        
+            </View>
+
+                
+          </TouchableOpacity>
+          </View>
+          </ScrollView>
+          </ScrollView>
       </ScrollView>
       </View>
 
