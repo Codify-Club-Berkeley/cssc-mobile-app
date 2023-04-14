@@ -92,9 +92,9 @@ function CalendarMatrix(dateObject: Date) {
               // Highlight header
               backgroundColor: 'white',
               // Highlight Sundays
-              color: 'grey',
+              color: '#707080',
               // Highlight current date
-              fontWeight: 'bold'
+              fontWeight: 'normal'
             }}
             >
             {day}
@@ -124,7 +124,7 @@ function CalendarMatrix(dateObject: Date) {
             // Highlight header
             backgroundColor: '#fff',
             // Highlight Sundays
-            color: '#000',
+            color: '#303050',
             // Highlight current date
             fontWeight: 'normal'
           }}
@@ -228,6 +228,9 @@ export default function ChabotCalendar() {
     });
   }
 
+  const leftarrow = '<';
+  const rightarrow = '>';
+  const divider = '_______________________________________________';
 
   return (
 
@@ -244,7 +247,7 @@ export default function ChabotCalendar() {
           />
          </View>
 
-        <View style={{justifyContent: "top", 
+        <View style={{justifyContent: "flex-start", 
                       marginTop: 40, 
                       left: 20,
                       height: 380, 
@@ -264,7 +267,7 @@ export default function ChabotCalendar() {
           flexDirection: 'row',
           height: 50,
           width: 350,
-          marginTop: 30, 
+          marginTop: 10, 
           paddingLeft: 35,
           paddingRight: 35,
           left: 0, 
@@ -279,13 +282,15 @@ export default function ChabotCalendar() {
             opacity: pressed ? 0.2 : 1
           }]}
         >
-          <View style={styles.button}>
+          <View>
             <Text style={{
             fontWeight: 'bold',
             fontSize: 18,
-            color: 'white',
-            paddingLeft: 0,
-            textAlign: 'center'
+            color: 'black',
+            backgroundColor: 'white',
+            paddingTop: 22,
+            paddingLeft: 2,
+            textAlign: 'left'
           }}>
               {months[state.getMonth()]}  {state.getFullYear()}
             </Text>
@@ -303,15 +308,16 @@ export default function ChabotCalendar() {
             opacity: pressed ? 0.2 : 1
           }]}
         >
-          <View style={styles.button}>
+          <View>
             <Text style={{
-            fontWeight: 'bold',
+            fontWeight: 'normal',
             fontSize: 18,
-            color: 'white',
-            paddingLeft: 0,
+            color: '#707080',
+            paddingTop: 20,
+            paddingRight: 15,
             textAlign: 'center'
           }}>
-              《
+              {leftarrow}
             </Text>
           </View>
           </Pressable>
@@ -322,15 +328,17 @@ export default function ChabotCalendar() {
             opacity: pressed ? 0.2 : 1
           }]}
         >
-          <View style={styles.button}>
+          <View>
             <Text style={{
-            fontWeight: 'bold',
+            fontWeight: 'normal',
             fontSize: 18,
-            color: 'white',
-            paddingRight:0,
+            color: '#707080',
+            paddingTop: 20,
+            paddingLeft: 15,
+            paddingRight: 10,
             textAlign: 'center'
           }}>
-              》
+              {rightarrow}
             </Text>
         </View>
         </Pressable>
@@ -338,7 +346,18 @@ export default function ChabotCalendar() {
 
         </View>
 
-
+        <View>
+          <Text style={{
+            fontSize: 10,
+            color: '#707080',
+            paddingLeft: 15,
+            paddingRight: 10,
+            textAlign: 'center'
+          }}>
+            {divider}
+          </Text>
+        </View>
+        
 
         <View>{CalendarMatrix(state)}</View>
         </View>   
@@ -394,7 +413,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     fontSize: 16,
     color: "black",
-    backgroundColor: "#1B2832",
+    backgroundColor: "#999999",
     padding: 10,
 
     alignSelf: "center",
