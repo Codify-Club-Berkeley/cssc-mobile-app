@@ -10,10 +10,11 @@ import {
 import { globalStyles } from "../GlobalStyles";
 import CarouselCards from "./carousel/Carousel";
 import { Studio1Carousel } from "./carousel/data";
-import { Icon } from "react-native-elements";
+import { Icon, Image } from "react-native-elements";
 
 export default function MapDisplay(props: {
   carouselData: any;
+  exhibitImage: string;
   exhibitName: string;
   descriptionText: string;
   handlePress: () => void;
@@ -45,14 +46,25 @@ export default function MapDisplay(props: {
         top: DEVICE_HEIGHT / 2,
         left: 0,
         width: DEVICE_WIDTH,
-        height: DEVICE_HEIGHT * (1 / 2),
-        borderWidth: 12,
+        height: DEVICE_HEIGHT * (0.5),
+        
+        borderWidth: 0,
         borderRadius: 10,
         borderColor: "#00B1BB",
         backgroundColor: "white",
       }}
     >
+      
       <ScrollView>
+      <View style={{height: 150}}>
+      <Image
+                style={[
+                  globalStyles.image,
+                  {width: '100%', height: undefined, aspectRatio: 2.66 }
+                ]}
+                source={require("../assets/images/chabot_home_header.png")}
+            />
+      </View>
         <View
           style={{
             flexDirection: "row",
@@ -80,13 +92,13 @@ export default function MapDisplay(props: {
             <Icon name="close-o" type="evilicon" size={30} />
           </TouchableOpacity>
         </View>
-        <CarouselCards imageList={props.carouselData} />
+        {/* <CarouselCards imageList={props.carouselData} /> */}
         <View style={{ padding: 8 }}>
           <Text style={globalStyles.bodyText}>{props.descriptionText}</Text>
         </View>
       </ScrollView>
       {/**Controls */}
-      <View
+      {/* <View
         style={{
           flexDirection: "row",
           justifyContent: "space-evenly",
@@ -118,7 +130,7 @@ export default function MapDisplay(props: {
           <Icon name="arrow-right" type="evilicon" size={40} />
           <Text style={globalStyles.bodyText}>Next</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
     </View>
   );
 }
