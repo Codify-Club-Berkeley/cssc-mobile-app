@@ -14,11 +14,7 @@ import {
   Button,
 } from "react-native";
 import { processFontFamily, useFonts } from "expo-font";
-import {
-  Studio1Carousel,
-  TouchTheSunCarousel,
-} from "../components/carousel/data";
-import * as Linking from "expo-linking";
+
 import * as WebBrowser from "expo-web-browser";
 
 import { useState } from "react";
@@ -43,7 +39,7 @@ import Accordion from "react-native-collapsible/Accordion";
 
 
 
-export default function demosNavigation() {
+export default function exhibitsNavigation() {
   const [settings, setSettings] = useState("english");
   const [text, onChangeText] = React.useState('Useless Text');
   const [number, onChangeNumber] = React.useState('');
@@ -77,7 +73,7 @@ export default function demosNavigation() {
         </View>
           
         <Text style={{fontFamily: "Futura", fontSize: 28, marginTop: 15, paddingLeft: 20}}>
-              Demos
+              Exhibits
           </Text>
 
         <View>
@@ -101,7 +97,7 @@ export default function demosNavigation() {
 
 
 
-          <ScrollView horizontal={false} style={{height: 1600}}>
+          <ScrollView horizontal={false} style={{height: 1000}}>
 
           <TouchableOpacity 
               style={[
@@ -113,7 +109,7 @@ export default function demosNavigation() {
               ]
             }     
             activeOpacity={0.8}
-            onPress={() => navigation.navigate("Boo Bubbles")}
+            onPress={() => navigation.navigate("NASA Aerospace")}
             >
 
             <View style={{justifyContent: "center", 
@@ -152,7 +148,7 @@ export default function demosNavigation() {
                         </Image>
                         
                         <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
-                          Boo Bubbles
+                          NASA's Aerospace Innovation Journey
                           
                            </Text>
                         
@@ -173,7 +169,7 @@ export default function demosNavigation() {
               ]
             }     
             activeOpacity={0.8}
-            onPress={() => navigation.navigate("Cladistics")}       
+            onPress={() => navigation.navigate("Onion Crew")}       
             >
 
             <View style={{justifyContent: "center", 
@@ -212,7 +208,7 @@ export default function demosNavigation() {
                         </Image>
                         
                         <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
-                          Cladistics
+                            Orion Crew Module and Launch Abort System rocket
                           
                            </Text>
                         
@@ -269,7 +265,7 @@ export default function demosNavigation() {
                         </Image>
                         
                         <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
-                          Dry Ice Comets
+                            Orion Crew Module test model 
                           
                            </Text>
                         
@@ -326,7 +322,7 @@ export default function demosNavigation() {
                         </Image>
                         
                         <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
-                          Dry Ice pH
+                            Ballistics range models  
                           
                            </Text>
                         
@@ -382,184 +378,12 @@ export default function demosNavigation() {
                         </Image>
                         
                         <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
-                          Invisible Bells
+                            Wind Tunnels
                           
                            </Text>
                         
             </View>
           </TouchableOpacity>
-
-          <TouchableOpacity 
-              style={[
-                styles.button, 
-                {width: '100%', 
-                height: 0, 
-                borderRadius: 0, 
-                padding: 0}
-              ]
-            }       
-            activeOpacity={0.8}
-            onPress={() => navigation.navigate("Spectra Cart")}     
-            >
-
-            <View style={{justifyContent: "center", 
-                      margin: 10,
-                      marginTop: 980, 
-                      left: 20, 
-                      right: 20,
-                      height: 150, 
-                      width: 320, 
-                      backgroundColor: "#FFFFFF", 
-                      borderWidth: 0.5, 
-                      borderRadius: 10, 
-                      borderColor: "#FFFFFF", 
-                      shadowColor: "#000000", 
-                      shadowOffset: 
-                        {height: 1, 
-                          width: 1}, 
-                      shadowRadius: 3, 
-                      shadowOpacity: 0.5}}>
-
-                        <Image
-                          style={[globalStyles.image,
-                            {width: "100%", 
-                             resizeMode:"cover",
-                             height: undefined,
-                             aspectRatio: 321/150, 
-                             marginTop: -16,
-                             backgroundColor: "#000000", 
-                             borderRadius: 10, 
-                            }
-                            ]
-                          }
-                          source={require("../assets/images/VIPER_lunar_rover.jpg")}>
-
-
-                        </Image>
-                        
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
-                          Spectra Cart
-                          
-                           </Text>
-                        
-            </View>
-          </TouchableOpacity>
-
-
-          <TouchableOpacity 
-              style={[
-                styles.button, 
-                {width: '100%', 
-                height: 0, 
-                borderRadius: 0, 
-                padding: 0}
-              ]
-            }       
-            activeOpacity={0.8}
-            onPress={() => navigation.navigate("Spectroscopes")}     
-            >
-
-            <View style={{justifyContent: "center", 
-                      margin: 10,
-                      marginTop: 1170, 
-                      left: 20, 
-                      right: 20,
-                      height: 150, 
-                      width: 320, 
-                      backgroundColor: "#FFFFFF", 
-                      borderWidth: 0.5, 
-                      borderRadius: 10, 
-                      borderColor: "#FFFFFF", 
-                      shadowColor: "#000000", 
-                      shadowOffset: 
-                        {height: 1, 
-                          width: 1}, 
-                      shadowRadius: 3, 
-                      shadowOpacity: 0.5}}>
-
-                        <Image
-                          style={[globalStyles.image,
-                            {width: "100%", 
-                             resizeMode:"cover",
-                             height: undefined,
-                             aspectRatio: 321/150, 
-                             marginTop: -16,
-                             backgroundColor: "#000000", 
-                             borderRadius: 10, 
-                            }
-                            ]
-                          }
-                          source={require("../assets/images/VIPER_lunar_rover.jpg")}>
-
-
-                        </Image>
-                        
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
-                          Spectroscopes
-                          
-                           </Text>
-                        
-            </View>
-          </TouchableOpacity>
-
-
-          <TouchableOpacity 
-              style={[
-                styles.button, 
-                {width: '100%', 
-                height: 0, 
-                borderRadius: 0, 
-                padding: 0}
-              ]
-            }       
-            activeOpacity={0.8}
-            onPress={() => navigation.navigate("Vacuum Chamber")}     
-            >
-
-            <View style={{justifyContent: "center", 
-                      margin: 10,
-                      marginTop: 1360, 
-                      left: 20, 
-                      right: 20,
-                      height: 150, 
-                      width: 320, 
-                      backgroundColor: "#FFFFFF", 
-                      borderWidth: 0.5, 
-                      borderRadius: 10, 
-                      borderColor: "#FFFFFF", 
-                      shadowColor: "#000000", 
-                      shadowOffset: 
-                        {height: 1, 
-                          width: 1}, 
-                      shadowRadius: 3, 
-                      shadowOpacity: 0.5}}>
-
-                        <Image
-                          style={[globalStyles.image,
-                            {width: "100%", 
-                             resizeMode:"cover",
-                             height: undefined,
-                             aspectRatio: 321/150, 
-                             marginTop: -16,
-                             backgroundColor: "#000000", 
-                             borderRadius: 10, 
-                            }
-                            ]
-                          }
-                          source={require("../assets/images/VIPER_lunar_rover.jpg")}>
-
-
-                        </Image>
-                        
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
-                          Vacuum Chamber
-                          
-                           </Text>
-                        
-            </View>
-          </TouchableOpacity>
-
-
 
 
 
@@ -706,4 +530,3 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
 });
-  

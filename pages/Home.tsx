@@ -758,15 +758,6 @@ export default function Home() {
           </ScrollView>
 
 
-          <TouchableOpacity style={[styles.button, {width: '80%', height: 50, borderRadius: 50, margin: 10}]}
-                     activeOpacity={0.8}
-                     //onPress={() => navigation.navigate("Show Descriptions")}
-            >
-
-          <Text style={[styles.buttonText, {fontSize: 20}]}>View All Exhibits{"\n"}</Text>
-
-          </TouchableOpacity>
-
         <View style={{height: 20, opacity: 0}}>
 
         </View>
@@ -775,7 +766,7 @@ export default function Home() {
 
         <TouchableOpacity style={[styles.button, {width: '80%', height: 50, borderRadius: 50, margin: 0}]}
         activeOpacity={0.8}
-        onPress={() => navigation.navigate("Show Descriptions")}>
+        onPress={() => navigation.navigate("Exhibits")}>
 
         <Text style={[styles.buttonText, {fontSize: 20}]}>View All Exhibits{"\n"}</Text>
 

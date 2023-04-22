@@ -291,9 +291,8 @@ export default function ChabotCalendar() {
   return (
 
       <View style={styles.container}>
-      <ScrollView 
-        bounces={true}>
-      <ScrollView horizontal={false} style={{height: 1200}}>
+
+      <ScrollView bounces={true} horizontal={false} style={{height: 1200}}>
         <View style={{ height: 130, padding: 0, backgroundColor: "#1B2832" }}>
         <Image
             style={[
@@ -646,6 +645,18 @@ export default function ChabotCalendar() {
 
           </ScrollView>
 
+          <View style={{height: 10}}></View> 
+
+          <TouchableOpacity style={[styles.button, {width: '80%', height: 50, borderRadius: 50, margin: 0}]}
+          activeOpacity={0.8}
+          onPress={() => navigation.navigate("Exhibits")}>
+
+          <Text style={[styles.buttonText, {fontSize: 20}]}>View All Exhibits{"\n"}</Text>
+
+          </TouchableOpacity>
+
+          <View style={{height: 30, opacity: 0}}></View>
+
         <View style={{marginTop: 10}}>
           <Text style={{    
             paddingLeft: 30,
@@ -795,8 +806,23 @@ export default function ChabotCalendar() {
 
           <View style={{width: 40}}></View>
           </ScrollView>
-          </ScrollView>
-      </ScrollView>
+
+          <View style={{height: 10}}></View> 
+
+          <TouchableOpacity style={[styles.button, {width: '80%', height: 50, borderRadius: 50, margin: 0}]}
+          activeOpacity={0.8}
+          onPress={() => navigation.navigate("Exhibits")}>
+
+          <Text style={[styles.buttonText, {fontSize: 20}]}>View All Shows{"\n"}</Text>
+
+          </TouchableOpacity>
+
+          <View style={{height: 50, opacity: 0}}></View>
+
+        </ScrollView>
+
+
+
       </View>
 
       

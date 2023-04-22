@@ -76,6 +76,9 @@ import PlanetariumTimes from "../pages/other/PlanetariumTimes";
 import ChabotCalendar from "../pages/ChabotCalendar";
 import Header from "../components/Header";
 import { setStatusBarBackgroundColor, StatusBar } from "expo-status-bar";
+import exhibitsNavigation from "./exhibitsNavigation";
+import NASAAerospace from "../pages/exhibits/NASAAerospace";
+import OnionCrew from "../pages/exhibits/OnionCrew";
 
 //header component
 // import Header from "../components/Header";
@@ -155,7 +158,8 @@ function NavigationPageNavigator() {
       {/**Other */}
       <Stack.Screen name="Planetarium Schedule" component={PlanetariumTimes} />
       <Stack.Screen name="Show Descriptions" component={ShowDescriptions} />
-    
+      <Stack.Screen name="Exhibits" component={exhibitsNavigation}/>
+
     </Stack.Navigator>
   
   );
@@ -173,7 +177,10 @@ function HomeStackNavigator() {
     <Stack.Screen name="Login" component={LoginStackNavigator} />
     <Stack.Screen name="Tickets" component={Tickets} />
     <Stack.Screen name="Show Descriptions" component={ShowDescriptions} />
-    
+    <Stack.Screen name="Exhibits" component={exhibitsNavigation}/>
+    <Stack.Screen name="NASA Aerospace" component={NASAAerospace} />
+    <Stack.Screen name="Onion Crew" component={OnionCrew} />
+
 
     </Stack.Navigator>
   );
@@ -226,6 +233,7 @@ function DemosStackNavigator() {
     </Stack.Navigator>
   );
 }
+
 
 function MapStackNavigator() {
   return (
@@ -306,14 +314,7 @@ function Navigation() {
             tabBarIcon: () => <Icon name="location" type="ionicon" size={25} color={"#1B2832"}/>,
           }}
         />
-        <Tab.Screen
-          name="Navigation"
-          component={NavigationPageNavigator}
-          options={{
-            headerShown: false,
-            tabBarIcon: () => <Icon name="search" type="evilicons" size={25} color={"#1B2832"}/>,
-          }}
-        />
+
         <Tab.Screen
           name="Calendar"
           component={CalendarStackNavigator}
@@ -347,3 +348,16 @@ function Navigation() {
 }
 
 registerRootComponent(Navigation);
+
+/*
+#The navigation page is hidden 
+        <Tab.Screen
+          name="Navigation"
+          component={NavigationPageNavigator}
+          options={{
+            headerShown: false,
+            tabBarIcon: () => <Icon name="search" type="evilicons" size={25} color={"#1B2832"}/>,
+          }}
+          
+        />
+*/
