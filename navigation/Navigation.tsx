@@ -34,6 +34,8 @@ import { assets } from "../react-native.config";
 //page imports
 //general
 import Home from "../pages/Home";
+import Login from "../pages/Login"
+import Tickets from "../pages/Tickets"
 
 //maps
 import MapObject from "../pages/maps/Map";
@@ -168,10 +170,33 @@ function HomeStackNavigator() {
         
       />
 
+    <Stack.Screen name="Login" component={LoginStackNavigator} />
+    <Stack.Screen name="Tickets" component={Tickets} />
     <Stack.Screen name="Show Descriptions" component={ShowDescriptions} />
+    
 
     </Stack.Navigator>
   );
+}
+
+function LoginStackNavigator() {
+  const DEVICE_WIDTH = Dimensions.get("window").width;
+  const DEVICE_HEIGHT = Dimensions.get("window").height;
+
+  return(
+      <Stack.Navigator
+        screenOptions={{headerShown: false, navigationBarHidden: true}}>
+
+          <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{headerShown: false, navigationBarHidden: true}}/>
+          
+
+      </Stack.Navigator>
+
+  )
+
 }
 
 function DemosStackNavigator() {
@@ -204,7 +229,11 @@ function DemosStackNavigator() {
 
 function MapStackNavigator() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator 
+    
+    screenOptions={{headerShown: false
+    }}>
+      
       <Stack.Screen
         name="Map Level 1"
         component={MapObject}

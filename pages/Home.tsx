@@ -56,6 +56,22 @@ export default function Home() {
             ]}
             source={require("../assets/images/logo-mobile.png")}
           />
+
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Login")
+              
+            }
+            activeOpacity={0.5}
+            style={{alignSelf: 'flex-end', padding: 20, marginTop: -60}}
+          >
+            <Icon
+              name="person-circle-outline"
+              type="ionicon"
+              size={40}
+              color= "#FFFFFF"
+              //tvParallaxProperties={undefined}
+            />
+            </TouchableOpacity>
           
         </View>
         
@@ -97,8 +113,10 @@ export default function Home() {
 
             <TouchableOpacity 
               style={[styles.button, {width: '90%', height: 50, borderRadius: 50}]}
-              onPress={() => Linking.openURL("https://14884.blackbaudhosting.com/14884/tickets?tab=3&txobjid=3d868201-c3eb-4a0c-9dd5-2ba9d2a188e4")
-                }
+              //onPress={() => Linking.openURL("https://14884.blackbaudhosting.com/14884/tickets?tab=3&txobjid=3d868201-c3eb-4a0c-9dd5-2ba9d2a188e4")}
+              onPress={() => navigation.navigate("Tickets")
+            
+            }
               activeOpacity={0.8}
               >
                 
@@ -222,7 +240,7 @@ export default function Home() {
 
                         </Image>
 
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 5, marginTop: -63, fontSize: 17, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 5, marginTop: -40, fontSize: 17, color: "black", backgroundColor:"white", opacity: 0.75}]}>
                           Phantom of the Universe
                           
                            </Text>
@@ -441,7 +459,7 @@ export default function Home() {
 
                         </Image>
 
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -80, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -40, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
                           Telescope Viewing
                           
                            </Text>
@@ -550,7 +568,7 @@ export default function Home() {
                           
                            </Text>
                         
-                        <Text style={[styles.description, {padding: 10, marginTop: 15}]}>
+                        <Text style={[styles.description, {padding: 10, marginTop: 30}]}>
                         Lorem ipsum dolor sit amet, eam dicant splendide eu. Cu sonet 
                           omnesque ponderum vim, eum ex augue suscipiantur, graeco 
                           invenire te sit.
@@ -623,7 +641,7 @@ export default function Home() {
                           
                            </Text>
 
-                        <Text style={[styles.description, {padding: 10, marginTop: 15}]}>
+                        <Text style={[styles.description, {padding: 10, marginTop: 30}]}>
                         Lorem ipsum dolor sit amet, eam dicant splendide eu. Cu sonet 
                           omnesque ponderum vim, eum ex augue suscipiantur, graeco 
                           invenire te sit. 
@@ -697,7 +715,7 @@ export default function Home() {
                           
                            </Text>
                         
-                        <Text style={[styles.description, {padding: 10, marginTop: 15}]}>
+                        <Text style={[styles.description, {padding: 10, marginTop: 30}]}>
                         Lorem ipsum dolor sit amet, eam dicant splendide eu. Cu sonet 
                           omnesque ponderum vim, eum ex augue suscipiantur, graeco 
                           invenire te sit.
@@ -740,7 +758,16 @@ export default function Home() {
           </ScrollView>
 
 
-        <View style={{height: 0, opacity: 0}}>
+          <TouchableOpacity style={[styles.button, {width: '80%', height: 50, borderRadius: 50, margin: 10}]}
+                     activeOpacity={0.8}
+                     //onPress={() => navigation.navigate("Show Descriptions")}
+            >
+
+          <Text style={[styles.buttonText, {fontSize: 20}]}>View All Exhibits{"\n"}</Text>
+
+          </TouchableOpacity>
+
+        <View style={{height: 20, opacity: 0}}>
 
         </View>
         
