@@ -1,5 +1,5 @@
 import React from "react";
-import CarouselCards from "./CarouselCards";
+
 import {
   StyleSheet,
   Text,

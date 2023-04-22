@@ -732,10 +732,10 @@ export default function Home() {
           </View>
 
             
+          <View style={{width: 40}}>
 
-            <View style={{width: 40}}>
+          </View>
 
-            </View>
 
           </ScrollView>
 
@@ -743,6 +743,18 @@ export default function Home() {
         <View style={{height: 0, opacity: 0}}>
 
         </View>
+
+        <View style={{height: 10}}></View> 
+
+        <TouchableOpacity style={[styles.button, {width: '80%', height: 50, borderRadius: 50, margin: 0}]}
+        activeOpacity={0.8}
+        onPress={() => navigation.navigate("Show Descriptions")}>
+
+        <Text style={[styles.buttonText, {fontSize: 20}]}>View All Exhibits{"\n"}</Text>
+
+        </TouchableOpacity>
+
+        <View style={{height: 30, opacity: 0}}></View>
         
         {/* <CarouselCards/> */}
         {/* <View

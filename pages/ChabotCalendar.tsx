@@ -13,7 +13,7 @@ import {
   Pressable,
 } from "react-native";
 
-import Calendar from 'react-calendar';
+
 import moment from 'moment';
 import { processFontFamily, useFonts } from "expo-font";
 
@@ -640,6 +640,10 @@ export default function ChabotCalendar() {
           </TouchableOpacity>
           </View>
 
+          <View style={{width: 40}}>
+
+          </View>
+
           </ScrollView>
 
         <View style={{marginTop: 10}}>
@@ -784,7 +788,12 @@ export default function ChabotCalendar() {
 
                 
           </TouchableOpacity>
+
+
+
           </View>
+
+          <View style={{width: 40}}></View>
           </ScrollView>
           </ScrollView>
       </ScrollView>
