@@ -18,8 +18,22 @@ import SelectList from "react-native-dropdown-select-list";
 
 import DemoSection from "../../components/DemoSection";
 
+const DEVICE_WIDTH = Dimensions.get("window").width;
+const DEVICE_HEIGHT = Dimensions.get("window").height;
+
 export default function DryIceComets() {
   return (
+    <View>
+        <View style={{ height: 130, padding: 0, backgroundColor: "#1B2832" }}>
+        <Image
+            style={[
+              globalStyles.image,
+              { width: DEVICE_WIDTH / 1, height: 55, marginTop: 55}, 
+            ]}
+            source={require("../../assets/images/logo-mobile.png")}
+          />
+          
+        </View>
     <ScrollView>
       {/* <DemoSection
         displayHeight={300}
@@ -114,7 +128,9 @@ export default function DryIceComets() {
           </>
         }
       ></DemoSection> */}
-      <Text>Dry Ice Commets</Text>
+      <Text>Dry Ice Comets</Text>
     </ScrollView>
+
+    </View>
   );
 }

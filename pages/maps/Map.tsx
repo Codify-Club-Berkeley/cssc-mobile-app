@@ -30,6 +30,8 @@ import {
   nav,
 } from "../../functions/map-functions";
 import { map1ModalViewData } from "./modalData";
+// import 'react-native-get-random-values'
+// import { v4 as uuidv4 } from 'uuid';
 
 export default function MapObject({ navigation }) {
   const DEVICE_WIDTH = Dimensions.get("window").width;
@@ -49,6 +51,19 @@ export default function MapObject({ navigation }) {
 
   return (
     <View style={styles.container}>
+      <View style={{ height: 130, padding: 0, backgroundColor: "#1B2832" }}>
+        <Image
+            style={[
+              globalStyles.image,
+              { width: DEVICE_WIDTH / 1, height: 55, marginTop: 55}, 
+            ]}
+            source={require("../../assets/images/logo-mobile.png")}
+          />
+          
+        </View>
+        <View style={{height: 0}}>
+
+        </View>
       <View style={globalStyles.mapView}>
         <ReactNativeZoomableView
           ref={zoomableViewRef}
@@ -115,6 +130,7 @@ export default function MapObject({ navigation }) {
                             descriptionText={Description}
                             exhibitName={Name}
                             carouselData={carousel}
+                            //exhibitImage={image}
                           />
                         </Modal>
                       )
@@ -146,8 +162,9 @@ export default function MapObject({ navigation }) {
                           );
                         }}
                         name="location"
-                        type="evilicon"
+                        type="ionicon"
                         size={30}
+                        color="#FFAD0D"
                       />
                     </View>
                   ))}

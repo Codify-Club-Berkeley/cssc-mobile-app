@@ -9,6 +9,8 @@ const globalStyles = StyleSheet.create({
     fontFamily: "Futura",
     fontWeight: "600",
     fontSize: 30,
+    textAlign: "center",
+    alignSelf: "center",
   },
   headerText: {
     fontFamily: "Futura",
@@ -16,6 +18,8 @@ const globalStyles = StyleSheet.create({
     fontSize: 16,
     alignSelf: "center",
     textAlign: "center",
+    paddingHorizontal: 10,
+    paddingVertical: 10,
   },
   headerTextLeft: {
     fontFamily: "Futura",

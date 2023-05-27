@@ -24,7 +24,26 @@ const DEVICE_HEIGHT = Dimensions.get("window").height;
 
 export default function DryIcePh() {
   return (
-    <ScrollView style={styles.scroll}>
+    <View>
+      <View style={{ height: 130, padding: 0, backgroundColor: "#1B2832" }}>
+        <Image
+            style={[
+              globalStyles.image,
+              { width: DEVICE_WIDTH / 1, height: 55, marginTop: 55}, 
+            ]}
+            source={require("../../assets/images/logo-mobile.png")}
+          />
+          
+        </View>
+
+    <ScrollView contentContainerStyle={{
+      //flex: 1,
+      backgroundColor: "white",
+      padding: 10,
+      justifyContent: "center",
+      height: 1700,
+      }}>
+
       <DemoSection
         displayHeight={700}
         imageUri={
@@ -133,7 +152,13 @@ export default function DryIcePh() {
           </>
         }
       ></DemoSection>
+
+      <View style={{height: 140}}>
+
+        </View>
     </ScrollView>
+
+    </View>
   );
 }
 

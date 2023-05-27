@@ -46,8 +46,29 @@ const DEVICE_HEIGHT = Dimensions.get("window").height;
 
 export default function BooBubbles() {
   return (
-    <ScrollView style={globalStyles.demoScrollView}>
+
+    <View>
+      <View style={{ height: 130, padding: 0, backgroundColor: "#1B2832" }}>
+        <Image
+            style={[
+              globalStyles.image,
+              { width: DEVICE_WIDTH / 1, height: 55, marginTop: 55}, 
+            ]}
+            source={require("../../assets/images/logo-mobile.png")}
+          />
+          
+        </View>
+
+    <ScrollView contentContainerStyle={{
+      //flex: 1,
+      backgroundColor: "white",
+      padding: 10,
+      justifyContent: "center",
+      height: 1000,
+      }}>
+
       <DemoSection
+        
         displayHeight={300}
         imageUri={
           "https://m.media-amazon.com/images/I/61y-diS0u7L._CR0,0,1280,675_SR580,306_.jpg"
@@ -137,7 +158,14 @@ export default function BooBubbles() {
           </>
         }
       ></DemoSection>
+
+      <View style={{height: 145}}>
+
+      </View>
+
     </ScrollView>
+
+    </View>
   );
 }
 

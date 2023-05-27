@@ -27,9 +27,13 @@ import { ScreenWidth } from "react-native-elements/dist/helpers";
 
 import { getStorage } from "../functions/bookmark-functions";
 
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 const DEVICE_WIDTH = Dimensions.get("window").width;
+const Stack = createNativeStackNavigator();
 
 //https://snack.expo.dev/embedded/@aboutreact/collapsible-and-accordion-view-in-react-native?iframeId=h1ftiunob9&preview=true&platform=ios&theme=dark
+
 
 function Accord(props) {
   const constantSECTIONS = [
@@ -37,6 +41,8 @@ function Accord(props) {
       title: "Demos",
       number: 0,
       subsections: [
+        
+        
         {
           Name: "Boo Bubbles",
           Path: "Boo Bubbles",
