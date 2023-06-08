@@ -62,6 +62,24 @@ import Studio3 from "../pages/exhibits/Studio3";
 import TouchTheSun from "../pages/exhibits/TouchTheSun";
 import Cafe from "../pages/exhibits/Cafe";
 import ObservationDeck from "../pages/exhibits/ObservationDeck";
+import NASAAerospace from "../pages/exhibits/NASAAerospace";
+import OnionCrew from "../pages/exhibits/OnionCrew";
+import OnionCrewTest from "../pages/exhibits/OnionCrewTest";
+import BallisticsRangeModel from "../pages/exhibits/BallisticsRangeModel";
+import WindTunnelTestZone from "../pages/exhibits/WindTunnelTestZone";
+import WindTunnels from "../pages/exhibits/WindTunnels";
+import WindTunnelFanBlade from "../pages/exhibits/WindTunnelFanBlade";
+import UnitaryPlan from "../pages/exhibits/UnitaryPlan";
+import ADEPT from "../pages/exhibits/ADEPT";
+import LADEE from "../pages/exhibits/LADEE";
+import SuperBallBot from "../pages/exhibits/SuperBallBot";
+import MADCAT from "../pages/exhibits/MADCAT";
+import HighEfficiencyAircraftModels from "../pages/exhibits/HighEfficiencyAircraftModels";
+import Pioneer10Model from "../pages/exhibits/Pioneer10Model";
+import FiberOpticHelmet from "../pages/exhibits/FiberOpticHelmet";
+import CubeSat from "../pages/exhibits/CubeSat";
+import ArcJetTestSample from "../pages/exhibits/ArcJetTestSample";
+import VerticalMotionSimulator from "../pages/exhibits/VerticalMotionSimulator";
 
 //telescopes
 import Leah from "../pages/exhibits/Telescopes/Leah";
@@ -77,8 +95,8 @@ import ChabotCalendar from "../pages/ChabotCalendar";
 import Header from "../components/Header";
 import { setStatusBarBackgroundColor, StatusBar } from "expo-status-bar";
 import exhibitsNavigation from "./exhibitsNavigation";
-import NASAAerospace from "../pages/exhibits/NASAAerospace";
-import OnionCrew from "../pages/exhibits/OnionCrew";
+import Accordion from "react-native-collapsible/Accordion";
+
 
 //header component
 // import Header from "../components/Header";
@@ -180,7 +198,22 @@ function HomeStackNavigator() {
     <Stack.Screen name="Exhibits" component={exhibitsNavigation}/>
     <Stack.Screen name="NASA Aerospace" component={NASAAerospace} />
     <Stack.Screen name="Onion Crew" component={OnionCrew} />
-
+    <Stack.Screen name="Onion Crew Test" component={OnionCrewTest} />
+    <Stack.Screen name="Ballistics Range Model" component={BallisticsRangeModel} />
+    <Stack.Screen name="Wind Tunnel Test Zone" component={WindTunnelTestZone} />
+    <Stack.Screen name="Wind Tunnels" component={WindTunnels} />
+    <Stack.Screen name="Wind Tunnel Fan Blade" component={WindTunnelFanBlade} />
+    <Stack.Screen name="Unitary Plan Wind Tunnel Fan Blade" component={UnitaryPlan} />
+    <Stack.Screen name="ADEPT Wind Tunnel Model" component={ADEPT} />
+    <Stack.Screen name="LADEE: Lunar Atmosphere Dust and Environment Explorer" component={LADEE} />
+    <Stack.Screen name="Super Ball Bot" component={SuperBallBot} />
+    <Stack.Screen name="MADCAT Wind Tunnel Model" component={MADCAT} />
+    <Stack.Screen name="High Efficiency Aircraft Models" component={HighEfficiencyAircraftModels} />
+    <Stack.Screen name="Pioneer 10 Model" component={Pioneer10Model} />
+    <Stack.Screen name="Fiber Optic Helmet" component={FiberOpticHelmet} />
+    <Stack.Screen name="CubeSat" component={CubeSat} />
+    <Stack.Screen name="Arc Jet Test Sample" component={ArcJetTestSample} />
+    <Stack.Screen name="Vertical Motion Simulator" component={VerticalMotionSimulator} />
 
     </Stack.Navigator>
   );
