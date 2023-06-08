@@ -97,7 +97,7 @@ export default function exhibitsNavigation() {
 
 
 
-          <ScrollView horizontal={false} style={{height: 1000}}>
+          <ScrollView horizontal={false} style={{height: 3500}}>
 
           <TouchableOpacity 
               style={[
@@ -136,7 +136,7 @@ export default function exhibitsNavigation() {
                              resizeMode:"cover",
                              height: undefined,
                              aspectRatio: 321/150, 
-                             marginTop: -16,
+                             marginTop: -8,
                              backgroundColor: "#000000", 
                              borderRadius: 10, 
                             }
@@ -147,7 +147,7 @@ export default function exhibitsNavigation() {
 
                         </Image>
                         
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -65, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
                           NASA's Aerospace Innovation Journey
                           
                            </Text>
@@ -196,7 +196,7 @@ export default function exhibitsNavigation() {
                              resizeMode:"cover",
                              height: undefined,
                              aspectRatio: 321/150, 
-                             marginTop: -16,
+                             marginTop: -8,
                              backgroundColor: "#000000", 
                              borderRadius: 10, 
                             }
@@ -207,7 +207,7 @@ export default function exhibitsNavigation() {
 
                         </Image>
                         
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -65, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
                             Orion Crew Module and Launch Abort System rocket
                           
                            </Text>
@@ -256,7 +256,7 @@ export default function exhibitsNavigation() {
                              resizeMode:"cover",
                              height: undefined,
                              aspectRatio: 321/150, 
-                             marginTop: -16,
+                             marginTop: -8,
                              backgroundColor: "#000000", 
                              borderRadius: 10, 
                             }
@@ -267,7 +267,7 @@ export default function exhibitsNavigation() {
 
                         </Image>
                         
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -65, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
                             Orion Crew Module test model 
                           
                            </Text>
@@ -544,7 +544,7 @@ export default function exhibitsNavigation() {
                              resizeMode:"cover",
                              height: undefined,
                              aspectRatio: 321/150, 
-                             marginTop: -16,
+                             marginTop: -8,
                              backgroundColor: "#000000", 
                              borderRadius: 10, 
                             }
@@ -555,7 +555,7 @@ export default function exhibitsNavigation() {
 
                         </Image>
                         
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, paddingRight: 20, marginTop: -65, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
                             Unitary Plan Wind Tunnel Fan Blade
                           
                            </Text>
@@ -635,7 +635,7 @@ export default function exhibitsNavigation() {
 
             <View style={{justifyContent: "center", 
                       margin: 10,
-                      marginTop: 1550, 
+                      marginTop: 1740, 
                       left: 20, 
                       right: 20,
                       height: 150, 
@@ -657,7 +657,7 @@ export default function exhibitsNavigation() {
                              resizeMode:"cover",
                              height: undefined,
                              aspectRatio: 321/150, 
-                             marginTop: -16,
+                             marginTop: -2,
                              backgroundColor: "#000000", 
                              borderRadius: 10, 
                             }
@@ -668,7 +668,7 @@ export default function exhibitsNavigation() {
 
                         </Image>
                         
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -90, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
                         LADEE: Lunar Atmosphere Dust and Environment Explorer 
                           
                            </Text>
@@ -691,7 +691,7 @@ export default function exhibitsNavigation() {
 
             <View style={{justifyContent: "center", 
                       margin: 10,
-                      marginTop: 1740, 
+                      marginTop: 1930, 
                       left: 20, 
                       right: 20,
                       height: 150, 
@@ -747,118 +747,6 @@ export default function exhibitsNavigation() {
 
             <View style={{justifyContent: "center", 
                       margin: 10,
-                      marginTop: 1930, 
-                      left: 20, 
-                      right: 20,
-                      height: 150, 
-                      width: 320, 
-                      backgroundColor: "#FFFFFF", 
-                      borderWidth: 0.5, 
-                      borderRadius: 10, 
-                      borderColor: "#FFFFFF", 
-                      shadowColor: "#000000", 
-                      shadowOffset: 
-                        {height: 1, 
-                          width: 1}, 
-                      shadowRadius: 3, 
-                      shadowOpacity: 0.5}}>
-
-                        <Image
-                          style={[globalStyles.image,
-                            {width: "100%", 
-                             resizeMode:"cover",
-                             height: undefined,
-                             aspectRatio: 321/150, 
-                             marginTop: -16,
-                             backgroundColor: "#000000", 
-                             borderRadius: 10, 
-                            }
-                            ]
-                          }
-                          source={require("../assets/images/ti2.jpg")}>
-
-
-                        </Image>
-                        
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
-                        MADCAT Wind Tunnel Model
-                          
-                           </Text>
-                        
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity 
-              style={[
-                styles.button, 
-                {width: '100%', 
-                height: 0, 
-                borderRadius: 0, 
-                padding: 0}
-              ]
-            }     
-            activeOpacity={0.8}
-            onPress={() => navigation.navigate("High Efficiency Aircraft Models")}       
-            >
-
-            <View style={{justifyContent: "center", 
-                      margin: 10,
-                      marginTop: 1930, 
-                      left: 20, 
-                      right: 20,
-                      height: 150, 
-                      width: 320, 
-                      backgroundColor: "#FFFFFF", 
-                      borderWidth: 0.5, 
-                      borderRadius: 10, 
-                      borderColor: "#FFFFFF", 
-                      shadowColor: "#000000", 
-                      shadowOffset: 
-                        {height: 1, 
-                          width: 1}, 
-                      shadowRadius: 3, 
-                      shadowOpacity: 0.5}}>
-
-                        <Image
-                          style={[globalStyles.image,
-                            {width: "100%", 
-                             resizeMode:"cover",
-                             height: undefined,
-                             aspectRatio: 321/150, 
-                             marginTop: -16,
-                             backgroundColor: "#000000", 
-                             borderRadius: 10, 
-                            }
-                            ]
-                          }
-                          source={require("../assets/images/ti2.jpg")}>
-
-
-                        </Image>
-                        
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
-                        High Efficiency Aircraft Models
-                          
-                           </Text>
-                        
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity 
-              style={[
-                styles.button, 
-                {width: '100%', 
-                height: 0, 
-                borderRadius: 0, 
-                padding: 0}
-              ]
-            }     
-            activeOpacity={0.8}
-            onPress={() => navigation.navigate("Pioneer 10 Model")}       
-            >
-
-            <View style={{justifyContent: "center", 
-                      margin: 10,
                       marginTop: 2120, 
                       left: 20, 
                       right: 20,
@@ -881,7 +769,7 @@ export default function exhibitsNavigation() {
                              resizeMode:"cover",
                              height: undefined,
                              aspectRatio: 321/150, 
-                             marginTop: -16,
+                             marginTop: -8,
                              backgroundColor: "#000000", 
                              borderRadius: 10, 
                             }
@@ -892,7 +780,119 @@ export default function exhibitsNavigation() {
 
                         </Image>
                         
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, paddingRight: 20, marginTop: -65, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
+                        MADCAT Wind Tunnel Model
+                          
+                           </Text>
+                        
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+              style={[
+                styles.button, 
+                {width: '100%', 
+                height: 0, 
+                borderRadius: 0, 
+                padding: 0}
+              ]
+            }     
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("High Efficiency Aircraft Models")}       
+            >
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 2310, 
+                      left: 20, 
+                      right: 20,
+                      height: 150, 
+                      width: 320, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             resizeMode:"cover",
+                             height: undefined,
+                             aspectRatio: 321/150, 
+                             marginTop: -8,
+                             backgroundColor: "#000000", 
+                             borderRadius: 10, 
+                            }
+                            ]
+                          }
+                          source={require("../assets/images/ti2.jpg")}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -65, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
+                        High Efficiency Aircraft Models
+                          
+                           </Text>
+                        
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+              style={[
+                styles.button, 
+                {width: '100%', 
+                height: 0, 
+                borderRadius: 0, 
+                padding: 0}
+              ]
+            }     
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Pioneer 10 Model")}       
+            >
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 2500, 
+                      left: 20, 
+                      right: 20,
+                      height: 150, 
+                      width: 320, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             resizeMode:"cover",
+                             height: undefined,
+                             aspectRatio: 321/150, 
+                             marginTop: -8,
+                             backgroundColor: "#000000", 
+                             borderRadius: 10, 
+                            }
+                            ]
+                          }
+                          source={require("../assets/images/ti2.jpg")}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -65, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
                         Pioneer 10 Model Launched 1972
                           
                            </Text>
@@ -916,7 +916,7 @@ export default function exhibitsNavigation() {
 
             <View style={{justifyContent: "center", 
                       margin: 10,
-                      marginTop: 2120, 
+                      marginTop: 2690, 
                       left: 20, 
                       right: 20,
                       height: 150, 
@@ -972,7 +972,7 @@ export default function exhibitsNavigation() {
 
             <View style={{justifyContent: "center", 
                       margin: 10,
-                      marginTop: 2310, 
+                      marginTop: 2880, 
                       left: 20, 
                       right: 20,
                       height: 150, 
@@ -1028,7 +1028,7 @@ export default function exhibitsNavigation() {
 
             <View style={{justifyContent: "center", 
                       margin: 10,
-                      marginTop: 2500, 
+                      marginTop: 3070, 
                       left: 20, 
                       right: 20,
                       height: 150, 
@@ -1084,7 +1084,7 @@ export default function exhibitsNavigation() {
 
             <View style={{justifyContent: "center", 
                       margin: 10,
-                      marginTop: 2690, 
+                      marginTop: 3260, 
                       left: 20, 
                       right: 20,
                       height: 150, 
@@ -1106,7 +1106,7 @@ export default function exhibitsNavigation() {
                              resizeMode:"cover",
                              height: undefined,
                              aspectRatio: 321/150, 
-                             marginTop: -16,
+                             marginTop: -8,
                              backgroundColor: "#000000", 
                              borderRadius: 10, 
                             }
@@ -1117,7 +1117,7 @@ export default function exhibitsNavigation() {
 
                         </Image>
                         
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -65, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
                         Vertical Motion Simulator (VMS) Model
                           
                            </Text>

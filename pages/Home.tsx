@@ -527,14 +527,14 @@ export default function Home() {
               Current Exhibitions
           </Text>
 
-          <ScrollView horizontal={true} style={{height: 380}}>
+          <ScrollView horizontal={true} style={{height: 450}}>
 
             <View style={{justifyContent: "center", 
                       margin: 10,
                       marginTop: 30, 
                       left: 20, 
                       right: 20,
-                      height: 310, 
+                      height: 380, 
                       width: 205, 
                       backgroundColor: "#FFFFFF", 
                       borderWidth: 0.5, 
@@ -552,7 +552,7 @@ export default function Home() {
                             {width: "100%", 
                              height: undefined,
                              aspectRatio: 1.01, 
-                             marginTop: -10,
+                             marginTop: 0,
                              backgroundColor: "#000000", 
                              borderRadius: 20, 
                             }
@@ -563,15 +563,16 @@ export default function Home() {
 
                         </Image>
 
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -53, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
-                          Lorem Ipsum
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -50, fontSize: 13, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                        NASA's Aerospace Innovation Journey
                           
                            </Text>
                         
-                        <Text style={[styles.description, {padding: 10, marginTop: 30}]}>
-                        Lorem ipsum dolor sit amet, eam dicant splendide eu. Cu sonet 
-                          omnesque ponderum vim, eum ex augue suscipiantur, graeco 
-                          invenire te sit.
+                        <Text style={[styles.description, {padding: 10, marginTop: 12}]}>
+                        NASA’s people test every aerospace innovation before it’s ready for flight, 
+                        improving the design at every step, turning concepts into working prototypes 
+                        and finally space-ready inventions. Engineers use these spacecraft models to 
+                        investigate different aspects of aerodynamic design. 
                           
                            </Text>
                         
@@ -586,6 +587,7 @@ export default function Home() {
                               ]
                             }
                             activeOpacity={0.8}
+                            onPress={() => navigation.navigate("NASA Aerospace")}
                           >
                 
                               <Text style={[
@@ -607,7 +609,8 @@ export default function Home() {
                       margin: 10,
                       marginTop: 30, 
                       left: 20, 
-                      height: 310, 
+                      right: 20,
+                      height: 380, 
                       width: 205, 
                       backgroundColor: "#FFFFFF", 
                       borderWidth: 0.5, 
@@ -625,7 +628,7 @@ export default function Home() {
                             {width: "100%", 
                              height: undefined,
                              aspectRatio: 1.01, 
-                             marginTop: -10,
+                             marginTop: 0,
                              backgroundColor: "#000000", 
                              borderRadius: 20, 
                             }
@@ -636,15 +639,15 @@ export default function Home() {
 
                         </Image>
                         
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -53, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
-                          Lorem Ipsum
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -58, fontSize: 13, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                        Orion Crew Module and Launch Abort System rocket
                           
                            </Text>
 
-                        <Text style={[styles.description, {padding: 10, marginTop: 30}]}>
-                        Lorem ipsum dolor sit amet, eam dicant splendide eu. Cu sonet 
-                          omnesque ponderum vim, eum ex augue suscipiantur, graeco 
-                          invenire te sit. 
+                        <Text style={[styles.description, {padding: 10, justifyContent: "center", marginTop: 30}]}>
+                        This is a model of the Orion Crew Module escape rocket system that would carry astronauts
+                        to safety in the event of a launch emergency. Some wind tunnel models are painted with a
+                        pink coating that changes color with air pressure. 
                           
                            </Text>
                         
@@ -660,6 +663,7 @@ export default function Home() {
                               ]
                             }
                             activeOpacity={0.8}
+                            onPress={() => navigation.navigate("Onion Crew")}    
                           >
                 
                               <Text style={[
@@ -681,7 +685,7 @@ export default function Home() {
                       margin: 10,
                       marginTop: 30, 
                       left: 20, 
-                      height: 310, 
+                      height: 380, 
                       width: 205, 
                       backgroundColor: "#FFFFFF", 
                       borderWidth: 0.5, 
@@ -699,7 +703,7 @@ export default function Home() {
                             {width: "100%", 
                              height: undefined,
                              aspectRatio: 1.01, 
-                             marginTop: -10,
+                             marginTop: 0,
                              backgroundColor: "#000000", 
                              borderRadius: 20, 
                             }
@@ -710,15 +714,15 @@ export default function Home() {
 
                         </Image>
 
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -53, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
-                          Lorem Ipsum
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -53, fontSize: 13, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                        Orion Crew Module test model
                           
                            </Text>
                         
                         <Text style={[styles.description, {padding: 10, marginTop: 30}]}>
-                        Lorem ipsum dolor sit amet, eam dicant splendide eu. Cu sonet 
-                          omnesque ponderum vim, eum ex augue suscipiantur, graeco 
-                          invenire te sit.
+                        This wind tunnel model, of the world’s only deep space crewed vehicle helps engineers understand how air 
+                        flows around the c apsule when it re-enters Earth’s atmosphere. Astronauts will spend most of their journey
+                        living and working in this capsule. 
                           
                            </Text>
                         
@@ -733,6 +737,7 @@ export default function Home() {
                               ]
                             }
                             activeOpacity={0.8}
+                            onPress={() => navigation.navigate("Onion Crew Test")}      
                           >
                 
                               <Text style={[

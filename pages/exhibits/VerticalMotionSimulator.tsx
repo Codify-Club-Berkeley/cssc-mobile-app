@@ -62,7 +62,7 @@ export default function VerticalMotionSimulator() {
           </View>
 
         <View >
-          <Text style={[styles.description, {paddingTop:120, margin: 30, fontSize: 15, color: "black"}]}>
+          <Text style={[styles.description, {paddingTop:120, margin: 30, marginTop: 50, fontSize: 15, color: "black"}]}>
           This scale model represents the VMS, the largest flight simulator in the world. The VMS trains future 
           astronauts by simulating complex motions of flight and landing.
 

@@ -62,7 +62,7 @@ export default function LADEE() {
           </View>
 
         <View >
-          <Text style={[styles.description, {paddingTop:120, margin: 30, fontSize: 15, color: "black"}]}>
+          <Text style={[styles.description, {paddingTop:120, margin: 30, marginTop: 50, fontSize: 15, color: "black"}]}>
           These are two models of the LADEE spacecraft–a robot that launched in 2013 and orbited the Moon to study 
           its atmosphere and surface. The smaller model is 3D printed and the larger is a full-scale structural frame model.
 
