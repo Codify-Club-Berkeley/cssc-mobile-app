@@ -39,16 +39,7 @@ export default function Home() {
     if (!fontsLoaded) {
       return null;
     }
-  
-    const navigation = useNavigation();
 
-    /* const [adultTix, setAdultTix] = useState(0);
-
-    const incrementAdultTix = () => {
-        setAdultTix(adultTix + 1)
-    }; */
-
-    let adultTix = 0;
 
     
   
@@ -113,7 +104,6 @@ export default function Home() {
 
                     
                     <Text style={[styles.bodyText, {fontSize: 25, padding: 7}]}>
-                        {adultTix}
                     </Text>
                     
                 <TouchableOpacity
