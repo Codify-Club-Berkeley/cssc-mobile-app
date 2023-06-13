@@ -13,7 +13,7 @@ import {
   Pressable,
 } from "react-native";
 
-import Calendar from 'react-calendar';
+
 import moment from 'moment';
 import { processFontFamily, useFonts } from "expo-font";
 
@@ -22,7 +22,6 @@ import * as WebBrowser from "expo-web-browser";
 
 import { globalStyles } from "../GlobalStyles";
 import { Link, useNavigation } from "@react-navigation/native";
-import { assets } from "../react-native.config";
 import ShowDescriptions from "./other/ShowDescripstions";
 import { ButtonGroup } from "react-native-elements";
 
@@ -291,9 +290,8 @@ export default function ChabotCalendar() {
   return (
 
       <View style={styles.container}>
-      <ScrollView 
-        bounces={true}>
-      <ScrollView horizontal={false} style={{height: 1200}}>
+
+      <ScrollView bounces={true} horizontal={false} style={{height: 1200}}>
         <View style={{ height: 130, padding: 0, backgroundColor: "#1B2832" }}>
         <Image
             style={[
@@ -640,7 +638,23 @@ export default function ChabotCalendar() {
           </TouchableOpacity>
           </View>
 
+          <View style={{width: 40}}>
+
+          </View>
+
           </ScrollView>
+
+          <View style={{height: 10}}></View> 
+
+          <TouchableOpacity style={[styles.button, {width: '80%', height: 50, borderRadius: 50, margin: 0}]}
+          activeOpacity={0.8}
+          onPress={() => navigation.navigate("Exhibits")}>
+
+          <Text style={[styles.buttonText, {fontSize: 20}]}>View All Exhibits{"\n"}</Text>
+
+          </TouchableOpacity>
+
+          <View style={{height: 30, opacity: 0}}></View>
 
         <View style={{marginTop: 10}}>
           <Text style={{    
@@ -784,10 +798,30 @@ export default function ChabotCalendar() {
 
                 
           </TouchableOpacity>
+
+
+
           </View>
+
+          <View style={{width: 40}}></View>
           </ScrollView>
-          </ScrollView>
-      </ScrollView>
+
+          <View style={{height: 10}}></View> 
+
+          <TouchableOpacity style={[styles.button, {width: '80%', height: 50, borderRadius: 50, margin: 0}]}
+          activeOpacity={0.8}
+          onPress={() => navigation.navigate("Exhibits")}>
+
+          <Text style={[styles.buttonText, {fontSize: 20}]}>View All Shows{"\n"}</Text>
+
+          </TouchableOpacity>
+
+          <View style={{height: 50, opacity: 0}}></View>
+
+        </ScrollView>
+
+
+
       </View>
 
       

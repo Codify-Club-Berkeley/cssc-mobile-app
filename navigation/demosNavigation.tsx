@@ -1,5 +1,5 @@
 import React from "react";
-import CarouselCards from "./CarouselCards";
+
 import {
   StyleSheet,
   Text,
@@ -8,6 +8,7 @@ import {
   ScrollView,
   Image,
   Dimensions,
+  TextInput,
   TouchableOpacity,
   Pressable,
   Button,
@@ -42,10 +43,10 @@ import Accordion from "react-native-collapsible/Accordion";
 
 
 
-
 export default function demosNavigation() {
   const [settings, setSettings] = useState("english");
-
+  const [text, onChangeText] = React.useState('Useless Text');
+  const [number, onChangeNumber] = React.useState('');
   let [fontsLoaded] = useFonts({
     Futura: require("../assets/fonts/Futura.otf"),
   });
@@ -57,6 +58,8 @@ export default function demosNavigation() {
   const DEVICE_HEIGHT = Dimensions.get("window").height;
 
   const navigation = useNavigation();
+
+
 
   return (
     <View style={styles.container}>
@@ -73,11 +76,30 @@ export default function demosNavigation() {
           
         </View>
           
-
-
-          <Text style={{fontFamily: "Futura", fontSize: 28, marginTop: 20, paddingLeft: 20}}>
+        <Text style={{fontFamily: "Futura", fontSize: 28, marginTop: 15, paddingLeft: 20}}>
               Demos
           </Text>
+
+        <View>
+
+          <TextInput style={{marginLeft: DEVICE_WIDTH * 0.06, 
+                              marginRight: DEVICE_WIDTH * 0.06, 
+                              marginTop: 10,
+                              marginBottom: 10,
+                              padding: 5, 
+                              backgroundColor: "#D9D9D9", 
+                              opacity: 0.75, 
+                              borderRadius: 20, 
+                              width: DEVICE_WIDTH * 0.85, 
+                              height: 30}} 
+                              maxLength={40}
+                              onChangeText={onChangeNumber}
+                              value={number}
+                              placeholder="Search"/>
+        </View>
+
+
+
 
           <ScrollView horizontal={false} style={{height: 1600}}>
 
