@@ -54,6 +54,8 @@ import InvisibleBells from "../pages/demos/InvisibleBells";
 import SpectraCart from "../pages/demos/SpectraCart";
 import Spectroscopes from "../pages/demos/Spectroscopes";
 import VacuumChamber from "../pages/demos/VacuumChamber";
+import AstrobeeHoverBot from "../pages/demos/AstrobeeHoverBot";
+import MoonscapeSandbox from "../pages/demos/MoonscapeSandbox";
 
 //exhibits
 import Studio1 from "../pages/exhibits/Studio1";
@@ -66,7 +68,7 @@ import NASAAerospace from "../pages/exhibits/NASAAerospace";
 import OnionCrew from "../pages/exhibits/OnionCrew";
 import OnionCrewTest from "../pages/exhibits/OnionCrewTest";
 import BallisticsRangeModel from "../pages/exhibits/BallisticsRangeModel";
-import WindTunnelTestZone from "../pages/exhibits/WindTunnelTestZone";
+import WindTunnelTestZone from "../pages/demos/WindTunnelTestZone";
 import WindTunnels from "../pages/exhibits/WindTunnels";
 import WindTunnelFanBlade from "../pages/exhibits/WindTunnelFanBlade";
 import UnitaryPlan from "../pages/exhibits/UnitaryPlan";
@@ -80,6 +82,7 @@ import FiberOpticHelmet from "../pages/exhibits/FiberOpticHelmet";
 import CubeSat from "../pages/exhibits/CubeSat";
 import ArcJetTestSample from "../pages/exhibits/ArcJetTestSample";
 import VerticalMotionSimulator from "../pages/exhibits/VerticalMotionSimulator";
+import LunarCrater from "../pages/exhibits/LunarCrater";
 
 //telescopes
 import Leah from "../pages/exhibits/Telescopes/Leah";
@@ -214,6 +217,7 @@ function HomeStackNavigator() {
     <Stack.Screen name="CubeSat" component={CubeSat} />
     <Stack.Screen name="Arc Jet Test Sample" component={ArcJetTestSample} />
     <Stack.Screen name="Vertical Motion Simulator" component={VerticalMotionSimulator} />
+    <Stack.Screen name="LCROSS Model" component={LunarCrater} />
 
     </Stack.Navigator>
   );
@@ -262,6 +266,8 @@ function DemosStackNavigator() {
         <Stack.Screen name="Spectra Cart" component={SpectraCart} />
         <Stack.Screen name="Spectroscopes" component={Spectroscopes} />
         <Stack.Screen name="Vacuum Chamber" component={VacuumChamber} />
+        <Stack.Screen name="Astrobee Hover Bot" component={AstrobeeHoverBot} />
+        <Stack.Screen name="Moonscape Sandbox" component={MoonscapeSandbox} />
   
     </Stack.Navigator>
   );

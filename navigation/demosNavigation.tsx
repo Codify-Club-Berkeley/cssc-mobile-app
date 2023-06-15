@@ -113,7 +113,7 @@ export default function demosNavigation() {
               ]
             }     
             activeOpacity={0.8}
-            onPress={() => navigation.navigate("Boo Bubbles")}
+            onPress={() => navigation.navigate("Astrobee Hover Bot")}
             >
 
             <View style={{justifyContent: "center", 
@@ -152,7 +152,7 @@ export default function demosNavigation() {
                         </Image>
                         
                         <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
-                          Boo Bubbles
+                          Astrobee Hover-Bot
                           
                            </Text>
                         
@@ -173,7 +173,7 @@ export default function demosNavigation() {
               ]
             }     
             activeOpacity={0.8}
-            onPress={() => navigation.navigate("Cladistics")}       
+            onPress={() => navigation.navigate("Moonscape Sandbox")}       
             >
 
             <View style={{justifyContent: "center", 
@@ -212,7 +212,7 @@ export default function demosNavigation() {
                         </Image>
                         
                         <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
-                          Cladistics
+                         Moonscape Sandbox
                           
                            </Text>
                         
@@ -230,7 +230,7 @@ export default function demosNavigation() {
               ]
             }   
             activeOpacity={0.8}
-            onPress={() => navigation.navigate("Dry Ice Comets")}         
+            onPress={() => navigation.navigate("Hover Bot")}         
             >
 
             <View style={{justifyContent: "center", 
@@ -269,7 +269,7 @@ export default function demosNavigation() {
                         </Image>
                         
                         <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
-                          Dry Ice Comets
+                          Hover-Bot
                           
                            </Text>
                         

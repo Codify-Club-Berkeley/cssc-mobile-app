@@ -11,7 +11,7 @@ import {
 
 
 
-export default function WindTunnelTestZone() {
+export default function AstrobeeHoverBot() {
   const DEVICE_WIDTH = Dimensions.get("window").width;
   const DEVICE_HEIGHT = Dimensions.get("window").height;
 
@@ -34,7 +34,7 @@ export default function WindTunnelTestZone() {
           }}
         >
             <Text style={{fontFamily: "Futura", color: "white", fontSize: 28, marginTop: 50, padding: 10, paddingHorizontal: 30, alignItems: "center", justifyContent: "center"}}>
-            Wind Tunnel Test Zone
+            Build an Astrobee Hover-Bot 
           </Text>
           </View>
 
@@ -57,30 +57,82 @@ export default function WindTunnelTestZone() {
                       source={require("../../assets/images/ti1.jpg")}>
                 </Image>
             
-          <View  style={{
-              alignItems: "center",
-              padding: 20,
-            }}>
-          <Text style={[styles.description, {paddingTop: 0, marginHorizontal: 20, fontSize: 15, color: "black"}]}>
-          Test your project in the mini wind tunnel.  
-          Open the compartment. 
-          Attach your project inside.  
-          Close the compartment, and watch it fly! 
-          Change your design and see how it moves differently. 
-          Take home your prototype!
-  
+
+          </View>
+          </View>
+
+        <View >
+          <Text style={[styles.description, {paddingTop:120, margin: 30, fontSize: 15, color: "black"}]}>
+          Test your paper plane in the wind tunnel 
+
+
+ 
             </Text>
             
         </View>
-          </View>
-          </View>
-
-
         
-        
-      </ScrollView>
-    </View>
+        <View
+            style={{
+              alignItems: "center",
+              padding: 20,
+              paddingBottom: 0,
+            }}
+          >
+            
+            <Image
+                style={
+                    {width: "90%", 
+                     resizeMode:"cover",
+                     height: undefined,
+                     aspectRatio: 3/2, 
+                    }
+                            
+                  }
+                      source={require("../../assets/images/ti2.jpg")}>
+                </Image>
+            
 
+          </View>
+
+          <View >
+          <Text style={[styles.description, { margin: 30, fontSize: 15, color: "black"}]}>
+          Sculpt the Moonscape in the Regolith Sandbox
+            </Text>
+            
+        </View>
+
+        <View
+            style={{
+              alignItems: "center",
+              padding: 20,
+              paddingBottom: 0,
+            }}
+          >
+            
+            <Image
+                style={
+                    {width: "90%", 
+                     resizeMode:"cover",
+                     height: undefined,
+                     aspectRatio: 3/2, 
+                    }
+                            
+                  }
+                      source={require("../../assets/images/ti2.jpg")}>
+                </Image>
+            
+
+          </View>
+
+          <View >
+          <Text style={[styles.description, { margin: 30, fontSize: 15, color: "black"}]}>
+          Build a Rover
+            </Text>
+            
+        </View>
+
+        </ScrollView>
+        </View>
   );
 }
 

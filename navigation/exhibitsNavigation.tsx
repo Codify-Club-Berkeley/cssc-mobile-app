@@ -97,7 +97,7 @@ export default function exhibitsNavigation() {
 
 
 
-          <ScrollView horizontal={false} style={{height: 3650}}>
+          <ScrollView horizontal={false} style={{height: 3400}}>
 
           <TouchableOpacity 
               style={[
@@ -342,7 +342,7 @@ export default function exhibitsNavigation() {
               ]
             }       
             activeOpacity={0.8}
-            onPress={() => navigation.navigate("Wind Tunnel Test Zone")}     
+            onPress={() => navigation.navigate("LCROSS Model")}     
             >
 
             <View style={{justifyContent: "center", 
@@ -381,7 +381,7 @@ export default function exhibitsNavigation() {
                         </Image>
                         
                         <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
-                            Wind Tunnel Test Zone
+                        Lunar Crater Observation and Sensing Satellite (LCROSS) Model
                           
                            </Text>
                         
@@ -1119,62 +1119,6 @@ export default function exhibitsNavigation() {
                         
                         <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -65, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
                         Vertical Motion Simulator (VMS) Model
-                          
-                           </Text>
-                        
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity 
-              style={[
-                styles.button, 
-                {width: '100%', 
-                height: 0, 
-                borderRadius: 0, 
-                padding: 0}
-              ]
-            }     
-            activeOpacity={0.8}
-            onPress={() => navigation.navigate("LCROSS Model")}       
-            >
-
-            <View style={{justifyContent: "center", 
-                      margin: 10,
-                      marginTop: 3450, 
-                      left: 20, 
-                      right: 20,
-                      height: 150, 
-                      width: 320, 
-                      backgroundColor: "#FFFFFF", 
-                      borderWidth: 0.5, 
-                      borderRadius: 10, 
-                      borderColor: "#FFFFFF", 
-                      shadowColor: "#000000", 
-                      shadowOffset: 
-                        {height: 1, 
-                          width: 1}, 
-                      shadowRadius: 3, 
-                      shadowOpacity: 0.5}}>
-
-                        <Image
-                          style={[globalStyles.image,
-                            {width: "100%", 
-                             resizeMode:"cover",
-                             height: undefined,
-                             aspectRatio: 321/150, 
-                             marginTop: -8,
-                             backgroundColor: "#000000", 
-                             borderRadius: 10, 
-                            }
-                            ]
-                          }
-                          source={require("../assets/images/ti2.jpg")}>
-
-
-                        </Image>
-                        
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -65, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
-                        Lunar Crater Observation and Sensing Satellite (LCROSS) Model
                           
                            </Text>
                         
