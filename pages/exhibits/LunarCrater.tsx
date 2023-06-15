@@ -11,7 +11,7 @@ import {
 
 
 
-export default function Pioneer10Model() {
+export default function LunarCrater() {
   const DEVICE_WIDTH = Dimensions.get("window").width;
   const DEVICE_HEIGHT = Dimensions.get("window").height;
 
@@ -34,7 +34,8 @@ export default function Pioneer10Model() {
           }}
         >
             <Text style={{fontFamily: "Futura", color: "white", fontSize: 28, marginTop: 50, padding: 10, paddingHorizontal: 30, alignItems: "center", justifyContent: "center"}}>
-            Pioneer 10 Model Launched 1972 
+            Lunar Crater Observation and Sensing Satellite (LCROSS) Model Launched 2009
+ 
           </Text>
           </View>
 
@@ -63,11 +64,9 @@ export default function Pioneer10Model() {
 
         <View >
           <Text style={[styles.description, {paddingTop:120, margin: 30, fontSize: 15, color: "black"}]}>
-          This is a model of Pioneer 10, the first human-made object to venture beyond the orbit of Neptune, 
-          the farthest planet in our solar system. It left Earth in 1972 and sent signals back to us for 31 years. 
-          In 2003, we received its final signal from 7.6 billion miles away.  In case it’s ever intercepted by extraterrestrial life, 
-          the “Pioneer Plaque” mounted on the front depicts two humans, and where we are in our Milky Way galaxy.
-
+          Spacecraft usually drop their launch rockets when their fuel is spent. LCROSS kept part of its rocket 
+          to send it smashing into a crater at the Moon’s South Pole. It detected water vapor in the debris cloud 
+          of material created by the impact. NASA’s VIPER Moon rover will map lunar water ice as part of its Artemis missions.
 
 
  
@@ -100,37 +99,8 @@ export default function Pioneer10Model() {
 
           <View >
           <Text style={[styles.description, { margin: 30, fontSize: 15, color: "black"}]}>
-          The Pioneer plaque mounted on board the Pioneer spacecraft before launch. Credit: NASA
-            </Text>
-            
-        </View>
-
-        <View
-            style={{
-              alignItems: "center",
-              padding: 20,
-              paddingBottom: 0,
-            }}
-          >
-            
-            <Image
-                style={
-                    {width: "90%", 
-                     resizeMode:"cover",
-                     height: undefined,
-                     aspectRatio: 3/2, 
-                    }
-                            
-                  }
-                      source={require("../../assets/images/ti2.jpg")}>
-                </Image>
-            
-
-          </View>
-
-          <View >
-          <Text style={[styles.description, { margin: 30, fontSize: 15, color: "black"}]}>
-          Close-up picture of the plaque carried aboard the Pioneer 10 and 11 spacecraft, now bound for interstellar space. 
+          Close-up image of the spot in Cabeus Crater where the LCROSS rocket stage impacted, ejecting a 
+          cloud of dust in which the spacecraft detected water vapor. This image was captured about 20 seconds after impact. 
           Credit: NASA
             </Text>
             
