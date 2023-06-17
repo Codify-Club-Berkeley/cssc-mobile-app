@@ -25,7 +25,7 @@ export default function ArcJetTestSample() {
 
     <ScrollView 
         bounces={true}>
-        <View style={{flex: 1, height: 300, padding: 0, backgroundColor: "#1B2832" }}>
+        <View style={{flex: 1, height: 300, width: DEVICE_WIDTH, padding: 0, backgroundColor: "#1B2832" }}>
         
         <View
           style={{
@@ -62,7 +62,7 @@ export default function ArcJetTestSample() {
           </View>
 
         <View >
-          <Text style={[styles.description, {paddingTop:120, margin: 30, fontSize: 15, color: "black"}]}>
+          <Text style={[styles.description, {paddingTop:100, margin: 30, fontSize: 15, color: "black"}]}>
           These test samples are designed for the arc jet facilities at NASA Ames, where super-heated gases are 
           blasted at different materials to test their heat resistance. Both samples are made of ironwood. 
           One was tested by the 4000°F arc jet torch and the other was not. Can you tell which is which?

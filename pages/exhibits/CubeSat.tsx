@@ -25,7 +25,7 @@ export default function CubeSat() {
 
     <ScrollView 
         bounces={true}>
-        <View style={{flex: 1, height: 300, padding: 0, backgroundColor: "#1B2832" }}>
+        <View style={{flex: 1, height: 300, width: DEVICE_WIDTH, padding: 0, backgroundColor: "#1B2832" }}>
         
         <View
           style={{
@@ -62,7 +62,7 @@ export default function CubeSat() {
           </View>
 
         <View >
-          <Text style={[styles.description, {paddingTop:120, margin: 30, fontSize: 15, color: "black"}]}>
+          <Text style={[styles.description, {paddingTop:100, margin: 30, fontSize: 15, color: "black"}]}>
           This little cube is an entire satellite. A breakthrough in low-cost small satellite technology, 
           the original CubeSat used an iPhone as its computer. College students and amateur astronomers have 
           sent their own CubeSats into orbit through NASA’s CubeSat Launch Initiative. One day, you could too!

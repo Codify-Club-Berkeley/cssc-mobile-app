@@ -25,7 +25,7 @@ export default function SuperBallBot() {
 
     <ScrollView 
         bounces={true}>
-        <View style={{flex: 1, height: 300, padding: 0, backgroundColor: "#1B2832" }}>
+        <View style={{flex: 1, height: 300, width: DEVICE_WIDTH, padding: 0, backgroundColor: "#1B2832" }}>
         
         <View
           style={{
@@ -62,7 +62,7 @@ export default function SuperBallBot() {
           </View>
 
         <View >
-          <Text style={[styles.description, {paddingTop:120, margin: 30, fontSize: 15, color: "black"}]}>
+          <Text style={[styles.description, {paddingTop:100, margin: 30, fontSize: 15, color: "black"}]}>
           This collapsible robot automatically adjusts its tension wires to go from a bouncing lander to a 
           twisting roller-bot capable of navigating rocky and sandy terrain.
 

@@ -25,7 +25,7 @@ export default function VerticalMotionSimulator() {
 
     <ScrollView 
         bounces={true}>
-        <View style={{flex: 1, height: 300, padding: 0, backgroundColor: "#1B2832" }}>
+        <View style={{flex: 1, height: 300, width: DEVICE_WIDTH, padding: 0, backgroundColor: "#1B2832" }}>
         
         <View
           style={{
@@ -62,7 +62,7 @@ export default function VerticalMotionSimulator() {
           </View>
 
         <View >
-          <Text style={[styles.description, {paddingTop:120, margin: 30, marginTop: 50, fontSize: 15, color: "black"}]}>
+          <Text style={[styles.description, {paddingTop:120, margin: 30, marginTop: 70, fontSize: 15, color: "black"}]}>
           This scale model represents the VMS, the largest flight simulator in the world. The VMS trains future 
           astronauts by simulating complex motions of flight and landing.
 

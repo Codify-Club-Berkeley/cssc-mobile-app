@@ -25,7 +25,7 @@ export default function WindTunnels() {
 
     <ScrollView 
         bounces={true}>
-        <View style={{flex: 1, height: 300, padding: 0, backgroundColor: "#1B2832" }}>
+        <View style={{flex: 1, height: 300, width: DEVICE_WIDTH, padding: 0, backgroundColor: "#1B2832" }}>
         
         <View
           style={{
@@ -62,7 +62,7 @@ export default function WindTunnels() {
           </View>
 
         <View >
-          <Text style={[styles.description, {paddingTop:120, margin: 30, fontSize: 15, color: "black"}]}>
+          <Text style={[styles.description, {paddingTop:100, margin: 30, fontSize: 15, color: "black"}]}>
           Wind tunnels test aerodynamics—how air flows around an object. NASA Ames has the two biggest wind tunnels in the world! 
           Testing is a key step in the design process. Small changes in design can improve safety, reliability, and even efficiency. 
           In these wind tunnels, scientists test models and real planes and rockets before humans fly them. 

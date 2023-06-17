@@ -25,7 +25,7 @@ export default function FiberOpticHelmet() {
 
     <ScrollView 
         bounces={true}>
-        <View style={{flex: 1, height: 300, padding: 0, backgroundColor: "#1B2832" }}>
+        <View style={{flex: 1, height: 300, width: DEVICE_WIDTH, padding: 0, backgroundColor: "#1B2832" }}>
         
         <View
           style={{
@@ -62,7 +62,7 @@ export default function FiberOpticHelmet() {
           </View>
 
         <View >
-          <Text style={[styles.description, {paddingTop:120, margin: 30, fontSize: 15, color: "black"}]}>
+          <Text style={[styles.description, {paddingTop:100, margin: 30, fontSize: 15, color: "black"}]}>
           This is an early version of augmented reality. The mounted visual display gives the feeling of real flight 
           during ground training. It was developed as a training helmet by the U.S. Army Crew Station Research and 
           Development Facility in 1988.

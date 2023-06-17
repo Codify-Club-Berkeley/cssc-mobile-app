@@ -25,7 +25,7 @@ export default function WindTunnelFanBlade() {
 
     <ScrollView 
         bounces={true}>
-        <View style={{flex: 1, height: 300, padding: 0, backgroundColor: "#1B2832" }}>
+        <View style={{flex: 1, height: 300, width: DEVICE_WIDTH, padding: 0, backgroundColor: "#1B2832" }}>
         
         <View
           style={{
@@ -62,7 +62,7 @@ export default function WindTunnelFanBlade() {
           </View>
 
         <View >
-          <Text style={[styles.description, {paddingTop:120, margin: 30, fontSize: 15, color: "black"}]}>
+          <Text style={[styles.description, {paddingTop:100, margin: 30, fontSize: 15, color: "black"}]}>
           This wooden fan blade is from the biggest wind tunnel in the world, located in the National Full-Scale 
           Aerodynamics Complex operated by the U.S. Air Force at NASA Ames. Here, engineers test the aerodynamics 
           of full-size planes and other vehicles, including the parachute that landed the Mars rover Curiosity on 

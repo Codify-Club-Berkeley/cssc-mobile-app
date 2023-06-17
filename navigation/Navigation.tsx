@@ -108,6 +108,7 @@ import Rachel from "../pages/exhibits/Telescopes/Rachel";
 //other
 import ShowDescriptions from "../pages/other/ShowDescripstions";
 import PlanetariumTimes from "../pages/other/PlanetariumTimes";
+import AddNewPage from "../pages/AddNewPage";
 
 //calendar
 import ChabotCalendar from "../pages/ChabotCalendar";
@@ -219,7 +220,6 @@ function HomeStackNavigator() {
     <Stack.Screen name="Onion Crew" component={OnionCrew} />
     <Stack.Screen name="Onion Crew Test" component={OnionCrewTest} />
     <Stack.Screen name="Ballistics Range Model" component={BallisticsRangeModel} />
-    <Stack.Screen name="Wind Tunnel Test Zone" component={WindTunnelTestZone} />
     <Stack.Screen name="Wind Tunnels" component={WindTunnels} />
     <Stack.Screen name="Wind Tunnel Fan Blade" component={WindTunnelFanBlade} />
     <Stack.Screen name="Unitary Plan Wind Tunnel Fan Blade" component={UnitaryPlan} />
@@ -234,6 +234,7 @@ function HomeStackNavigator() {
     <Stack.Screen name="Arc Jet Test Sample" component={ArcJetTestSample} />
     <Stack.Screen name="Vertical Motion Simulator" component={VerticalMotionSimulator} />
     <Stack.Screen name="LCROSS Model" component={LunarCrater} />
+    <Stack.Screen name="Add New Page" component={AddNewPage} />
 
     </Stack.Navigator>
   );
@@ -285,6 +286,7 @@ function DemosStackNavigator() {
         <Stack.Screen name="Astrobee Hover Bot" component={AstrobeeHoverBot} />
         <Stack.Screen name="Moonscape Sandbox" component={MoonscapeSandbox} />
         <Stack.Screen name="Hover Bot" component={HoverBot} />
+        <Stack.Screen name="Wind Tunnel Test Zone" component={WindTunnelTestZone} />
         <Stack.Screen name="Sun" component={Sun} />
         <Stack.Screen name="Mercury" component={Mercury} />
         <Stack.Screen name="Venus" component={Venus} />
@@ -300,6 +302,7 @@ function DemosStackNavigator() {
         <Stack.Screen name="Vesta" component={Vesta} />
         <Stack.Screen name="Ceres" component={Ceres} />
         <Stack.Screen name="Explore the Solar System" component={ExploreSolarSystem} />
+        <Stack.Screen name="Add New Page" component={AddNewPage} />
 
     </Stack.Navigator>
   );

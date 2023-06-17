@@ -76,15 +76,54 @@ export default function demosNavigation() {
           
         </View>
           
-        <Text style={{fontFamily: "Futura", fontSize: 28, marginTop: 15, paddingLeft: 20}}>
+         <View 
+         style={{
+          flexDirection: 'row',
+          height: 50,
+          width: 350,
+          marginTop: 10, 
+          paddingLeft: 35,
+          paddingRight: 25,
+          left: 0, 
+          right: 0,
+          justifyContent: "space-between"
+          }}>
+
+        <Text style={{fontFamily: "Futura", fontSize: 28, marginTop: 15}}>
               Demos
           </Text>
+
+
+          <Pressable
+          onPress={() => navigation.navigate("Add New Page")}
+          style={({pressed}) => [{
+            opacity: pressed ? 0.2 : 1
+          }]}
+        >
+          <View>
+            <Text style={{
+            fontWeight: 'bold',
+            fontSize: 30,
+            color: '#707080',
+            marginTop: 15,
+            textAlign: 'center',
+          }}>
+              +
+            </Text>
+        </View>
+        </Pressable>
+
+
+        </View> 
+
+
+
 
         <View>
 
           <TextInput style={{marginLeft: DEVICE_WIDTH * 0.06, 
                               marginRight: DEVICE_WIDTH * 0.06, 
-                              marginTop: 10,
+                              marginTop: 20,
                               marginBottom: 10,
                               padding: 5, 
                               backgroundColor: "#D9D9D9", 
