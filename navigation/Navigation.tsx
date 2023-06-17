@@ -56,6 +56,22 @@ import Spectroscopes from "../pages/demos/Spectroscopes";
 import VacuumChamber from "../pages/demos/VacuumChamber";
 import AstrobeeHoverBot from "../pages/demos/AstrobeeHoverBot";
 import MoonscapeSandbox from "../pages/demos/MoonscapeSandbox";
+import HoverBot from "../pages/demos/HoverBot";
+import Sun from "../pages/demos/MagicPlanet/Sun";
+import Mercury from "../pages/demos/MagicPlanet/Mercury";
+import Venus from "../pages/demos/MagicPlanet/Venus";
+import CloudsOnMarble from "../pages/demos/MagicPlanet/CloudsOnMarble";
+import SurfaceTemps from "../pages/demos/MagicPlanet/SurfaceTemps";
+import Moon from "../pages/demos/MagicPlanet/Moon";
+import Mars from "../pages/demos/MagicPlanet/Mars";
+import Jupiter from "../pages/demos/MagicPlanet/Jupiter";
+import Saturn from "../pages/demos/MagicPlanet/Saturn";
+import Uranus from "../pages/demos/MagicPlanet/Uranus";
+import Neptune from "../pages/demos/MagicPlanet/Neptune";
+import Pluto from "../pages/demos/MagicPlanet/Pluto";
+import Vesta from "../pages/demos/MagicPlanet/Vesta";
+import Ceres from "../pages/demos/MagicPlanet/Ceres";
+import ExploreSolarSystem from "../pages/demos/MagicPlanet/ExploreSolarSystem";
 
 //exhibits
 import Studio1 from "../pages/exhibits/Studio1";
@@ -268,7 +284,23 @@ function DemosStackNavigator() {
         <Stack.Screen name="Vacuum Chamber" component={VacuumChamber} />
         <Stack.Screen name="Astrobee Hover Bot" component={AstrobeeHoverBot} />
         <Stack.Screen name="Moonscape Sandbox" component={MoonscapeSandbox} />
-  
+        <Stack.Screen name="Hover Bot" component={HoverBot} />
+        <Stack.Screen name="Sun" component={Sun} />
+        <Stack.Screen name="Mercury" component={Mercury} />
+        <Stack.Screen name="Venus" component={Venus} />
+        <Stack.Screen name="Clouds on the Marble" component={CloudsOnMarble} />
+        <Stack.Screen name="Surface Temperature" component={SurfaceTemps} />
+        <Stack.Screen name="Moon" component={Moon} />
+        <Stack.Screen name="Mars" component={Mars} />
+        <Stack.Screen name="Jupiter" component={Jupiter} />
+        <Stack.Screen name="Saturn" component={Saturn} />
+        <Stack.Screen name="Uranus" component={Uranus} />
+        <Stack.Screen name="Neptune" component={Neptune} />
+        <Stack.Screen name="Pluto" component={Pluto} />
+        <Stack.Screen name="Vesta" component={Vesta} />
+        <Stack.Screen name="Ceres" component={Ceres} />
+        <Stack.Screen name="Explore the Solar System" component={ExploreSolarSystem} />
+
     </Stack.Navigator>
   );
 }

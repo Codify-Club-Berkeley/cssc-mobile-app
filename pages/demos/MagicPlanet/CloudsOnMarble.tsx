@@ -11,7 +11,7 @@ import {
 
 
 
-export default function WindTunnelTestZone() {
+export default function CloudsOnMarble() {
   const DEVICE_WIDTH = Dimensions.get("window").width;
   const DEVICE_HEIGHT = Dimensions.get("window").height;
 
@@ -34,7 +34,7 @@ export default function WindTunnelTestZone() {
           }}
         >
             <Text style={{fontFamily: "Futura", color: "white", fontSize: 28, marginTop: 50, padding: 10, paddingHorizontal: 30, alignItems: "center", justifyContent: "center"}}>
-            Wind Tunnel Test Zone
+            Clouds on the Marble
           </Text>
           </View>
 
@@ -54,20 +54,26 @@ export default function WindTunnelTestZone() {
                     }
                             
                   }
-                      source={require("../../assets/images/ti1.jpg")}>
+                      source={require("../../../assets/images/ti1.jpg")}>
                 </Image>
             
 
           </View>
           </View>
 
-          <View >
-          <Text style={[styles.description, {paddingTop:90, margin: 30, marginBottom: 0, fontSize: 15, color: "black"}]}>
-          Test your project in the mini wind tunnel.  
-
+        <View >
+          <Text style={[styles.description, {paddingTop:90, margin: 30, marginBottom: 0, fontSize: 15, color: "black", fontWeight: "bold"}]}>
+          What makes Earth’s clouds? 
  
             </Text>
             
+            <Text style={[styles.description, {paddingTop:0, margin: 30, fontSize: 15, color: "black"}]}>
+
+            On Earth, solar energy evaporates ocean water, which rises into the atmosphere and condenses into clouds.  
+            Solar-powered winds then blow the clouds across the ocean and over land, where it eventually falls out as 
+            rain or snow, which flows back to the ocean.  This Water Cycle is vital to land-life, not to mention human civilization. 
+ 
+            </Text>
         </View>
     
         <View
@@ -87,93 +93,41 @@ export default function WindTunnelTestZone() {
                     }
                             
                   }
-                      source={require("../../assets/images/ti2.jpg")}>
+                      source={require("../../../assets/images/ti2.jpg")}>
                 </Image>
             
 
           </View>
 
           <View >
-          <Text style={[styles.description, {paddingTop:20, margin: 30, marginBottom: 0, fontSize: 15, color: "black"}]}>
-          Open the compartment. 
-          Attach your project inside.  
-
- 
-            </Text>
-            
-            
-            
-        </View>
-
-        <View
-            style={{
-              alignItems: "center",
-              padding: 20,
-              paddingBottom: 0,
-            }}
-          >
-            
-            <Image
-                style={
-                    {width: "90%", 
-                     resizeMode:"cover",
-                     height: undefined,
-                     aspectRatio: 3/2, 
-                    }
-                            
-                  }
-                      source={require("../../assets/images/ti2.jpg")}>
-                </Image>
-            
-
-          </View>
-
-          <View >
-          <Text style={[styles.description, {paddingTop:20, margin: 30, marginBottom: 0, fontSize: 15, color: "black"}]}>
-          Close the compartment, and watch it fly! 
-          Change your design and see how it moves differently. 
-
+          <Text style={[styles.description, {paddingTop:20, margin: 30, marginBottom: 0, fontSize: 15, color: "black", fontWeight: "bold"}]}>
+          WV and SST (Water Vapor and Sea Surface Temperature) - 
+          Does the temperature of the oceans affect the water cycle? 
    
  
             </Text>
-          
             
-        </View>
+            <Text style={[styles.description, {paddingTop:0, margin: 30, marginBottom: 0, fontSize: 15, color: "black"}]}>
 
+            In this image, the ocean’s surface temperature is color coded, with red showing the warmest water and blue 
+            showing the coldest.  Water vapor in the atmosphere, shown in white, is most abundant over warm, tropical waters.  
 
-        <View
-            style={{
-              alignItems: "center",
-              padding: 20,
-              paddingBottom: 0,
-            }}
-          >
-            
-            <Image
-                style={
-                    {width: "90%", 
-                     resizeMode:"cover",
-                     height: undefined,
-                     aspectRatio: 3/2, 
-                    }
-                            
-                  }
-                      source={require("../../assets/images/ti2.jpg")}>
-                </Image>
-            
-
-          </View>
-
-          <View >
-          <Text style={[styles.description, {paddingTop:20, margin: 30, fontSize: 15, color: "black"}]}>
-          Take home your prototype!
-
-   
+            Credit:  University of Wisconsin, Madison
  
             </Text>
-          
-            
+
+            <Text style={[styles.description, {paddingTop:0, margin: 30, fontSize: 15, color: "black"}]}>
+
+            In this map, ocean surface temperature is color coded, red showing water that is warmer than normal. 
+            Look for a large mass of unusually warm water forming at the equator, west of South America.  
+            This is called an El Niño.  In years with a strong El Niño, weather here in California is usually warmer and wetter.
+
+
+ 
+            </Text>
         </View>
+
+
     
 
         </ScrollView>

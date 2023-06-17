@@ -101,7 +101,7 @@ export default function demosNavigation() {
 
 
 
-          <ScrollView horizontal={false} style={{height: 1600}}>
+          <ScrollView horizontal={false} style={{height: 3600}}>
 
           <TouchableOpacity 
               style={[
@@ -287,7 +287,7 @@ export default function demosNavigation() {
               ]
             }       
             activeOpacity={0.8}
-            onPress={() => navigation.navigate("Dry Ice Ph")} 
+            onPress={() => navigation.navigate("Sun")} 
             >
 
             <View style={{justifyContent: "center", 
@@ -326,7 +326,7 @@ export default function demosNavigation() {
                         </Image>
                         
                         <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.8}]}>
-                          Dry Ice pH
+                          The Sun
                           
                            </Text>
                         
@@ -343,7 +343,7 @@ export default function demosNavigation() {
               ]
             }       
             activeOpacity={0.8}
-            onPress={() => navigation.navigate("Invisible Bells")}     
+            onPress={() => navigation.navigate("Mercury")}     
             >
 
             <View style={{justifyContent: "center", 
@@ -382,7 +382,7 @@ export default function demosNavigation() {
                         </Image>
                         
                         <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
-                          Invisible Bells
+                          Mercury
                           
                            </Text>
                         
@@ -399,7 +399,7 @@ export default function demosNavigation() {
               ]
             }       
             activeOpacity={0.8}
-            onPress={() => navigation.navigate("Spectra Cart")}     
+            onPress={() => navigation.navigate("Venus")}     
             >
 
             <View style={{justifyContent: "center", 
@@ -438,7 +438,7 @@ export default function demosNavigation() {
                         </Image>
                         
                         <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
-                          Spectra Cart
+                          Venus
                           
                            </Text>
                         
@@ -456,7 +456,7 @@ export default function demosNavigation() {
               ]
             }       
             activeOpacity={0.8}
-            onPress={() => navigation.navigate("Spectroscopes")}     
+            onPress={() => navigation.navigate("Clouds on the Marble")}     
             >
 
             <View style={{justifyContent: "center", 
@@ -495,7 +495,7 @@ export default function demosNavigation() {
                         </Image>
                         
                         <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
-                          Spectroscopes
+                          Clouds on the Marble
                           
                            </Text>
                         
@@ -513,7 +513,7 @@ export default function demosNavigation() {
               ]
             }       
             activeOpacity={0.8}
-            onPress={() => navigation.navigate("Vacuum Chamber")}     
+            onPress={() => navigation.navigate("Surface Temperature")}     
             >
 
             <View style={{justifyContent: "center", 
@@ -552,7 +552,400 @@ export default function demosNavigation() {
                         </Image>
                         
                         <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
-                          Vacuum Chamber
+                          Surface Temperature
+                          
+                           </Text>
+                        
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+              style={[
+                styles.button, 
+                {width: '100%', 
+                height: 0, 
+                borderRadius: 0, 
+                padding: 0}
+              ]
+            }       
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Moon")}     
+            >
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 1550, 
+                      left: 20, 
+                      right: 20,
+                      height: 150, 
+                      width: 320, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             resizeMode:"cover",
+                             height: undefined,
+                             aspectRatio: 321/150, 
+                             marginTop: -16,
+                             backgroundColor: "#000000", 
+                             borderRadius: 10, 
+                            }
+                            ]
+                          }
+                          source={require("../assets/images/VIPER_lunar_rover.jpg")}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                          The Moon
+                          
+                           </Text>
+                        
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+              style={[
+                styles.button, 
+                {width: '100%', 
+                height: 0, 
+                borderRadius: 0, 
+                padding: 0}
+              ]
+            }       
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Mars")}     
+            >
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 1740, 
+                      left: 20, 
+                      right: 20,
+                      height: 150, 
+                      width: 320, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             resizeMode:"cover",
+                             height: undefined,
+                             aspectRatio: 321/150, 
+                             marginTop: -16,
+                             backgroundColor: "#000000", 
+                             borderRadius: 10, 
+                            }
+                            ]
+                          }
+                          source={require("../assets/images/VIPER_lunar_rover.jpg")}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                          Mars
+                          
+                           </Text>
+                        
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+              style={[
+                styles.button, 
+                {width: '100%', 
+                height: 0, 
+                borderRadius: 0, 
+                padding: 0}
+              ]
+            }       
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Jupiter")}     
+            >
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 1930, 
+                      left: 20, 
+                      right: 20,
+                      height: 150, 
+                      width: 320, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             resizeMode:"cover",
+                             height: undefined,
+                             aspectRatio: 321/150, 
+                             marginTop: -16,
+                             backgroundColor: "#000000", 
+                             borderRadius: 10, 
+                            }
+                            ]
+                          }
+                          source={require("../assets/images/VIPER_lunar_rover.jpg")}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                          Jupiter
+                          
+                           </Text>
+                        
+            </View>
+          </TouchableOpacity>
+
+
+          <TouchableOpacity 
+              style={[
+                styles.button, 
+                {width: '100%', 
+                height: 0, 
+                borderRadius: 0, 
+                padding: 0}
+              ]
+            }       
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Saturn")}     
+            >
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 2120, 
+                      left: 20, 
+                      right: 20,
+                      height: 150, 
+                      width: 320, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             resizeMode:"cover",
+                             height: undefined,
+                             aspectRatio: 321/150, 
+                             marginTop: -16,
+                             backgroundColor: "#000000", 
+                             borderRadius: 10, 
+                            }
+                            ]
+                          }
+                          source={require("../assets/images/VIPER_lunar_rover.jpg")}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                          Saturn
+                          
+                           </Text>
+                        
+            </View>
+          </TouchableOpacity>
+
+        <TouchableOpacity 
+              style={[
+                styles.button, 
+                {width: '100%', 
+                height: 0, 
+                borderRadius: 0, 
+                padding: 0}
+              ]
+            }       
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Uranus")}     
+            >
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 2310, 
+                      left: 20, 
+                      right: 20,
+                      height: 150, 
+                      width: 320, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             resizeMode:"cover",
+                             height: undefined,
+                             aspectRatio: 321/150, 
+                             marginTop: -16,
+                             backgroundColor: "#000000", 
+                             borderRadius: 10, 
+                            }
+                            ]
+                          }
+                          source={require("../assets/images/VIPER_lunar_rover.jpg")}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                          Uranus
+                          
+                           </Text>
+                        
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+              style={[
+                styles.button, 
+                {width: '100%', 
+                height: 0, 
+                borderRadius: 0, 
+                padding: 0}
+              ]
+            }       
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Neptune")}     
+            >
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 2500, 
+                      left: 20, 
+                      right: 20,
+                      height: 150, 
+                      width: 320, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             resizeMode:"cover",
+                             height: undefined,
+                             aspectRatio: 321/150, 
+                             marginTop: -16,
+                             backgroundColor: "#000000", 
+                             borderRadius: 10, 
+                            }
+                            ]
+                          }
+                          source={require("../assets/images/VIPER_lunar_rover.jpg")}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                          Neptune
+                          
+                           </Text>
+                        
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+              style={[
+                styles.button, 
+                {width: '100%', 
+                height: 0, 
+                borderRadius: 0, 
+                padding: 0}
+              ]
+            }       
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Pluto")}     
+            >
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 2690, 
+                      left: 20, 
+                      right: 20,
+                      height: 150, 
+                      width: 320, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             resizeMode:"cover",
+                             height: undefined,
+                             aspectRatio: 321/150, 
+                             marginTop: -16,
+                             backgroundColor: "#000000", 
+                             borderRadius: 10, 
+                            }
+                            ]
+                          }
+                          source={require("../assets/images/VIPER_lunar_rover.jpg")}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                          Pluto
                           
                            </Text>
                         
@@ -561,6 +954,233 @@ export default function demosNavigation() {
 
 
 
+          <TouchableOpacity 
+              style={[
+                styles.button, 
+                {width: '100%', 
+                height: 0, 
+                borderRadius: 0, 
+                padding: 0}
+              ]
+            }       
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Vesta")}     
+            >
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 2880, 
+                      left: 20, 
+                      right: 20,
+                      height: 150, 
+                      width: 320, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             resizeMode:"cover",
+                             height: undefined,
+                             aspectRatio: 321/150, 
+                             marginTop: -16,
+                             backgroundColor: "#000000", 
+                             borderRadius: 10, 
+                            }
+                            ]
+                          }
+                          source={require("../assets/images/VIPER_lunar_rover.jpg")}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                          Vesta
+                          
+                           </Text>
+                        
+            </View>
+          </TouchableOpacity>
+
+
+
+          <TouchableOpacity 
+              style={[
+                styles.button, 
+                {width: '100%', 
+                height: 0, 
+                borderRadius: 0, 
+                padding: 0}
+              ]
+            }       
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Ceres")}     
+            >
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 3070, 
+                      left: 20, 
+                      right: 20,
+                      height: 150, 
+                      width: 320, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             resizeMode:"cover",
+                             height: undefined,
+                             aspectRatio: 321/150, 
+                             marginTop: -16,
+                             backgroundColor: "#000000", 
+                             borderRadius: 10, 
+                            }
+                            ]
+                          }
+                          source={require("../assets/images/VIPER_lunar_rover.jpg")}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                          Ceres
+                          
+                           </Text>
+                        
+            </View>
+          </TouchableOpacity>
+
+
+          <TouchableOpacity 
+              style={[
+                styles.button, 
+                {width: '100%', 
+                height: 0, 
+                borderRadius: 0, 
+                padding: 0}
+              ]
+            }       
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Explore the Solar System")}     
+            >
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 3260, 
+                      left: 20, 
+                      right: 20,
+                      height: 150, 
+                      width: 320, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             resizeMode:"cover",
+                             height: undefined,
+                             aspectRatio: 321/150, 
+                             marginTop: -16,
+                             backgroundColor: "#000000", 
+                             borderRadius: 10, 
+                            }
+                            ]
+                          }
+                          source={require("../assets/images/VIPER_lunar_rover.jpg")}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                        Explore the Solar System
+                          
+                           </Text>
+                        
+            </View>
+          </TouchableOpacity>
+
+
+          <TouchableOpacity 
+              style={[
+                styles.button, 
+                {width: '100%', 
+                height: 0, 
+                borderRadius: 0, 
+                padding: 0}
+              ]
+            }       
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Wind Tunnel Test Zone")}     
+            >
+
+            <View style={{justifyContent: "center", 
+                      margin: 10,
+                      marginTop: 3450, 
+                      left: 20, 
+                      right: 20,
+                      height: 150, 
+                      width: 320, 
+                      backgroundColor: "#FFFFFF", 
+                      borderWidth: 0.5, 
+                      borderRadius: 10, 
+                      borderColor: "#FFFFFF", 
+                      shadowColor: "#000000", 
+                      shadowOffset: 
+                        {height: 1, 
+                          width: 1}, 
+                      shadowRadius: 3, 
+                      shadowOpacity: 0.5}}>
+
+                        <Image
+                          style={[globalStyles.image,
+                            {width: "100%", 
+                             resizeMode:"cover",
+                             height: undefined,
+                             aspectRatio: 321/150, 
+                             marginTop: -16,
+                             backgroundColor: "#000000", 
+                             borderRadius: 10, 
+                            }
+                            ]
+                          }
+                          source={require("../assets/images/VIPER_lunar_rover.jpg")}>
+
+
+                        </Image>
+                        
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                        Wind Tunnel Test Zone
+                          
+                           </Text>
+                        
+            </View>
+          </TouchableOpacity>
 
 
 

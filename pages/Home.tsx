@@ -644,7 +644,7 @@ export default function Home() {
                           
                            </Text>
 
-                        <Text style={[styles.description, {padding: 10, justifyContent: "center", marginTop: 30}]}>
+                        <Text style={[styles.description, {padding: 10, justifyContent: "center", marginTop: 10}]}>
                         This is a model of the Orion Crew Module escape rocket system that would carry astronauts
                         to safety in the event of a launch emergency. Some wind tunnel models are painted with a
                         pink coating that changes color with air pressure. 
@@ -659,6 +659,7 @@ export default function Home() {
                                 height: 25, 
                                 borderRadius: 50, 
                                 padding: 6,
+                                marginTop: 20,
                                 }
                               ]
                             }

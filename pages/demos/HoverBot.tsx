@@ -25,7 +25,7 @@ export default function HoverBot() {
 
     <ScrollView 
         bounces={true}>
-        <View style={{flex: 1, height: 300, padding: 0, backgroundColor: "#1B2832" }}>
+        <View style={{flex: 1, height: 300, padding: 0, width: DEVICE_WIDTH, backgroundColor: "#1B2832" }}>
         
         <View
           style={{
@@ -62,7 +62,7 @@ export default function HoverBot() {
           </View>
 
         <View >
-          <Text style={[styles.description, {paddingTop:120, margin: 30, fontSize: 15, color: "black"}]}>
+          <Text style={[styles.description, {paddingTop:90, margin: 30, fontSize: 15, color: "black"}]}>
           Make a self-propelled mini hovercraft inspired by Astrobee 
 
 

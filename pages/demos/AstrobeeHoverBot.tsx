@@ -25,7 +25,7 @@ export default function AstrobeeHoverBot() {
 
     <ScrollView 
         bounces={true}>
-        <View style={{flex: 1, height: 300, padding: 0, backgroundColor: "#1B2832" }}>
+        <View style={{flex: 1, height: 300, width: DEVICE_WIDTH, padding: 0, backgroundColor: "#1B2832" }}>
         
         <View
           style={{
@@ -34,7 +34,7 @@ export default function AstrobeeHoverBot() {
           }}
         >
             <Text style={{fontFamily: "Futura", color: "white", fontSize: 28, marginTop: 50, padding: 10, paddingHorizontal: 30, alignItems: "center", justifyContent: "center"}}>
-            Build an Astrobee Hover-Bot 
+            Build an Astrobee Hover-Bot
           </Text>
           </View>
 
@@ -56,22 +56,24 @@ export default function AstrobeeHoverBot() {
                   }
                       source={require("../../assets/images/ti1.jpg")}>
                 </Image>
-            
+           </View>
 
-          </View>
-          </View>
+           </View> 
 
-        <View >
-          <Text style={[styles.description, {paddingTop:120, margin: 30, fontSize: 15, color: "black"}]}>
+          <View  style={{
+              alignItems: "center",
+              padding: 20,
+            }}>
+          <Text style={[styles.description, {paddingTop:110, margin: 30, marginBottom: 0, fontSize: 15, color: "black"}]}>
           Test your paper plane in the wind tunnel 
-
-
- 
+  
             </Text>
             
-        </View>
         
-        <View
+          </View>
+
+
+          <View
             style={{
               alignItems: "center",
               padding: 20,
@@ -96,10 +98,13 @@ export default function AstrobeeHoverBot() {
 
           <View >
           <Text style={[styles.description, { margin: 30, fontSize: 15, color: "black"}]}>
-          Sculpt the Moonscape in the Regolith Sandbox
+          Sculpt the Moonscape in the Regolith Sandbox  
+ 
             </Text>
             
         </View>
+        
+
 
         <View
             style={{
@@ -127,12 +132,17 @@ export default function AstrobeeHoverBot() {
           <View >
           <Text style={[styles.description, { margin: 30, fontSize: 15, color: "black"}]}>
           Build a Rover
+
             </Text>
             
         </View>
 
-        </ScrollView>
-        </View>
+
+
+        
+      </ScrollView>
+    </View>
+
   );
 }
 

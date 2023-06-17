@@ -25,7 +25,7 @@ export default function MoonscapeSandbox() {
 
     <ScrollView 
         bounces={true}>
-        <View style={{flex: 1, height: 300, padding: 0, backgroundColor: "#1B2832" }}>
+        <View style={{flex: 1, height: 300, width: DEVICE_WIDTH, padding: 0, backgroundColor: "#1B2832" }}>
         
         <View
           style={{
@@ -56,19 +56,22 @@ export default function MoonscapeSandbox() {
                   }
                       source={require("../../assets/images/ti1.jpg")}>
                 </Image>
-            
+           </View>
+
+           </View> 
+
           <View  style={{
               alignItems: "center",
               padding: 20,
             }}>
-          <Text style={[styles.description, {paddingTop: 0, marginHorizontal: 20, fontSize: 15, color: "black"}]}>
+          <Text style={[styles.description, {paddingTop:60, margin: 30, fontSize: 15, color: "black"}]}>
           See how light and shadow affect temperature.  
   
             </Text>
             
-        </View>
+        
           </View>
-          </View>
+
 
           <View
             style={{

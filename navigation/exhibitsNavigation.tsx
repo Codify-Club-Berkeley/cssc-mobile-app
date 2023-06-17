@@ -97,7 +97,7 @@ export default function exhibitsNavigation() {
 
 
 
-          <ScrollView horizontal={false} style={{height: 3400}}>
+          <ScrollView horizontal={false} style={{height: 3450}}>
 
           <TouchableOpacity 
               style={[
@@ -369,7 +369,7 @@ export default function exhibitsNavigation() {
                              resizeMode:"cover",
                              height: undefined,
                              aspectRatio: 321/150, 
-                             marginTop: -16,
+                             marginTop: -4,
                              backgroundColor: "#000000", 
                              borderRadius: 10, 
                             }
@@ -380,7 +380,7 @@ export default function exhibitsNavigation() {
 
                         </Image>
                         
-                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -45, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
+                        <Text style={[styles.description, {padding: 0, paddingLeft: 20, marginTop: -90, fontSize: 20, color: "black", backgroundColor:"white", opacity: 0.75}]}>
                         Lunar Crater Observation and Sensing Satellite (LCROSS) Model
                           
                            </Text>

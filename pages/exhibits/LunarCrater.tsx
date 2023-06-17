@@ -33,7 +33,7 @@ export default function LunarCrater() {
             justifyContent: "center",
           }}
         >
-            <Text style={{fontFamily: "Futura", color: "white", fontSize: 28, marginTop: 50, padding: 10, paddingHorizontal: 30, alignItems: "center", justifyContent: "center"}}>
+            <Text style={{fontFamily: "Futura", color: "white", fontSize: 20, marginTop: 50, padding: 10, paddingHorizontal: 30, alignItems: "center", justifyContent: "center"}}>
             Lunar Crater Observation and Sensing Satellite (LCROSS) Model Launched 2009
  
           </Text>
